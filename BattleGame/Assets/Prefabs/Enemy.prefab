@@ -115,6 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 6859603604319774263}
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 2893671500045262364, guid: 7b9d2c38fbf59ce42ad7900f9ffe9098, type: 3}
   hitCounter: 0
   eraseValue: 5

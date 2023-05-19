@@ -13,7 +13,7 @@ namespace Core.Weapon
         void Update()
         {
 
-            if (Time.time - lastFireTime >= Core.Weapon.BulletAttribute.fireInterval && Core.Weapon.BulletAttribute.fireCount < 3)
+            if (Time.time - lastFireTime >= BulletAttribute.fireInterval && BulletAttribute.fireCount < 3)
             {
 
                 Vector2 spawnPosition = BulletSpawnPoint.position;
@@ -21,18 +21,20 @@ namespace Core.Weapon
 
                 Rigidbody2D bulletInstance = Instantiate(Bullet, spawnPosition, spawnRotation);
 
-                bulletInstance.velocity = bulletInstance.transform.right * Core.Weapon.BulletAttribute.bulletSpeed;
+                bulletInstance.velocity = bulletInstance.transform.right * BulletAttribute.bulletSpeed;
 
                 lastFireTime = Time.time;
 
-                Core.Weapon.BulletAttribute.fireCount += 1;
+                BulletAttribute.fireCount++;
 
             }
-            else if (Time.time - lastFireTime >= Core.Weapon.BulletAttribute.fireIntervalLong)
+            else if (Time.time - lastFireTime >= BulletAttribute.fireIntervalLong)
             {
-
+                Vector2 bulletAngle = BulletSpawnPoint.rotation.eulerAngles;
+                bulletAngle.y = bulletAngle.y == 0f ? 180f : 0f;
+                BulletSpawnPoint.rotation = Quaternion.Euler(bulletAngle);
                 lastFireTime = Time.time;
-                Core.Weapon.BulletAttribute.fireCount = 0;
+                BulletAttribute.fireCount = 0;
             }
         }
 

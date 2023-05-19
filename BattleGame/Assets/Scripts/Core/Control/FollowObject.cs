@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Control
 {
-    public class Follow : MonoBehaviour
+    public class FollowObject : MonoBehaviour
     {
         public Transform target;
         void Update()

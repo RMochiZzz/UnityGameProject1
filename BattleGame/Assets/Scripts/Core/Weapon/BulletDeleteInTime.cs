@@ -7,12 +7,11 @@ namespace Core.Weapon
     {
 
         public GameObject Bullet;
-        public float bulletDeleteTime = 5f;
 
         void Start()
         {
 
-            Invoke("DestroyBullet", bulletDeleteTime);
+            Invoke("DestroyBullet", BulletAttribute.bulletDeleteTime);
 
         }
 

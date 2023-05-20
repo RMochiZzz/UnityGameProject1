@@ -6,11 +6,12 @@ namespace Core.Character.Enemy
     {
 
         public GameObject Enemy;
+        public GameObject EnemyController;
         public GameObject Bullet;
         public int hitCounter;
         public int eraseValue = 3;
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        void OnCollisionEnter2D(Collision2D collision)
         {
 
             GameObject Bullet = collision.gameObject;
@@ -23,6 +24,8 @@ namespace Core.Character.Enemy
             {
 
                 Destroy(Enemy);
+                Destroy(EnemyController);
+
 
             }
 

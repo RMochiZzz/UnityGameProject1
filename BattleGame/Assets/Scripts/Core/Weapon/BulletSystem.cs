@@ -6,8 +6,8 @@ namespace Core.Weapon
 {
     public class BulletSystem : MonoBehaviour
     {
-        public Rigidbody2D Bullet;
-        public Transform BulletSpawnPoint;
+        public GameObject bullet;
+        public Transform bulletSpawnPoint;
         private float lastFireTime = 0;
 
         void Update()
@@ -16,12 +16,14 @@ namespace Core.Weapon
             if (Time.time - lastFireTime >= BulletAttribute.fireInterval && BulletAttribute.fireCount < 3)
             {
 
-                Vector2 spawnPosition = BulletSpawnPoint.position;
-                Quaternion spawnRotation = BulletSpawnPoint.rotation;
+                Vector3 spawnPosition = bulletSpawnPoint.position;
+                Quaternion spawnRotation = bulletSpawnPoint.rotation;
 
-                Rigidbody2D bulletInstance = Instantiate(Bullet, spawnPosition, spawnRotation);
+                //Rigidbody2D bulletInstance = 
+                GameObject bulletInstance = Instantiate(bullet, spawnPosition, spawnRotation);
 
-                bulletInstance.velocity = bulletInstance.transform.right * BulletAttribute.bulletSpeed;
+                //bulletInstance.velocity = bulletInstance.transform.right * BulletAttribute.bulletSpeed * Time.deltaTime;
+
 
                 lastFireTime = Time.time;
 
@@ -30,10 +32,13 @@ namespace Core.Weapon
             }
             else if (Time.time - lastFireTime >= BulletAttribute.fireIntervalLong)
             {
-                Vector2 bulletAngle = BulletSpawnPoint.rotation.eulerAngles;
-                bulletAngle.y = bulletAngle.y == 0f ? 180f : 0f;
-                BulletSpawnPoint.rotation = Quaternion.Euler(bulletAngle);
+                Vector2 playerAngle = bulletSpawnPoint.rotation.eulerAngles;
+                playerAngle.y = playerAngle.y == 0f ? 180f : 0f;
+
+                bulletSpawnPoint.rotation = Quaternion.Euler(playerAngle);
+
                 lastFireTime = Time.time;
+
                 BulletAttribute.fireCount = 0;
             }
         }

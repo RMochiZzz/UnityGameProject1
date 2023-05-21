@@ -15,7 +15,7 @@ namespace Core.Control
             targetObjectTransform = targetObject.transform;
         }
 
-        void Update()
+        void FixedUpdate()
         {
             Vector2 targetDirection = targetObjectTransform.position - transform.position;
             transform.up = targetDirection.normalized;

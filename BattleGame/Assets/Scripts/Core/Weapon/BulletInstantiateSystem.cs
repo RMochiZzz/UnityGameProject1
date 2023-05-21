@@ -26,10 +26,10 @@ namespace Core.Weapon
             }
             else if (Time.time - lastInstantiateTime >= BulletAttribute.fireIntervalLong)
             {
-                Vector2 apawnAngle = spawnPoint.rotation.eulerAngles;
-                apawnAngle.y = apawnAngle.y == 0f ? 180f : 0f;
+                Vector2 sapawnAngle = spawnPoint.rotation.eulerAngles;
+                sapawnAngle.y = sapawnAngle.y == 0f ? 180f : 0f;
 
-                spawnPoint.rotation = Quaternion.Euler(apawnAngle);
+                spawnPoint.rotation = Quaternion.Euler(sapawnAngle);
 
                 lastInstantiateTime = Time.time;
 

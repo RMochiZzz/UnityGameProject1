@@ -2,10 +2,8 @@ using UnityEngine;
 
 namespace Core.Weapon
 {
-
     public class BulletMove : MonoBehaviour
     {
-
         private void FixedUpdate()
         {
 

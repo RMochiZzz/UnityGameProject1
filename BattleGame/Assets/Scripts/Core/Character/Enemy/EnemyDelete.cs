@@ -4,30 +4,29 @@ namespace Core.Character.Enemy
 {
     public class EnemyDelete : MonoBehaviour
     {
-
-        public GameObject Enemy;
-        public GameObject EnemyController;
-        public GameObject Bullet;
-        public int hitCounter;
-        public int eraseValue = 3;
+        public GameObject enemyController;
+        public GameObject bullet;
+        private int hitCounter;
 
         void OnCollisionEnter2D(Collision2D collision)
         {
+            if (collision.gameObject.tag == "Bullet")
+            { 
+                hitCounter++;
 
-            GameObject Bullet = collision.gameObject;
+                Destroy(collision.gameObject);
 
-            hitCounter += 1;
+                if (hitCounter == EnemyAttribute.eraseValue)
+                {
 
-            Destroy(Bullet);
-
-            if (hitCounter == eraseValue)
-            {
-
-                Destroy(Enemy);
-                Destroy(EnemyController);
+                    Destroy(gameObject);
+                    Destroy(enemyController);
+                    EnemyAttribute.enemyInstanceCounter--;
 
 
+                }
             }
+            
 
         }
     }

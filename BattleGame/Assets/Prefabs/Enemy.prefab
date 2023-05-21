@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ca87d709dc4da4b8370d6ff22eb0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
 --- !u!114 &6755933102794340223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,8 +99,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7403213725694573621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.36, y: 0.13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7.5312, y: -0.268, z: 0}
+  m_LocalScale: {x: 0.6577, y: 0.602, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8608060863767267962}
@@ -222,8 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3330ed60c0593c47b61cd664726a36d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 7403213725694573621}
-  EnemyController: {fileID: 0}
-  Bullet: {fileID: 2893671500045262364, guid: 7b9d2c38fbf59ce42ad7900f9ffe9098, type: 3}
-  hitCounter: 0
+  enemyController: {fileID: 575722917983610743}
+  bullet: {fileID: 2893671500045262364, guid: 7b9d2c38fbf59ce42ad7900f9ffe9098, type: 3}
   eraseValue: 5

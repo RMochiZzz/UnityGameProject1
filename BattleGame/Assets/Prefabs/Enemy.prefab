@@ -223,4 +223,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 575722917983610743}
   bullet: {fileID: 2893671500045262364, guid: 7b9d2c38fbf59ce42ad7900f9ffe9098, type: 3}
-  eraseValue: 5
+  dropPrefab: {fileID: 7119473495914958070, guid: 52c03fb17df6d52478a58a80dbfc6144, type: 3}

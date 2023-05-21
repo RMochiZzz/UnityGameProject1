@@ -6,6 +6,7 @@ namespace Core.Character.Enemy
     {
         public GameObject enemyController;
         public GameObject bullet;
+        public GameObject dropPrefab;
         private int hitCounter;
 
         void OnCollisionEnter2D(Collision2D collision)
@@ -23,12 +24,11 @@ namespace Core.Character.Enemy
                     Destroy(enemyController);
                     EnemyAttribute.enemyInstanceCounter--;
 
+                    Instantiate(dropPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                    EnemyAttribute.dropCoinInstanceCounter++;
 
                 }
             }
-            
-
         }
     }
-
 }

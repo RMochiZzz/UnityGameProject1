@@ -9,10 +9,10 @@ namespace Core.Character.Enemy
         public GameObject dropPrefab;
         private int hitCounter;
 
-        void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.tag == "Bullet")
-            { 
+            if (collision.gameObject.CompareTag("Bullet"))
+            {
                 hitCounter++;
 
                 Destroy(collision.gameObject);

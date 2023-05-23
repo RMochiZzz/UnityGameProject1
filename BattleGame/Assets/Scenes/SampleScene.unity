@@ -261,13 +261,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1440062824}
-  - component: {fileID: 1440062823}
   - component: {fileID: 1440062822}
+  - component: {fileID: 1440062829}
+  - component: {fileID: 1440062823}
   - component: {fileID: 1440062825}
   - component: {fileID: 1440062826}
   - component: {fileID: 1440062827}
   - component: {fileID: 1440062828}
-  - component: {fileID: 1440062829}
+  - component: {fileID: 1440062830}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -427,10 +428,10 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440062820}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -448,6 +449,19 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5773587}
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
+--- !u!114 &1440062830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440062820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e856489a06d744ae52c07a2ba31f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otherCollider: {fileID: 9193564278931395782, guid: 7b9d2c38fbf59ce42ad7900f9ffe9098, type: 3}
 --- !u!1 &1644667846
 GameObject:
   m_ObjectHideFlags: 0

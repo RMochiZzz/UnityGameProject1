@@ -1,6 +1,7 @@
 using UnityEngine;
+using Core.Character.Enemy;
 
-namespace Core.Character.Enemy
+namespace Core.Movement
 {
     public class MoveForward : MonoBehaviour
     {

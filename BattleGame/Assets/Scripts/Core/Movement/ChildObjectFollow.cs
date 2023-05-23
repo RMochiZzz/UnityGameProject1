@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-namespace Core.Control
+namespace Core.Movement
 {
     public class ChildObjectFollow : MonoBehaviour
     {

@@ -7,7 +7,7 @@ namespace Core.Movement
     {
         public Transform childPosition;
 
-        private void FixedUpdate()
+        private void Update()
         {
 
             transform.position = childPosition.position;

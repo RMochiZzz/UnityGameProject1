@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4974587536644650824}
   - component: {fileID: -8742153008972554457}
   - component: {fileID: 2026447540066495044}
-  - component: {fileID: -8770824668290697650}
+  - component: {fileID: -8254783850194360373}
   m_Layer: 0
   m_Name: DropCoin
   m_TagString: DropCoin
@@ -124,7 +124,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8770824668290697650
+--- !u!114 &-8254783850194360373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7119473495914958070}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6e856489a06d744ae52c07a2ba31f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 91aa94cd541af3d47ab52ccb5f371307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherCollider: {fileID: 7403213725694573643, guid: 01ae7aa9f489ff141a00d3f54e49e0ea, type: 3}

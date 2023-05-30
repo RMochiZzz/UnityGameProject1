@@ -5,7 +5,7 @@ namespace Core.Character.Enemy
 {
     public class EnemyAI : MonoBehaviour
     {
-        private GameObject player;
+        [SerializeField] GameObject player;
         private NavMeshAgent agent;
 
         void Start()

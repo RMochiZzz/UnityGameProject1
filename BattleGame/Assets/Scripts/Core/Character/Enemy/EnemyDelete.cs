@@ -5,30 +5,25 @@ namespace Core.Character.Enemy
     public class EnemyDelete : MonoBehaviour
     {
         public GameObject enemyController;
-        public GameObject bullet;
         public GameObject dropPrefab;
         private int hitCounter;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag("Bullet"))
-            {
-                hitCounter++;
+            if (!collision.gameObject.CompareTag("Bullet")) return;
+            
+            hitCounter++;
+            Destroy(collision.gameObject);
 
-                Destroy(collision.gameObject);
+            if (hitCounter < EnemyAttribute.eraseValue) return;
+               
+            Destroy(gameObject);
+            Destroy(enemyController);
+            EnemyAttribute.enemyInstanceCounter--;
 
-                if (hitCounter == EnemyAttribute.eraseValue)
-                {
-
-                    Destroy(gameObject);
-                    Destroy(enemyController);
-                    EnemyAttribute.enemyInstanceCounter--;
-
-                    Instantiate(dropPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
-                    EnemyAttribute.dropCoinInstanceCounter++;
-
-                }
-            }
+            Instantiate(dropPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
+            EnemyAttribute.dropCoinInstanceCounter++;    
+            
         }
     }
 }

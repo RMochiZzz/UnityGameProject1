@@ -13,7 +13,6 @@ namespace Core.Character.Enemy
             if (!collision.gameObject.CompareTag("Bullet")) return;
             
             hitCounter++;
-            Destroy(collision.gameObject);
 
             if (hitCounter < EnemyAttribute.eraseValue) return;
                

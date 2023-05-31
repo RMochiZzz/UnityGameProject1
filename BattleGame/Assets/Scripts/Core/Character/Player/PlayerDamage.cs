@@ -1,5 +1,5 @@
 using UnityEngine;
-using SceneManager;
+using SceneManagement;
 
 namespace Core.Character.Player
 {

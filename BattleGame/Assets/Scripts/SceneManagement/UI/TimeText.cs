@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 
-namespace SceneManager.UI
+namespace SceneManagement.UI
 {
     public class TimeText : MonoBehaviour
     {

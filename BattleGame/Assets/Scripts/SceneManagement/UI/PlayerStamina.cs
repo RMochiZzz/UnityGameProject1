@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using Core.Character.Player;
 
-namespace SceneManager.UI
+namespace SceneManagement.UI
 {
     public class PlayerStamina : MonoBehaviour
     {

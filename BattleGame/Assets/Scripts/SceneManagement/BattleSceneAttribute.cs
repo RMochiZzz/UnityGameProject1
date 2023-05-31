@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SceneManager
+namespace SceneManagement
 {
     public class BattleSceneAttribute : MonoBehaviour
     {

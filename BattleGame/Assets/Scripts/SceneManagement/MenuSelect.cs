@@ -2,16 +2,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-namespace SceneManagement.UI
+namespace SceneManagement
 {
     public class MenuSelect : MonoBehaviour
     {
-        public void SwitchBattle()
+        public static void SwitchBattle()
         {
             SceneManager.LoadScene("BattleScene");
         }
 
-        public void ExitGame()
+        public static void ExitGame()
         {
             EndOfPlayback.QuitGame();
         }

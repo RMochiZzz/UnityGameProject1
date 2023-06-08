@@ -1,45 +1,45 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
-
 
 namespace SceneManagement
 {
-    public class BattleSceneTransition : MonoBehaviour
+    public class SceneTransition : MonoBehaviour
     {
         public Image fadeImage;
-        public float timeForDarkening = 1f;
-
-        void Start()
+        public float fadeDuration = 1f;
+        public string scene;
+        private void Start()
         {
             fadeImage.gameObject.SetActive(false);
         }
-
         public void OnButtonClick()
         {
-            StartCoroutine(FadeIn());
+            StartCoroutine(TransitionSequence());
         }
 
-        private IEnumerator FadeIn()
+        private IEnumerator TransitionSequence()
+        {
+            yield return StartCoroutine(FadeOut());
+
+            SceneManager.LoadScene(scene);
+        }
+
+        private IEnumerator FadeOut()
         {
             fadeImage.gameObject.SetActive(true);
 
-            float elapsedTime = 0f;
+            float t = 0f;
             Color startColor = Color.clear;
             Color endColor = Color.black;
 
-            while (elapsedTime < timeForDarkening)
+            while (t < 1f)
             {
-                float t = elapsedTime / timeForDarkening;
+                t += Time.deltaTime / fadeDuration;
                 fadeImage.color = Color.Lerp(startColor, endColor, t);
-                elapsedTime += Time.deltaTime;
                 yield return null;
             }
-
-            fadeImage.color = endColor;
-
-            MenuSelect.SwitchBattle();
         }
     }
-
 }

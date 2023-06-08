@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
 namespace Core.Weapon
 {
     static class BulletAttribute
@@ -13,6 +8,8 @@ namespace Core.Weapon
         public static int rapidFiringCount = 5;
         public static int fireCount = 0;
         public static int deleteInTime = 1;
+        public static bool levelOneIsActive;
+        public static bool levelTwoIsActive;
+        public static bool levelThreeIsActive;
     }
-
 }

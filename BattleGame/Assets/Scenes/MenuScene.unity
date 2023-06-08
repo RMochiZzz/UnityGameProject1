@@ -471,7 +471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1285663572}
-  timeForDarkening: 1
+  fadeDuration: 1
+  scene: BattleScene
 --- !u!114 &520675996
 MonoBehaviour:
   m_ObjectHideFlags: 0

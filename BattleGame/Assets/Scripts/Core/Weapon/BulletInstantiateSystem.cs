@@ -11,30 +11,40 @@ namespace Core.Weapon
         void Update()
         {
 
-            if (Time.time - lastInstantiateTime >= BulletAttribute.fireInterval && BulletAttribute.fireCount < BulletAttribute.rapidFiringCount)
+            if (BulletAttribute.levelOneIsActive == false) return;
+
+            if (Time.time - lastInstantiateTime >= BulletAttribute.fireIntervalLong)
             {
-
-                Vector3 spawnPointPosition = spawnPoint.position;
-                Quaternion spawnPointRotation = spawnPoint.rotation;
-
-                Instantiate(prefab, spawnPointPosition, spawnPointRotation);
-
-                lastInstantiateTime = Time.time;
-
-                BulletAttribute.fireCount++;
-
+                Rotation();
             }
-            else if (Time.time - lastInstantiateTime >= BulletAttribute.fireIntervalLong)
-            {
-                Vector2 sapawnAngle = spawnPoint.rotation.eulerAngles;
-                sapawnAngle.y = sapawnAngle.y == 0f ? 180f : 0f;
 
-                spawnPoint.rotation = Quaternion.Euler(sapawnAngle);
 
-                lastInstantiateTime = Time.time;
+            if (Time.time - lastInstantiateTime <= BulletAttribute.fireInterval) return;
+            if (BulletAttribute.fireCount > BulletAttribute.rapidFiringCount) return;
 
-                BulletAttribute.fireCount = 0;
-            }
+            Vector3 spawnPointPosition = spawnPoint.position;
+            Quaternion spawnPointRotation = spawnPoint.rotation;
+
+            Instantiate(prefab, spawnPointPosition, spawnPointRotation);
+
+            lastInstantiateTime = Time.time;
+
+            BulletAttribute.fireCount++;
+            
+        }
+
+        public void Rotation()
+        {
+            
+             Vector2 spawnAngle = spawnPoint.rotation.eulerAngles;
+             spawnAngle.y = spawnAngle.y == 0f ? 180f : 0f;
+
+             spawnPoint.rotation = Quaternion.Euler(spawnAngle);
+
+             lastInstantiateTime = Time.time;
+
+             BulletAttribute.fireCount = 0;
+            
         }
     }
 }

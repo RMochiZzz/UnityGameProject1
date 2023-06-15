@@ -11,7 +11,8 @@ namespace Core.Weapon
         void Update()
         {
 
-            if (BulletAttribute.levelOneIsActive == false) return;
+            //if(!BulletAttribute.levelOneIsActive) return;
+
 
             if (Time.time - lastInstantiateTime >= BulletAttribute.fireIntervalLong)
             {

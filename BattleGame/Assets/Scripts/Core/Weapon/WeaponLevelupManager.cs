@@ -8,11 +8,11 @@ namespace Core.Weapon
 
         private void Update()
         {
-            if (PlayerAttribute.numberOfCoins < 10) 
+            if (PlayerAttribute.numberOfCoins <= 10) 
             {
                 LevelOne();
             }
-            else if (PlayerAttribute.numberOfCoins >= 10)
+            else if (PlayerAttribute.numberOfCoins >= 11)
             {
                 LevelTwo();
             }
@@ -30,14 +30,11 @@ namespace Core.Weapon
         {
             BulletAttribute.levelOneIsActive = false;
             BulletAttribute.levelTwoIsActive = true;
-
         }
-
         public void LevelThree()
         {
             BulletAttribute.levelTwoIsActive = false;
             BulletAttribute.levelThreeIsActive = true;
         }
-
     }
 }

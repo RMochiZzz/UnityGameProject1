@@ -4,8 +4,8 @@ namespace Core.Character.Enemy
 {
     public class EnemyDelete : MonoBehaviour
     {
-        public GameObject enemyController;
-        public GameObject dropPrefab;
+        [SerializeField] GameObject enemyController;
+        [SerializeField] GameObject dropPrefab;
         private int hitCounter;
 
         private void OnTriggerEnter2D(Collider2D collision)

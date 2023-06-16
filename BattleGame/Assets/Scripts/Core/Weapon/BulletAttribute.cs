@@ -8,8 +8,5 @@ namespace Core.Weapon
         public static int rapidFiringCount = 5;
         public static int fireCount = 0;
         public static int deleteInTime = 1;
-        public static bool levelOneIsActive;
-        public static bool levelTwoIsActive;
-        public static bool levelThreeIsActive;
     }
 }

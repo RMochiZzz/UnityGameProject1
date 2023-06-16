@@ -1,23 +1,27 @@
 using UnityEngine;
 
-namespace Core.Character.Player
+namespace Core.Weapon
 {
 
     public class CoinCollector : MonoBehaviour
     {
-        public GameObject dropCoin;
+        private LevelupManager levelupManager;
 
+        private void Start () 
+        { 
+            levelupManager = GetComponent<LevelupManager>();
+        }
         private void OnTriggerEnter2D(Collider2D collision)
         {
+
             if (collision.gameObject.CompareTag("DropCoin"))
             {
 
                 Destroy(collision.gameObject);
-                PlayerAttribute.numberOfCoins++;
+                levelupManager.coinsNum += 1;
 
             }
         }
- 
     }
 }
 

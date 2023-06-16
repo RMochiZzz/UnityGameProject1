@@ -18,9 +18,8 @@ namespace Core.Character.Enemy
         {
             lastInstaceTime = Time.time;
 
-            GameObject enemyRuptureeobj = new GameObject("EnemyRupture");
-            enemyRupture = enemyRuptureeobj.AddComponent<EnemyRupture>();
-
+            GameObject enemyRuptureobj = new GameObject("EnemyRupture");
+            enemyRupture = enemyRuptureobj.AddComponent<EnemyRupture>();
         }
 
         private void Update()
@@ -32,7 +31,7 @@ namespace Core.Character.Enemy
             if (existingEnemys == null) return;
             GameObject randomEnemy = existingEnemys[Random.Range(0, existingEnemys.Length)];
 
-            for ( int i = 0 ; i <= instanceNum ; i++ ) 
+            for ( int i = 0 ; i < instanceNum ; i++ ) 
             {
                 Vector3 spawnPosition = randomEnemy.transform.position + Random.insideUnitSphere * spawnDistance;
 

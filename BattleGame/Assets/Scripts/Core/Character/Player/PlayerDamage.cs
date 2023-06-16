@@ -8,8 +8,10 @@ namespace Core.Character.Player
         private void OnTriggerEnter2D(Collider2D collision)
         {
 
-            if (!collision.gameObject.CompareTag("Enemy")) return;
-           
+            if (!collision.gameObject.CompareTag("Enemy"))
+            if (!collision.gameObject.CompareTag("Rupture")) return;
+
+
             PlayerAttribute.playerStamina--;
 
             if (PlayerAttribute.playerStamina > 0) return;

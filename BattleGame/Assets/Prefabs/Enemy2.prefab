@@ -168,6 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 8349424984121956359}
   dropPrefab: {fileID: 7119473495914958070, guid: 52c03fb17df6d52478a58a80dbfc6144, type: 3}
+  eraseValue: 3
+  ruptureDamegeTime: 1
 --- !u!1 &8349424984121956359
 GameObject:
   m_ObjectHideFlags: 0

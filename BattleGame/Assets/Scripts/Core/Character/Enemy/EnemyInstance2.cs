@@ -43,6 +43,8 @@ namespace Core.Character.Enemy
 
             enemyRupture.Rupture(rupturePrefab, randomEnemy, container);
 
+            Destroy(randomEnemy);
+
             lastInstaceTime = Time.time;
         }         
     }

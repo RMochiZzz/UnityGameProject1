@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -2160874432236029515}
   - component: {fileID: -2544100051019085681}
   m_Layer: 0
-  m_Name: Enemy2
+  m_Name: EnemyParasitoid
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

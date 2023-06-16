@@ -4,11 +4,11 @@ namespace Core.Character.Enemy
 {
     public class EnemyInstanceParasitoid : MonoBehaviour
     {
-        [SerializeField] GameObject prefab;
-        [SerializeField] GameObject rupturePrefab;
-        [SerializeField] Transform container;
-        [SerializeField] int instanceNum;
-        [SerializeField] float spawnInterval;
+        [SerializeField] private GameObject prefab;
+        [SerializeField] private GameObject rupturePrefab;
+        [SerializeField] private Transform container;
+        [SerializeField] private int instanceNum;
+        [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
         private float spawnDistance = 5f;
         private GameObject[] existingEnemys;
@@ -36,7 +36,7 @@ namespace Core.Character.Enemy
             {
                 Vector3 spawnPosition = randomEnemy.transform.position + Random.insideUnitSphere * spawnDistance;
 
-                GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, container);
+                Instantiate(prefab, spawnPosition, Quaternion.identity, container);
 
                 EnemyAttribute.enemyInstanceCounter++;
             }

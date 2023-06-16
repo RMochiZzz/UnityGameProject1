@@ -5,12 +5,13 @@ namespace Core.Movement
 {
     public class MoveForward : MonoBehaviour
     {
-        void FixedUpdate()
+        [SerializeField] private float moveSpeed;
+        void Update()
         {
 
             Vector2 forwardDirection = transform.up;
 
-            Vector2 move = forwardDirection * EnemyAttribute.enemySpeed * Time.deltaTime;
+            Vector2 move = forwardDirection * moveSpeed * Time.deltaTime;
 
             transform.position += new Vector3(move.x, move.y, 0f);
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.Movement
 {
-    public class LookAtTarget : MonoBehaviour
+    public class LookAtTargetUpdate : MonoBehaviour
     {   
         
         private GameObject targetObject;
@@ -15,7 +15,7 @@ namespace Core.Movement
             targetObjectTransform = targetObject.transform;
         }
 
-        void FixedUpdate()
+        void Update()
         {
             Vector2 targetDirection = targetObjectTransform.position - transform.position;
             transform.up = targetDirection.normalized;

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.ComponentModel;
 
 namespace Core.Character.Enemy
 {
@@ -7,11 +8,11 @@ namespace Core.Character.Enemy
     {
         private float gradationTime = 1;
 
-        public void Rupture(GameObject ruptureObj)
+        public void Rupture(GameObject ruptureObj, GameObject baseObj, Transform container)
         {
-            Vector3 spornPosition = gameObject.transform.position;
+            Vector3 spornPosition = baseObj.transform.position;
 
-            GameObject obj = Instantiate(ruptureObj, spornPosition, Quaternion.identity);
+            GameObject obj = Instantiate(ruptureObj, spornPosition, Quaternion.identity, container);
             StartCoroutine(Gradation(obj));
         }
 

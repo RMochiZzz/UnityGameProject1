@@ -41,7 +41,7 @@ namespace Core.Character.Enemy
                 EnemyAttribute.enemyInstanceCounter++;
             }
 
-            enemyRupture.Rupture(rupturePrefab);
+            enemyRupture.Rupture(rupturePrefab, randomEnemy, container);
 
             lastInstaceTime = Time.time;
         }         

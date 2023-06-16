@@ -8,7 +8,6 @@ namespace Core.Character.Enemy
         [SerializeField] private Transform container;
         [SerializeField] private float spawnPointOffsetX;
         [SerializeField] private float spawnPointoffsetY;
-        [SerializeField] private int instanceMax;
         [SerializeField] private int instanceNum;
         [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
@@ -22,7 +21,6 @@ namespace Core.Character.Enemy
 
         void Update()
         {
-            if (EnemyAttribute.enemyInstanceCounter >= instanceMax) return;
             if (Time.time - lastInstaceTime <= spawnInterval) return;
             
             Vector3 cameraPosition = Camera.main.transform.position;

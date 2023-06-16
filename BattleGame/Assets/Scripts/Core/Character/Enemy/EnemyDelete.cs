@@ -9,7 +9,6 @@ namespace Core.Character.Enemy
         [SerializeField] int eraseValue;
         [SerializeField] float ruptureDamegeTime ;
         private int hitCounter;
-        private bool canIncrement;
         private float incrementTimer;
 
         private void OnTriggerEnter2D(Collider2D collision)

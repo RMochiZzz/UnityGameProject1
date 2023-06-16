@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4645965431568959073}
   - component: {fileID: 2185450897917575249}
   m_Layer: 0
-  m_Name: EnemyController
+  m_Name: EnemyControllerGroupRush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 7403213725694573642}
   - component: {fileID: 1060483448}
   - component: {fileID: 4658879497451125798}
+  - component: {fileID: -6012028037528178295}
   m_Layer: 0
   m_Name: EnemyGroupRush
   m_TagString: Enemy
@@ -256,3 +257,16 @@ MonoBehaviour:
   dropPrefab: {fileID: 7119473495914958070, guid: 52c03fb17df6d52478a58a80dbfc6144, type: 3}
   eraseValue: 5
   ruptureDamegeTime: 1
+--- !u!114 &-6012028037528178295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403213725694573621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabd8a542ed4c154d8bbe3a89d46d80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyController: {fileID: 575722917983610743}

@@ -15,7 +15,7 @@ namespace Core.Character.Enemy
 
         private IEnumerator DestroyAfterOneFrame(GameObject obj)
         {
-            yield return null;
+            yield return new WaitForSeconds(1);
             Destroy(obj);
         }
     }

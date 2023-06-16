@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace Core.Character.Enemy
 {
@@ -8,10 +9,14 @@ namespace Core.Character.Enemy
         {
             Vector3 spornPosition = gameObject.transform.position;
 
-            Instantiate(ruptureObj, spornPosition, Quaternion.identity);
+            GameObject obj = Instantiate(ruptureObj, spornPosition, Quaternion.identity);
+            StartCoroutine(DestroyAfterOneFrame(obj));
+        }
 
-
+        private IEnumerator DestroyAfterOneFrame(GameObject obj)
+        {
+            yield return null;
+            Destroy(obj);
         }
     }
-
 }

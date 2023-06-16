@@ -9,5 +9,4 @@ namespace Core.Control
             transform.parent = null;
         }
     }
-
 }

@@ -8,7 +8,7 @@ namespace Core.Character.Enemy
         [SerializeField] GameObject rupturePrefab;
         [SerializeField] Transform container;
         [SerializeField] int instanceNum;
-        [SerializeField] float spawnInterbal;
+        [SerializeField] float spawnInterval;
         private float lastInstaceTime;
         private float spawnDistance = 5f;
         private GameObject[] existingEnemys;
@@ -25,27 +25,25 @@ namespace Core.Character.Enemy
 
         private void Update()
         {
-            if (Time.time - lastInstaceTime <= spawnInterbal) return;
+            if (Time.time - lastInstaceTime <= spawnInterval) return;
 
             existingEnemys = GameObject.FindGameObjectsWithTag("Enemy");
 
+            if (existingEnemys == null) return;
             GameObject randomEnemy = existingEnemys[Random.Range(0, existingEnemys.Length)];
 
             for ( int i = 0 ; i <= instanceNum ; i++ ) 
             {
                 Vector3 spawnPosition = randomEnemy.transform.position + Random.insideUnitSphere * spawnDistance;
 
-                GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
-                obj.transform.parent = container;
+                GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, container);
 
                 EnemyAttribute.enemyInstanceCounter++;
             }
 
-            EnemyRupture.Rupture(rupturePrefab);
+            enemyRupture.Rupture(rupturePrefab);
 
             lastInstaceTime = Time.time;
-
-            
         }         
     }
 }

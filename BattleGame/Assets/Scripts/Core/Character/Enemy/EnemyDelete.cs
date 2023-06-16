@@ -10,8 +10,9 @@ namespace Core.Character.Enemy
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!collision.gameObject.CompareTag("Bullet")) return;
-            
+            if (!collision.gameObject.CompareTag("Bullet"))
+            if (!collision.gameObject.CompareTag("Rupture")) return;
+
             hitCounter++;
 
             if (hitCounter < EnemyAttribute.eraseValue) return;

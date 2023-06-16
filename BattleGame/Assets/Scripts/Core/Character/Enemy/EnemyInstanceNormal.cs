@@ -2,13 +2,13 @@ using UnityEngine;
 
 namespace Core.Character.Enemy
 {
-    public class EnemyInstance : MonoBehaviour
+    public class EnemyInstanceNormal : MonoBehaviour
     {
-        [SerializeField] GameObject prefab;
-        [SerializeField] Transform container;
-        [SerializeField] float offsetX;
-        [SerializeField] float offsetY;
-        [SerializeField] int instanceMax;
+        [SerializeField] private GameObject prefab;
+        [SerializeField] private Transform container;
+        [SerializeField] private float offsetX;
+        [SerializeField] private float offsetY;
+        [SerializeField] private int instanceMax;
         private float lastInstaceTime;
 
         void Start()

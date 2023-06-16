@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.ComponentModel;
 
 namespace Core.Character.Enemy
 {

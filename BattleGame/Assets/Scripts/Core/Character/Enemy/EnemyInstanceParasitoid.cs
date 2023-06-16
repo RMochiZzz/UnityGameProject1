@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Character.Enemy
 {
-    public class EnemyInstance2 : MonoBehaviour
+    public class EnemyInstanceParasitoid : MonoBehaviour
     {
         [SerializeField] GameObject prefab;
         [SerializeField] GameObject rupturePrefab;

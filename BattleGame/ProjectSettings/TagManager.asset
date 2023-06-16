@@ -8,6 +8,7 @@ TagManager:
   - DropCoin
   - Enemy
   - Wall
+  - Rupture
   layers:
   - Default
   - TransparentFX

@@ -29,6 +29,7 @@ namespace Core.Character.Enemy
             existingEnemys = GameObject.FindGameObjectsWithTag("Enemy");
 
             if (existingEnemys == null) return;
+            if (existingEnemys.Length == 0) return;
             GameObject randomEnemy = existingEnemys[Random.Range(0, existingEnemys.Length)];
 
             for ( int i = 0 ; i < instanceNum ; i++ ) 

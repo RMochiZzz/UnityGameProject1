@@ -8,8 +8,15 @@ namespace Core.Weapon
         private LevelupManager levelupManager;
 
         private void Start () 
-        { 
-            levelupManager = GetComponent<LevelupManager>();
+        {
+            levelupManager = FindObjectOfType<LevelupManager>();
+            if (levelupManager == null)
+            {
+                GameObject levelupManagerObj = new GameObject("LevelupManager");
+                levelupManager = levelupManagerObj.AddComponent<LevelupManager>();
+            }
+
+            levelupManager.CoinsNum = 0;
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -18,10 +25,9 @@ namespace Core.Weapon
             {
 
                 Destroy(collision.gameObject);
-                levelupManager.coinsNum += 1;
+                levelupManager.CoinsNum += 1;
 
             }
         }
     }
 }
-

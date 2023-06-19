@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Core.Weapon
 {
-    public class AttackOne : MonoBehaviour
+    public class AttackTwo : MonoBehaviour
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private Transform spawnPoint;

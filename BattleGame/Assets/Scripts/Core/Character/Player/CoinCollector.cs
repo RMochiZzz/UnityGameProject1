@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace Core.Weapon
 {
@@ -9,12 +10,19 @@ namespace Core.Weapon
 
         private void Start () 
         {
+            StartCoroutine(Init());
+        }
+
+        private IEnumerator Init () 
+        {
             levelupManager = FindObjectOfType<LevelupManager>();
             if (levelupManager == null)
             {
                 GameObject levelupManagerObj = new GameObject("LevelupManager");
                 levelupManager = levelupManagerObj.AddComponent<LevelupManager>();
             }
+
+            yield return null;
 
             levelupManager.CoinsNum = 0;
         }

@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 1060483448}
   - component: {fileID: 4658879497451125798}
   - component: {fileID: -6012028037528178295}
+  - component: {fileID: -43225653890128577}
   m_Layer: 0
   m_Name: EnemyGroupRush
   m_TagString: Enemy
@@ -271,3 +272,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyController: {fileID: 575722917983610743}
+--- !u!114 &-43225653890128577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403213725694573621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aca538d98380cb4da0a5c1bb9a650b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child: {fileID: 575722917983610743}

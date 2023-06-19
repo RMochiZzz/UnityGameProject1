@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1261770516906079830}
   - component: {fileID: -2160874432236029515}
   - component: {fileID: -2544100051019085681}
+  - component: {fileID: -4883911201242122196}
   m_Layer: 0
   m_Name: EnemyParasitoid
   m_TagString: Enemy
@@ -170,6 +171,19 @@ MonoBehaviour:
   dropPrefab: {fileID: 7119473495914958070, guid: 52c03fb17df6d52478a58a80dbfc6144, type: 3}
   eraseValue: 3
   ruptureDamegeTime: 1
+--- !u!114 &-4883911201242122196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5623394364569724170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aca538d98380cb4da0a5c1bb9a650b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child: {fileID: 8349424984121956359}
 --- !u!1 &8349424984121956359
 GameObject:
   m_ObjectHideFlags: 0

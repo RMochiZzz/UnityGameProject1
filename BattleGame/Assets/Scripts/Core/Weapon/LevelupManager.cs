@@ -39,6 +39,7 @@ namespace Core.Weapon
                 GameObject attackOneObj = new GameObject("AttackOne");
                 attackOne = attackOneObj.AddComponent<AttackOne>();
             }
+
             attackTwo = FindObjectOfType<AttackTwo>();
             if (attackTwo == null)
             {

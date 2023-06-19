@@ -8,13 +8,14 @@ namespace Core.Weapon
         [SerializeField] private GameObject prefab;
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform container;
-        [SerializeField] private int rapidFireNum;
         [SerializeField] private float fireInterval;
-        [SerializeField] private float fireIntervalLong;
-        private int fireCount;
+        private Vector3 spawnAngle;
+        private Vector3 spawnPointPosition;
+        private Quaternion spawnPointRotation;
 
         public void Manager()
         {
+            Init();
             StartCoroutine(BulletInstanceRoutine());
         }
 
@@ -22,38 +23,34 @@ namespace Core.Weapon
         {
             while (true)
             {
-                if (fireCount == rapidFireNum)
-                {
-                    Rotation();
-                }
 
-                
+                Rotation();
 
-                for (int i = 0; i < rapidFireNum; i++)
-                {
-                    Vector3 spawnPointPosition = spawnPoint.position;
-                    Quaternion spawnPointRotation = spawnPoint.rotation;
+                spawnPointPosition = spawnPoint.position;
+                spawnPointRotation = spawnPoint.rotation;
 
-                    Instantiate(prefab, spawnPointPosition, spawnPointRotation, container);
+                Instantiate(prefab, spawnPointPosition, spawnPointRotation, container);
 
-                    yield return new WaitForSeconds(fireInterval);
+                yield return new WaitForSeconds(fireInterval);
 
-                    fireCount++;
-                }
-
-                yield return new WaitForSeconds(fireIntervalLong);
             }
         }
 
         private void Rotation()
         {
-            
-             Vector2 spawnAngle = spawnPoint.rotation.eulerAngles;
-             spawnAngle.y = spawnAngle.y == 0f ? 180f : 0f;
 
-             spawnPoint.rotation = Quaternion.Euler(spawnAngle);
+            spawnAngle = spawnPoint.rotation.eulerAngles;
+            spawnAngle.z = spawnAngle.z == 90f ? -90f : 90f;
 
-             fireCount = 0;
+            spawnPoint.rotation = Quaternion.Euler(spawnAngle);
+
+        }
+
+        private void Init()
+        {
+            spawnAngle = spawnPoint.rotation.eulerAngles;
+            spawnAngle.z = 90f;
+            spawnPoint.rotation = Quaternion.Euler(spawnAngle);
         }
     }
 }

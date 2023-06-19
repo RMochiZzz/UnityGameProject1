@@ -12,6 +12,9 @@ namespace Core.Weapon
         [SerializeField] private float fireInterval;
         [SerializeField] private float fireIntervalLong;
         private int fireCount;
+        private Vector3 spawnAngle;
+        private Vector3 spawnPointPosition;
+        private Quaternion spawnPointRotation;
 
         public void Manager()
         {
@@ -33,8 +36,8 @@ namespace Core.Weapon
 
                 for (int i = 0; i < rapidFireNum; i++)
                 {
-                    Vector3 spawnPointPosition = spawnPoint.position;
-                    Quaternion spawnPointRotation = spawnPoint.rotation;
+                    spawnPointPosition = spawnPoint.position;
+                    spawnPointRotation = spawnPoint.rotation;
 
                     Instantiate(prefab, spawnPointPosition, spawnPointRotation, container);
 
@@ -50,7 +53,7 @@ namespace Core.Weapon
         private void Rotation()
         {
             
-             Vector3 spawnAngle = spawnPoint.rotation.eulerAngles;
+             spawnAngle = spawnPoint.rotation.eulerAngles;
              spawnAngle.z = spawnAngle.z == 90f ? -90f : 90f;
 
              spawnPoint.rotation = Quaternion.Euler(spawnAngle);
@@ -60,7 +63,7 @@ namespace Core.Weapon
 
         private void Init()
         {
-            Vector3 spawnAngle = spawnPoint.rotation.eulerAngles;
+            spawnAngle = spawnPoint.rotation.eulerAngles;
             spawnAngle.z = 90f;
             spawnPoint.rotation = Quaternion.Euler(spawnAngle);
         }

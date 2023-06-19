@@ -7,9 +7,8 @@ namespace Core.Weapon
         private void FixedUpdate()
         {
 
-            transform.Translate(Vector2.right * BulletAttribute.bulletSpeed * Time.deltaTime);
+            transform.Translate(Vector2.up * BulletAttribute.bulletSpeed * Time.deltaTime);
 
         }
-
     }
 }

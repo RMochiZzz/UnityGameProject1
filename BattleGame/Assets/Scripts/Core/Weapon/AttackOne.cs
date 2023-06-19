@@ -15,11 +15,13 @@ namespace Core.Weapon
 
         public void Manager()
         {
+            Init();
             StartCoroutine(BulletInstanceRoutine());
         }
 
         private IEnumerator BulletInstanceRoutine()
         {
+
             while (true)
             {
                 if (fireCount == rapidFireNum)
@@ -48,12 +50,19 @@ namespace Core.Weapon
         private void Rotation()
         {
             
-             Vector2 spawnAngle = spawnPoint.rotation.eulerAngles;
-             spawnAngle.y = spawnAngle.y == 0f ? 180f : 0f;
+             Vector3 spawnAngle = spawnPoint.rotation.eulerAngles;
+             spawnAngle.z = spawnAngle.z == 90f ? -90f : 90f;
 
              spawnPoint.rotation = Quaternion.Euler(spawnAngle);
 
              fireCount = 0;
+        }
+
+        private void Init()
+        {
+            Vector3 spawnAngle = spawnPoint.rotation.eulerAngles;
+            spawnAngle.z = 90f;
+            spawnPoint.rotation = Quaternion.Euler(spawnAngle);
         }
     }
 }

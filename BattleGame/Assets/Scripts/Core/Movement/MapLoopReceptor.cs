@@ -19,9 +19,10 @@ namespace Core.Movement
             notifier.MyEvent += HandleEvent;
         }
 
-        private void HandleEvent(Vector3 playerPosition)
+        private void HandleEvent(Vector3 playerPositionBefore, Vector3 playerPositionAfter)
         {
-            Vector3 newPosition = playerPosition + offset;
+            offset = transform.position - playerPositionBefore;
+            Vector3 newPosition = playerPositionAfter + offset;
             transform.position = newPosition;
         }
 

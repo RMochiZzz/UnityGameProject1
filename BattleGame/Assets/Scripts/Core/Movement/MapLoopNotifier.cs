@@ -11,8 +11,9 @@ namespace Core.Movement
         private float upBorder;
         private float downBorder;
         private bool isOutOfBounds;
-        private Vector3 playerPosition;
-        public delegate void myEventHandler(Vector3 vector3);
+        private Vector3 playerPositionBefore;
+        private Vector3 playerPositionAfter;
+        public delegate void myEventHandler(Vector3 vector3, Vector3 vector3B);
         public event myEventHandler MyEvent;
 
         private void Start()
@@ -27,40 +28,41 @@ namespace Core.Movement
 
         private void Update()
         {
-            playerPosition = transform.position;
+            playerPositionBefore = transform.position;
+            playerPositionAfter = transform.position;
             CheckBorders();
 
             if (isOutOfBounds)
             {
                 isOutOfBounds = false;
-                transform.position = playerPosition;
-                MyEvent?.Invoke(playerPosition);
+                transform.position = playerPositionAfter;
+                MyEvent?.Invoke(playerPositionBefore, playerPositionAfter);
             }
         }
 
         private void CheckBorders()
         {
-            if (playerPosition.x < leftBorder)
+            if (playerPositionAfter.x < leftBorder)
             {
-                playerPosition.x = rightBorder;
+                playerPositionAfter.x = rightBorder;
                 isOutOfBounds = true;
             }
 
-            if (playerPosition.x > rightBorder)
+            if (playerPositionAfter.x > rightBorder)
             {
-                playerPosition.x = leftBorder;
+                playerPositionAfter.x = leftBorder;
                 isOutOfBounds = true;
             }
 
-            if (playerPosition.y > upBorder)
+            if (playerPositionAfter.y > upBorder)
             {
-                playerPosition.y = downBorder;
+                playerPositionAfter.y = downBorder;
                 isOutOfBounds = true;
             }
 
-            if (playerPosition.y < downBorder)
+            if (playerPositionAfter.y < downBorder)
             {
-                playerPosition.y = upBorder;
+                playerPositionAfter.y = upBorder;
                 isOutOfBounds = true;
             }
         }

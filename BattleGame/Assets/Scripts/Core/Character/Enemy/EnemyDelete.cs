@@ -43,7 +43,6 @@ namespace Core.Character.Enemy
         private void DestroyEnemy()
         {
             Destroy(gameObject);
-            Destroy(enemyController);
             EnemyAttribute.enemyInstanceCounter--;
 
             Instantiate(dropPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);

@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7126fa671431f734f9edd567a424fb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: Enemies
 --- !u!114 &7403245765033956559
 MonoBehaviour:
   m_ObjectHideFlags: 0

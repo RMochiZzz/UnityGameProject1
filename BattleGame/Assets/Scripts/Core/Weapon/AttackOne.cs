@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using static UnityEditor.Sprites.Packer;
 
 namespace Core.Weapon
 {
@@ -15,17 +16,21 @@ namespace Core.Weapon
         private Vector3 spawnAngle;
         private Vector3 spawnPointPosition;
         private Quaternion spawnPointRotation;
+        private bool execution;
+        public bool Execution
+        { get { return execution; } set { execution = value; } }
 
-        public void Manager()
+        public void starter()
         {
             Init();
+            execution = true;
             StartCoroutine(BulletInstanceRoutine());
         }
 
         private IEnumerator BulletInstanceRoutine()
         {
 
-            while (true)
+            while (execution)
             {
                 if (fireCount == rapidFireNum)
                 {
@@ -66,6 +71,7 @@ namespace Core.Weapon
             spawnAngle = spawnPoint.rotation.eulerAngles;
             spawnAngle.z = 90f;
             spawnPoint.rotation = Quaternion.Euler(spawnAngle);
+
         }
     }
 }

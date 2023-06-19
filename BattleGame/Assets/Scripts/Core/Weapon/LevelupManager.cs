@@ -8,6 +8,7 @@ namespace Core.Weapon
         [SerializeField] private int levelThreeNum;
         private AttackOne attackOne;
         private AttackTwo attackTwo;
+        private AttackThree attackThree;
         private int coinsNum;
         public int CoinsNum
         {
@@ -18,15 +19,19 @@ namespace Core.Weapon
 
                 if (coinsNum == 0)
                 {
-                    attackOne.Manager();
+                    attackOne.starter();
                 }
-                else if (coinsNum == levelTwoNum)
+                
+                if (coinsNum == levelTwoNum)
                 {
-                    attackTwo.Manager();
+                    attackOne.Execution = false;
+                    attackTwo.starter();
                 }
-                else if (coinsNum == levelThreeNum)
+                
+                if (coinsNum == levelThreeNum)
                 {
-                    attackOne.Manager();
+                    attackTwo.Execution = false;
+                    attackThree.starter();
                 }
             }
         }
@@ -45,6 +50,13 @@ namespace Core.Weapon
             {
                 GameObject attackTwoObj = new GameObject("AttackTwo");
                 attackTwo = attackTwoObj.AddComponent<AttackTwo>();
+            }
+
+            attackThree = FindObjectOfType<AttackThree>();
+            if (attackThree == null)
+            {
+                GameObject attackThreeObj = new GameObject("AttackThree");
+                attackThree = attackThreeObj.AddComponent<AttackThree>();
             }
         }
     }

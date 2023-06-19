@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 9216948904109669525}
   - component: {fileID: 936814848398846412}
   - component: {fileID: 3257792973720152343}
+  - component: {fileID: 2912806304241535534}
   m_Layer: 0
   m_Name: EnemyController2
   m_TagString: Untagged
@@ -265,3 +266,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d621679af50aa9488baa24172453942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2912806304241535534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349424984121956359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dae31f4444bf734cbf69953b82d30e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockBackAmount: 0.1

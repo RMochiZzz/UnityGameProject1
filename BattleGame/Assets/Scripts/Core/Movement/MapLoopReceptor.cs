@@ -1,27 +1,36 @@
 using UnityEngine;
-using Core.Character.Player;
 
 namespace Core.Movement
 {
     public class MapLoopReceptor : MonoBehaviour
     {
-        private Vector3 vec;
+        private Vector3 offset;
+        private MapLoopNotifier notifier;
 
         private void Start()
         {
-            MapLoopNotifier.MyEvent += HandleEvent;
+            notifier = FindObjectOfType<MapLoopNotifier>();
+            if (notifier == null)
+            {
+                GameObject notifierObj = new GameObject("MapLoopNotifier");
+                notifier = notifierObj.AddComponent<MapLoopNotifier>();
+            }
+
+            notifier.MyEvent += HandleEvent;
         }
-        private void FixedUpdate()
+
+        private void HandleEvent(Vector3 playerPosition)
         {
-            vec = transform.position - PlayerAttribute.playerPosition;
+            Vector3 newPosition = playerPosition + offset;
+            transform.position = newPosition;
         }
-        private void HandleEvent(Vector3 vector3)
-        {
-            transform.position = vector3 + vec;
-        }
+
         private void OnDestroy()
         {
-            MapLoopNotifier.MyEvent -= HandleEvent;
+            if (notifier != null)
+            {
+                notifier.MyEvent -= HandleEvent;
+            }
         }
     }
 }

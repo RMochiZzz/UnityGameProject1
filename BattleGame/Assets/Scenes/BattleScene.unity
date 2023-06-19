@@ -17135,7 +17135,6 @@ GameObject:
   - component: {fileID: 1440062829}
   - component: {fileID: 1440062823}
   - component: {fileID: 1440062825}
-  - component: {fileID: 1440062826}
   - component: {fileID: 1440062828}
   - component: {fileID: 1440062830}
   - component: {fileID: 1440062831}
@@ -17247,24 +17246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f724ec561074a954ca075f613bd5d927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1440062826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440062820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f575a99abf3de0d49b26d2f896efc275, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 2893671500045262364, guid: 7b9d2c38fbf59ce42ad7900f9ffe9098, type: 3}
-  spawnPoint: {fileID: 1644667847}
-  container: {fileID: 811298881}
-  rapidFireNum: 0
-  fireInterval: 0
-  fireIntervalLong: 2
 --- !u!114 &1440062828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17312,13 +17293,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440062820}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc920cb815dd1834cad5ef2e9257e7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldWidth: 30
-  fieldHeight: 30
+  fieldWidth: 10
+  fieldHeight: 10
 --- !u!114 &1440062831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17373,6 +17354,8 @@ GameObject:
   - component: {fileID: 1562063021}
   - component: {fileID: 1562063023}
   - component: {fileID: 1562063022}
+  - component: {fileID: 1562063024}
+  - component: {fileID: 1562063025}
   m_Layer: 0
   m_Name: WeaponManager
   m_TagString: Untagged
@@ -17425,8 +17408,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2ac8501d35e884aa931cb7a95dbb17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTwoNum: 30
-  levelThreeNum: 50
+  levelTwoNum: 1
+  levelThreeNum: 3
+--- !u!114 &1562063024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562063020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d105d1e65fe9f4ca175f8c799e8fab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2893671500045262364, guid: 7b9d2c38fbf59ce42ad7900f9ffe9098, type: 3}
+  spawnPoint: {fileID: 1644667847}
+  container: {fileID: 811298881}
+  fireInterval: 0.2
+--- !u!114 &1562063025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562063020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0666d730bbee348b57033190ccd4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2893671500045262364, guid: 7b9d2c38fbf59ce42ad7900f9ffe9098, type: 3}
+  spawnPoint: {fileID: 1644667847}
+  container: {fileID: 811298881}
+  fireInterval: 0.05
+  angleOfRotation: 36
 --- !u!1 &1644667846
 GameObject:
   m_ObjectHideFlags: 0

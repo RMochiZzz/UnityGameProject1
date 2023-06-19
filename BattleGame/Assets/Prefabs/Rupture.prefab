@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8189502302203889968}
   - component: {fileID: 4979698895184405394}
   - component: {fileID: -3884067990696119676}
+  - component: {fileID: 7166608076955303710}
   m_Layer: 0
   m_Name: Rupture
   m_TagString: Rupture
@@ -101,3 +102,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7166608076955303710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4123266397156463839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa94cd541af3d47ab52ccb5f371307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

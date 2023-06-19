@@ -1,19 +1,19 @@
 using UnityEngine;
-using Core.Character.Player;
 
 namespace Core.Movement
 {
     public class MapLoopNotifier : MonoBehaviour
     {
-        public float fieldWidth = 30f;
-        public float fieldHeight = 30f;
+        [SerializeField] private float fieldWidth;
+        [SerializeField] private float fieldHeight;
         private float leftBorder;
         private float rightBorder;
         private float upBorder;
         private float downBorder;
-        private bool isOutOfBounds = false;
+        private bool isOutOfBounds;
+        private Vector3 playerPosition;
         public delegate void myEventHandler(Vector3 vector3);
-        public static event myEventHandler MyEvent;
+        public event myEventHandler MyEvent;
 
         private void Start()
         {
@@ -21,45 +21,46 @@ namespace Core.Movement
             rightBorder = transform.position.x + fieldWidth / 2f;
             upBorder = transform.position.y + fieldHeight / 2f;
             downBorder = transform.position.y - fieldHeight / 2f;
+
+            isOutOfBounds = false;
         }
 
         private void Update()
         {
-            PlayerAttribute.playerPosition = transform.position;
+            playerPosition = transform.position;
             CheckBorders();
-        }
-
-        private void LateUpdate()
-        {
 
             if (isOutOfBounds)
             {
                 isOutOfBounds = false;
-                transform.position = PlayerAttribute.playerPosition;
-                MyEvent?.Invoke(transform.position);
+                transform.position = playerPosition;
+                MyEvent?.Invoke(playerPosition);
             }
         }
 
         private void CheckBorders()
         {
-            if (PlayerAttribute.playerPosition.x < leftBorder)
+            if (playerPosition.x < leftBorder)
             {
-                PlayerAttribute.playerPosition.x = rightBorder;
+                playerPosition.x = rightBorder;
                 isOutOfBounds = true;
             }
-            else if (PlayerAttribute.playerPosition.x > rightBorder)
+
+            if (playerPosition.x > rightBorder)
             {
-                PlayerAttribute.playerPosition.x = leftBorder;
+                playerPosition.x = leftBorder;
                 isOutOfBounds = true;
             }
-            else if (PlayerAttribute.playerPosition.y > upBorder)
+
+            if (playerPosition.y > upBorder)
             {
-                PlayerAttribute.playerPosition.y = downBorder;
+                playerPosition.y = downBorder;
                 isOutOfBounds = true;
             }
-            else if (PlayerAttribute.playerPosition.y < downBorder)
+
+            if (playerPosition.y < downBorder)
             {
-                PlayerAttribute.playerPosition.y = upBorder;
+                playerPosition.y = upBorder;
                 isOutOfBounds = true;
             }
         }

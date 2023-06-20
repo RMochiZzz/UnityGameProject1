@@ -6,12 +6,19 @@ namespace SceneManagement
 {  
     public class SceneFadeIn : MonoBehaviour
     {
-        public Image fadeImage;
-        public float fadeDuration = 1f;
+        [SerializeField] private Image fadeImage;
+        [SerializeField] private float fadeDuration = 1f;
+        private ObjectActivation objectActivation;
 
         private void Start()
         {
-            fadeImage.gameObject.SetActive(false);
+            if (fadeImage.gameObject.activeSelf)
+            {
+                fadeImage.gameObject.SetActive(false);
+
+            }
+
+            objectActivation = GetComponent<ObjectActivation>();
 
             StartCoroutine(TransitionSequence());
         }
@@ -20,12 +27,14 @@ namespace SceneManagement
         {
             
             yield return StartCoroutine(FadeIn());
-            ObjectAllActivation.Activation();
+            objectActivation.Activation();
         }
 
         private IEnumerator FadeIn()
         {
+
             fadeImage.gameObject.SetActive(true);
+
 
             float t = 0f;
             Color startColor = Color.black;

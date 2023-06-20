@@ -1,8 +1,9 @@
+using SceneManagement.UI;
 using UnityEngine;
 
-namespace Core.Character.Enemy.Normal
+namespace Core.Character.Enemy.GroupRush
 {
-    public class NormalAttribute : MonoBehaviour
+    public class EnemyStatus : MonoBehaviour
     {
         [SerializeField] private float enemySpeed;
         [SerializeField] private int enemyStamina;
@@ -11,5 +12,7 @@ namespace Core.Character.Enemy.Normal
         public float EnemySpeed { get => enemySpeed; set => enemySpeed = value; }
         public int EnemyStamina { get => enemyStamina; set => enemyStamina = value; }
         public float SpawnInterbal { get => spawnInterbal; set => spawnInterbal = value; }
+
+
     }
 }

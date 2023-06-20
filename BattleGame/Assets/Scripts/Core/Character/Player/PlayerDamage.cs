@@ -5,6 +5,12 @@ namespace Core.Character.Player
 {
     public class PlayerDamage : MonoBehaviour
     {
+        private PlayerAttribute playerAttribute;
+
+        void Start () 
+        {
+            playerAttribute = GetComponent<PlayerAttribute>();
+        }
         private void OnTriggerEnter2D(Collider2D collision)
         {
 
@@ -12,9 +18,9 @@ namespace Core.Character.Player
             if (!collision.gameObject.CompareTag("Rupture")) return;
 
 
-            PlayerAttribute.playerStamina--;
+            playerAttribute.PlayerStamina--;
 
-            if (PlayerAttribute.playerStamina > 0) return;
+            if (playerAttribute.PlayerStamina > 0) return;
 
             EndOfPlayback.QuitGame();
         }

@@ -2,11 +2,21 @@ using UnityEngine;
 
 namespace Core.Character.Player
 {
-    static class PlayerAttribute
+    public class PlayerAttribute : MonoBehaviour
     {
-        public static float playerSpeed = 5f;
-        public static int numberOfCoins = 0;
-        public static int playerStamina = 10;
-    }
+        [SerializeField] private float playerSpeed;
+        [SerializeField] private int playerStamina;
 
+        public float PlayerSpeed
+        {
+            get { return playerSpeed; }
+            set { playerSpeed = value; }
+        }
+
+        public int PlayerStamina
+        {
+            get { return playerStamina; }
+            set { playerStamina = value; }
+        }
+    }
 }

@@ -1,3 +1,4 @@
+using Core.Item;
 using UnityEngine;
 
 namespace Core.Character.Enemy
@@ -10,6 +11,7 @@ namespace Core.Character.Enemy
         [SerializeField] float ruptureDamegeTime ;
         private int hitCounter;
         private float incrementTimer;
+        private DropCoinInstance dropCoinInstance;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -45,8 +47,19 @@ namespace Core.Character.Enemy
             Destroy(gameObject);
             EnemyAttribute.enemyInstanceCounter--;
 
-            Instantiate(dropPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
-            EnemyAttribute.dropCoinInstanceCounter++;
+            DropItem();
+        }
+
+        private void DropItem()
+        {
+            dropCoinInstance = FindObjectOfType<DropCoinInstance>();
+            if (dropCoinInstance == null)
+            {
+                GameObject dropCoinInstanceObj = new GameObject("DropCoinInstance");
+                dropCoinInstance = dropCoinInstanceObj.AddComponent<DropCoinInstance>();
+            }
+
+            dropCoinInstance.Drop(dropPrefab);
         }
     }
 }

@@ -10,6 +10,6 @@ namespace Core.Character.Enemy.Parasitoid
 
         public float EnemySpeed { get => enemySpeed; set => enemySpeed = value; }
         public int EnemyStamina { get => enemyStamina; set => enemyStamina = value; }
-        public int SpawnInterbal { get => spawnInterbal; set => spawnInterbal = value; }
+        public float SpawnInterbal { get => spawnInterbal; set => spawnInterbal = value; }
     }
 }

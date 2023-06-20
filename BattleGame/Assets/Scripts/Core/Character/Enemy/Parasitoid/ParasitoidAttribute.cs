@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Core.Character.Enemy.Normal
+namespace Core.Character.Enemy.Parasitoid
 {
-    public class NormalAttribute : MonoBehaviour
+    public class ParasitoidAttribute : MonoBehaviour
     {
         [SerializeField] private float enemySpeed;
         [SerializeField] private int stamina;

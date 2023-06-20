@@ -207,8 +207,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1117113917}
-        m_TargetAssemblyTypeName: SceneManagement.ExitFadeOut, Assembly-CSharp
+      - m_Target: {fileID: 1117113916}
+        m_TargetAssemblyTypeName: SceneManagement.UI.ExitSelectDialog, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
@@ -6312,9 +6312,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 289710016}
-  - component: {fileID: 289710015}
-  - component: {fileID: 289710018}
+  - component: {fileID: 289710019}
   - component: {fileID: 289710017}
+  - component: {fileID: 289710018}
+  - component: {fileID: 289710015}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -6364,8 +6365,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToActivate:
-  - {fileID: 1348273416}
-  - {fileID: 1060504884}
+  - {fileID: 1440062820}
+  - {fileID: 1146644403}
+  - {fileID: 1562063020}
+  - {fileID: 1886054533}
 --- !u!114 &289710018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6375,9 +6378,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 289710014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e4a739d6fe13cf42852de144b0bcd2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ea4a9734beafc94691e76dcc75b916b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeImage: {fileID: 1910389316}
+  fadeDuration: 1
+--- !u!114 &289710019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289710014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ee50042883f74499b2a9da594f0fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToDeactivate:
+  - {fileID: 1117113914}
+  - {fileID: 2144176641}
 --- !u!1 &316153917
 GameObject:
   m_ObjectHideFlags: 0
@@ -7069,7 +7089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1060504885
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7277,7 +7297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1910389316}
   fadeDuration: 1
-  scene: 
 --- !u!1 &1145590715
 GameObject:
   m_ObjectHideFlags: 0
@@ -17695,7 +17714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1146644404
 Transform:
   m_ObjectHideFlags: 0
@@ -18030,7 +18049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1348273417
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18183,7 +18202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1440062822
 Rigidbody2D:
   serializedVersion: 4
@@ -18415,7 +18434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1562063021
 Transform:
   m_ObjectHideFlags: 0
@@ -19014,7 +19033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1886054534
 Transform:
   m_ObjectHideFlags: 0
@@ -29668,8 +29687,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1117113916}
-        m_TargetAssemblyTypeName: SceneManagement.UI.ExitSelectDialog, Assembly-CSharp
+      - m_Target: {fileID: 1117113917}
+        m_TargetAssemblyTypeName: SceneManagement.ExitFadeOut, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:

@@ -6,35 +6,24 @@ namespace SceneManagement
 {  
     public class SceneFadeIn : MonoBehaviour
     {
-        [SerializeField] private Image fadeImage;
-        [SerializeField] private float fadeDuration = 1f;
+        [SerializeField] private float fadeDuration;
         private ObjectActivation objectActivation;
 
-        public void Starter()
+        public void Starter(Image fadeImage)
         {
-            if (fadeImage.gameObject.activeSelf)
-            {
-                fadeImage.gameObject.SetActive(false);
-
-            }
-
             objectActivation = GetComponent<ObjectActivation>();
 
-            StartCoroutine(TransitionSequence());
+            StartCoroutine(TransitionSequence(fadeImage));
         }
 
-        private IEnumerator TransitionSequence()
+        private IEnumerator TransitionSequence(Image fadeImage)
         {
-            
-            yield return StartCoroutine(FadeIn());
+            yield return StartCoroutine(FadeIn(fadeImage));
             objectActivation.Activation();
         }
 
-        private IEnumerator FadeIn()
+        private IEnumerator FadeIn(Image fadeImage)
         {
-
-            fadeImage.gameObject.SetActive(true);
-
 
             float t = 0f;
             Color startColor = Color.black;

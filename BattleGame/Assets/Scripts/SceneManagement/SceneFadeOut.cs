@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 namespace SceneManagement
@@ -8,24 +7,25 @@ namespace SceneManagement
     public class SceneFadeOut : MonoBehaviour
     {
         [SerializeField] private Image fadeImage;
-        [SerializeField] private float fadeDuration = 1f;
+        [SerializeField] private float fadeDuration;
         private ObjectDeactivation objectDeactivation;
         private SceneFadeIn sceneFadeIn;
         private void Start()
         {
-            if (fadeImage.gameObject.activeSelf)
-            {
-                fadeImage.gameObject.SetActive(false);
-            }
-
             objectDeactivation = GetComponent<ObjectDeactivation>();
             sceneFadeIn = GetComponent<SceneFadeIn>();
         }
         public void OnButtonClick()
         {
-            StartCoroutine(FadeOut());
+            StartCoroutine(TransitionSequence());
+        }
+
+        private IEnumerator TransitionSequence()
+        {
+
+            yield return StartCoroutine(FadeOut());
             objectDeactivation.Deactivation();
-            sceneFadeIn.Starter();
+            sceneFadeIn.Starter(fadeImage);
         }
 
         private IEnumerator FadeOut()
@@ -42,6 +42,8 @@ namespace SceneManagement
                 fadeImage.color = Color.Lerp(startColor, endColor, t);
                 yield return null;
             }
+
+            
         }
     }
 }

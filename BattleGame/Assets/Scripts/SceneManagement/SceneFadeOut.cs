@@ -5,25 +5,27 @@ using System.Collections;
 
 namespace SceneManagement
 {
-    public class SceneTransition : MonoBehaviour
+    public class SceneFadeOut : MonoBehaviour
     {
-        public Image fadeImage;
-        public float fadeDuration = 1f;
-        public string scene;
+        [SerializeField] private Image fadeImage;
+        [SerializeField] private float fadeDuration = 1f;
+        private ObjectDeactivation objectDeactivation;
+        private SceneFadeIn sceneFadeIn;
         private void Start()
         {
-            fadeImage.gameObject.SetActive(false);
+            if (fadeImage.gameObject.activeSelf)
+            {
+                fadeImage.gameObject.SetActive(false);
+            }
+
+            objectDeactivation = GetComponent<ObjectDeactivation>();
+            sceneFadeIn = GetComponent<SceneFadeIn>();
         }
         public void OnButtonClick()
         {
-            StartCoroutine(TransitionSequence());
-        }
-
-        private IEnumerator TransitionSequence()
-        {
-            yield return StartCoroutine(FadeOut());
-
-            SceneManager.LoadScene(scene);
+            StartCoroutine(FadeOut());
+            objectDeactivation.Deactivation();
+            sceneFadeIn.Starter();
         }
 
         private IEnumerator FadeOut()

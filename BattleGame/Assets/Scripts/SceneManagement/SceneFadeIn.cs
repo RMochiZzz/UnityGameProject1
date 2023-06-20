@@ -10,7 +10,7 @@ namespace SceneManagement
         [SerializeField] private float fadeDuration = 1f;
         private ObjectActivation objectActivation;
 
-        private void Start()
+        public void Starter()
         {
             if (fadeImage.gameObject.activeSelf)
             {

@@ -1,4 +1,3 @@
-using Core.Character.Enemy.GroupRush;
 using UnityEngine;
 
 namespace Core.Character.Enemy.Normal
@@ -52,7 +51,7 @@ namespace Core.Character.Enemy.Normal
             Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
 
             lastInstaceTime = Time.time;
-            EnemyAttribute.enemyInstanceCounter++;
+            enemyInstanceStatus.InstanceCounter++;
             
         }         
     }

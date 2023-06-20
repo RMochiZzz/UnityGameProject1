@@ -11,10 +11,12 @@ namespace Core.Character.Enemy
         private float incrementTimer;
         private DropCoinInstance dropCoinInstance;
         private EnemyStatus enemyStatus;
+        private EnemyInstanceStatus enemyInstance;
 
         private void Start()
         {
             enemyStatus = GetComponent<EnemyStatus>();
+            enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceStatus>();
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -48,7 +50,7 @@ namespace Core.Character.Enemy
         private void DestroyEnemy()
         {
             Destroy(gameObject);
-            EnemyAttribute.enemyInstanceCounter--;
+            enemyInstance.InstanceCounter--;
 
             DropItem();
         }

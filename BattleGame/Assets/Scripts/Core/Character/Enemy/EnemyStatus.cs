@@ -1,4 +1,3 @@
-using SceneManagement.UI;
 using UnityEngine;
 
 namespace Core.Character.Enemy.GroupRush

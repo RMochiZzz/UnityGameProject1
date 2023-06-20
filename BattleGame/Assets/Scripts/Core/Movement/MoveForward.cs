@@ -1,17 +1,22 @@
+using Core.Character.Enemy.GroupRush;
 using UnityEngine;
-using Core.Character.Enemy;
 
 namespace Core.Movement
 {
     public class MoveForward : MonoBehaviour
     {
-        [SerializeField] private float moveSpeed;
-        void Update()
+        private EnemyStatus enemyStatus;
+
+        private void Start()
+        {
+            enemyStatus = GetComponent<EnemyStatus>();
+        }
+        private void Update()
         {
 
             Vector2 forwardDirection = transform.up;
 
-            Vector2 move = forwardDirection * moveSpeed * Time.deltaTime;
+            Vector2 move = forwardDirection * enemyStatus.EnemySpeed * Time.deltaTime;
 
             transform.position += new Vector3(move.x, move.y, 0f);
 

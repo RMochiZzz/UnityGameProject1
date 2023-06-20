@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using Core.Weapon;
 
-namespace Core.Weapon
+namespace Core.Item
 {
 
     public class CoinCollector : MonoBehaviour

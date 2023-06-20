@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Character.Enemy
+namespace Core.Character.Enemy.Normal
 {
     public class EnemyInstanceNormal : MonoBehaviour
     {
@@ -9,6 +9,7 @@ namespace Core.Character.Enemy
         [SerializeField] private float offsetX;
         [SerializeField] private float offsetY;
         [SerializeField] private int instanceMax;
+        [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
 
         void Start()
@@ -19,7 +20,7 @@ namespace Core.Character.Enemy
         void Update()
         {
             if (EnemyAttribute.enemyInstanceCounter >= instanceMax) return;
-            if (Time.time - lastInstaceTime <= EnemyAttribute.spawnInterbal) return;
+            if (Time.time - lastInstaceTime <= spawnInterval) return;
             
             Vector3 cameraPosition = Camera.main.transform.position;
             float cameraHeight = 2f * Camera.main.orthographicSize;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Character.Enemy
+namespace Core.Other
 {
     public class UnFollowParent : MonoBehaviour
     {

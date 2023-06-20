@@ -5,10 +5,13 @@ namespace Core.Item
 {
     public class DropCoinInstance : MonoBehaviour
     {
-        public void Drop(GameObject dropPrefab)
+        private EnemyInstanceStatus enemyInstanceStatus;
+        public void Drop(GameObject dropPrefab, Transform dropPoint)
         {
-            Instantiate(dropPrefab, this.gameObject.transform.position, this.gameObject.transform.rotation);
-            EnemyAttribute.dropCoinInstanceCounter++;
+            enemyInstanceStatus = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceStatus>();
+
+            Instantiate(dropPrefab, dropPoint.position, dropPoint.rotation);
+            enemyInstanceStatus.DropCoinInstanceCounter++;
         }
     }
 }

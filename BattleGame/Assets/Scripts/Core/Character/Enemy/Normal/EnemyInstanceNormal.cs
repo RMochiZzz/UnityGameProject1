@@ -1,3 +1,4 @@
+using Core.Character.Enemy.GroupRush;
 using UnityEngine;
 
 namespace Core.Character.Enemy.Normal
@@ -5,21 +6,21 @@ namespace Core.Character.Enemy.Normal
     public class EnemyInstanceNormal : MonoBehaviour
     {
         [SerializeField] private GameObject prefab;
-        [SerializeField] private Transform container;
-        [SerializeField] private float offsetX;
-        [SerializeField] private float offsetY;
-        [SerializeField] private int instanceMax;
+        [SerializeField] private float spawnPointOffsetX;
+        [SerializeField] private float spawnPointOffsetY;
         [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
+        private EnemyInstanceStatus enemyInstanceStatus;
 
         void Start()
         {
+            enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
             lastInstaceTime = Time.time;
         }
 
         void Update()
         {
-            if (EnemyAttribute.enemyInstanceCounter >= instanceMax) return;
+            if (enemyInstanceStatus.InstanceCounter >= enemyInstanceStatus.InstanceMax) return;
             if (Time.time - lastInstaceTime <= spawnInterval) return;
             
             Vector3 cameraPosition = Camera.main.transform.position;
@@ -29,27 +30,26 @@ namespace Core.Character.Enemy.Normal
             float spawnX;
             if (Random.value < 0.5f)
             {
-                spawnX = Random.Range(cameraPosition.x - cameraWidth / 2f - offsetX, cameraPosition.x - cameraWidth / 2f);
+                spawnX = Random.Range(cameraPosition.x - cameraWidth / 2f - spawnPointOffsetX, cameraPosition.x - cameraWidth / 2f);
             }
             else
             {
-                spawnX = Random.Range(cameraPosition.x + cameraWidth / 2f + offsetX, cameraPosition.x + cameraWidth / 2f);
+                spawnX = Random.Range(cameraPosition.x + cameraWidth / 2f + spawnPointOffsetX, cameraPosition.x + cameraWidth / 2f);
             }
 
             float spawnY;
             if (Random.value < 0.5f)
             {
-                spawnY = Random.Range(cameraPosition.y - cameraHeight / 2f - offsetX, cameraPosition.y - cameraHeight / 2f);
+                spawnY = Random.Range(cameraPosition.y - cameraHeight / 2f - spawnPointOffsetY, cameraPosition.y - cameraHeight / 2f);
             }
             else
             {
-                spawnY = Random.Range(cameraPosition.y + cameraHeight / 2f + offsetX, cameraPosition.y + cameraHeight / 2f);
+                spawnY = Random.Range(cameraPosition.y + cameraHeight / 2f + spawnPointOffsetY, cameraPosition.y + cameraHeight / 2f);
             }
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
-            GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity);
-            obj.transform.parent = container;
+            Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
 
             lastInstaceTime = Time.time;
             EnemyAttribute.enemyInstanceCounter++;

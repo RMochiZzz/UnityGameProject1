@@ -47,7 +47,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea584cf0f23612438bcc8a9d0a3845a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 3
 --- !u!114 &2185450897917575249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 3
   enemyStamina: 3
-  spawnInterbal: 30
 --- !u!114 &1060483448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyController: {fileID: 575722917983610743}
   dropPrefab: {fileID: 7119473495914958070, guid: 52c03fb17df6d52478a58a80dbfc6144, type: 3}
-  eraseValue: 5
   ruptureDamegeTime: 1
 --- !u!114 &-6012028037528178295
 MonoBehaviour:

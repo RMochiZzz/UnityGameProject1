@@ -7,19 +7,22 @@ namespace Core.Character.Enemy
     {
         [SerializeField] GameObject enemyController;
         [SerializeField] GameObject dropPrefab;
-        [SerializeField] int eraseValue;
         [SerializeField] float ruptureDamegeTime ;
-        private int hitCounter;
         private float incrementTimer;
         private DropCoinInstance dropCoinInstance;
+        private EnemyStatus enemyStatus;
 
+        private void Start()
+        {
+            enemyStatus = GetComponent<EnemyStatus>();
+        }
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (!collision.gameObject.CompareTag("Bullet")) return;
 
-            hitCounter++;
+            enemyStatus.HitCounter++;
 
-            if (hitCounter < eraseValue) return;
+            if (enemyStatus.HitCounter < enemyStatus.EnemyStamina) return;
 
             DestroyEnemy();
         }
@@ -32,11 +35,11 @@ namespace Core.Character.Enemy
 
             if (incrementTimer >= ruptureDamegeTime)
             {
-                hitCounter++;
+                enemyStatus.HitCounter++;
                 incrementTimer = 0f;
             }
 
-            if (hitCounter > eraseValue)
+            if (enemyStatus.HitCounter > enemyStatus.EnemyStamina)
             {
                 DestroyEnemy();
             }
@@ -59,7 +62,7 @@ namespace Core.Character.Enemy
                 dropCoinInstance = dropCoinInstanceObj.AddComponent<DropCoinInstance>();
             }
 
-            dropCoinInstance.Drop(dropPrefab);
+            dropCoinInstance.Drop(dropPrefab, transform);
         }
     }
 }

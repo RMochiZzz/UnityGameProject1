@@ -12,7 +12,7 @@ namespace SceneManagement.UI
         private void Start()
         {
             staminaText = GetComponent<TextMeshProUGUI>();
-            playerAttribute = GetComponent<PlayerAttribute>();
+            playerAttribute = GameObject.Find("Player").GetComponent<PlayerAttribute>();
         }
 
         void Update()

@@ -1,3 +1,4 @@
+using Core.Character.Enemy.GroupRush;
 using UnityEngine;
 
 namespace Core.Character.Enemy.Parasitoid
@@ -6,16 +7,18 @@ namespace Core.Character.Enemy.Parasitoid
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private GameObject rupturePrefab;
-        [SerializeField] private Transform container;
         [SerializeField] private int instanceNum;
         [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
         private float spawnDistance = 5f;
         private GameObject[] existingEnemys;
         private EnemyRupture enemyRupture;
+        private EnemyInstanceStatus enemyInstanceStatus;
 
         private void Start()
         {
+            enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
+
             lastInstaceTime = Time.time;
 
             GameObject enemyRuptureobj = new GameObject("EnemyRupture");
@@ -36,12 +39,12 @@ namespace Core.Character.Enemy.Parasitoid
             {
                 Vector3 spawnPosition = randomEnemy.transform.position + Random.insideUnitSphere * spawnDistance;
 
-                Instantiate(prefab, spawnPosition, Quaternion.identity, container);
+                Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
 
-                EnemyAttribute.enemyInstanceCounter++;
+                enemyInstanceStatus.InstanceCounter++;
             }
 
-            enemyRupture.Rupture(rupturePrefab, randomEnemy, container);
+            enemyRupture.Rupture(rupturePrefab, randomEnemy, enemyInstanceStatus.Container);
 
             Destroy(randomEnemy);
 

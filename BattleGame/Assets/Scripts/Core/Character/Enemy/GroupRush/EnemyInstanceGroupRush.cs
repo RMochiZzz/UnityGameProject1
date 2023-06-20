@@ -5,17 +5,17 @@ namespace Core.Character.Enemy.GroupRush
     public class EnemyInstanceGroupRush : MonoBehaviour
     {
         [SerializeField] private GameObject prefab;
-        [SerializeField] private Transform container;
         [SerializeField] private float spawnPointOffsetX;
-        [SerializeField] private float spawnPointoffsetY;
+        [SerializeField] private float spawnPointOffsetY;
         [SerializeField] private int instanceNum;
         [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
         private float spawnDistance = 5f;
-
+        private EnemyInstanceStatus enemyInstanceStatus;
 
         void Start()
         {
+            enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
             lastInstaceTime = Time.time;
         }
 
@@ -26,6 +26,7 @@ namespace Core.Character.Enemy.GroupRush
             Vector3 cameraPosition = Camera.main.transform.position;
             float cameraHeight = 2f * Camera.main.orthographicSize;
             float cameraWidth = cameraHeight * Camera.main.aspect;
+            
 
             float spawnX;
             if (Random.value < 0.5f)
@@ -49,21 +50,20 @@ namespace Core.Character.Enemy.GroupRush
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
-            GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, container);
-            EnemyAttribute.enemyInstanceCounter++;
+            GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
+            enemyInstanceStatus.InstanceCounter++;
 
             for (int i = 0; i <= instanceNum; i++)
             {
                 spawnPosition = obj.transform.position + Random.insideUnitSphere * spawnDistance;
 
-                Instantiate(prefab, spawnPosition, Quaternion.identity, container);
+                Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
 
-                EnemyAttribute.enemyInstanceCounter++;
+                enemyInstanceStatus.InstanceCounter++;
             }
 
             lastInstaceTime = Time.time;
-
-            
+ 
         }         
     }
 }

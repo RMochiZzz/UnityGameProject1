@@ -1,4 +1,5 @@
 using Core.Character.Enemy.GroupRush;
+using Core.Item;
 using UnityEngine;
 
 namespace Core.Character.Enemy.Parasitoid
@@ -21,8 +22,12 @@ namespace Core.Character.Enemy.Parasitoid
 
             lastInstaceTime = Time.time;
 
-            GameObject enemyRuptureobj = new GameObject("EnemyRupture");
-            enemyRupture = enemyRuptureobj.AddComponent<EnemyRupture>();
+            GameObject container = GameObject.Find("Scripts");
+            enemyRupture = container.GetComponentInChildren<EnemyRupture>();
+            if (enemyRupture == null)
+            {
+                enemyRupture = container.AddComponent<EnemyRupture>();
+            }
         }
 
         private void Update()

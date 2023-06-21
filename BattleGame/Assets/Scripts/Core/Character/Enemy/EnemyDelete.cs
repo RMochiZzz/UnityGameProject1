@@ -57,7 +57,6 @@ namespace Core.Character.Enemy
             enemyInstance.InstanceCounter--;
 
             DropItem();
-            KillCountIncrement();
         }
 
         private void DropItem()
@@ -70,17 +69,6 @@ namespace Core.Character.Enemy
             }
 
             dropCoinInstance.Drop(dropPrefab, transform);
-        }
-
-        private void KillCountIncrement()
-        {
-            resultData = container.GetComponentInChildren<ResultData>();
-            if (resultData == null)
-            {
-                resultData = container.AddComponent<ResultData>();
-            }
-
-            resultData.KillCount += 1; 
         }
     }
 }

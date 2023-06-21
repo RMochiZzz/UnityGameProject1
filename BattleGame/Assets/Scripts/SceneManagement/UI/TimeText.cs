@@ -8,10 +8,12 @@ namespace SceneManagement.UI
     public class TimeText : MonoBehaviour
     {
         private TextMeshProUGUI timerText;
+        private BattleSceneStatus battleSceneStatus;
 
         private void Start()
         {
             timerText = GetComponent<TextMeshProUGUI>();
+            battleSceneStatus = GameObject.Find("SceneManager").GetComponent<BattleSceneStatus>();
         }
 
         void Update()

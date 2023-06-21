@@ -1,5 +1,4 @@
 using UnityEngine;
-using SceneManagement;
 
 namespace Core.Character.Player
 {
@@ -13,16 +12,14 @@ namespace Core.Character.Player
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-
-            if (!collision.gameObject.CompareTag("Enemy"))
-            if (!collision.gameObject.CompareTag("Rupture")) return;
-
+            if (playerAttribute.PlayerStamina == 0 ||
+                !collision.gameObject.CompareTag("Enemy") &&
+                !collision.gameObject.CompareTag("Rupture"))
+            {
+                return;
+            }
 
             playerAttribute.PlayerStamina--;
-
-            if (playerAttribute.PlayerStamina > 0) return;
-
-            EndOfPlayback.QuitGame();
         }
     }
 }

@@ -6,15 +6,21 @@ namespace Core.Character.Enemy
     {
         [SerializeField] GameObject enemyController;
         private float checkTimer = 1f;
+        private EnemyInstanceStatus enemyInstance;
 
         private void Start()
         {
+            enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceStatus>();
             InvokeRepeating(nameof(CheckCameraView), checkTimer, checkTimer);
         }
 
         private void CheckCameraView()
         {
-            if (IsInCameraView()) Destroy(gameObject);
+            if (IsInCameraView())
+            {
+                Destroy(gameObject);
+                enemyInstance.InstanceCounter--;
+            }
         }
 
         private bool IsInCameraView()

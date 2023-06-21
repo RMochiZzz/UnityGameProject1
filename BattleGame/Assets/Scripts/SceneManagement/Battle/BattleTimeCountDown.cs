@@ -1,19 +1,29 @@
+using Core.Character.Player;
 using UnityEngine;
+using System.Collections;
 
 namespace SceneManagement.Battle
 {
     public class BattleTimeCountDown : MonoBehaviour
     {
         private BattleSceneStatus battleSceneStatus;
+        private PlayerAttribute playerAttribute;
 
         private void Start()
         {
             battleSceneStatus = GameObject.Find("SceneManager").GetComponent<BattleSceneStatus>();
+            playerAttribute = GameObject.Find("Player").GetComponent<PlayerAttribute>();
+
+            StartCoroutine(CountDownRoutine());
         }
 
-        private void Update()
+        private IEnumerator CountDownRoutine()
         {
-            battleSceneStatus.BattleTime -= Time.deltaTime;
+            while (playerAttribute.PlayerStamina != 0)
+            {
+                battleSceneStatus.BattleTime -= Time.deltaTime;
+                yield return null;
+            }
         }
     }
 }

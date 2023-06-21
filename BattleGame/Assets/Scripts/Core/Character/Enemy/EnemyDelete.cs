@@ -1,5 +1,5 @@
 using Core.Item;
-using SceneManagement;
+using SceneManagement.Result;
 using UnityEngine;
 
 namespace Core.Character.Enemy
@@ -13,11 +13,14 @@ namespace Core.Character.Enemy
         private DropCoinInstance dropCoinInstance;
         private EnemyStatus enemyStatus;
         private EnemyInstanceStatus enemyInstance;
+        private ResultData resultData;
+        private GameObject container;
 
         private void Start()
         {
             enemyStatus = GetComponent<EnemyStatus>();
             enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceStatus>();
+            container = GameObject.Find("Scripts");
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -54,11 +57,12 @@ namespace Core.Character.Enemy
             enemyInstance.InstanceCounter--;
 
             DropItem();
+            KillCountIncrement();
         }
 
         private void DropItem()
         {
-            GameObject container = GameObject.Find("Scripts");
+            
             dropCoinInstance = container.GetComponentInChildren<DropCoinInstance>();
             if (dropCoinInstance == null)
             {
@@ -66,6 +70,17 @@ namespace Core.Character.Enemy
             }
 
             dropCoinInstance.Drop(dropPrefab, transform);
+        }
+
+        private void KillCountIncrement()
+        {
+            resultData = container.GetComponentInChildren<ResultData>();
+            if (resultData == null)
+            {
+                resultData = container.AddComponent<ResultData>();
+            }
+
+            resultData.KillCount += 1; 
         }
     }
 }

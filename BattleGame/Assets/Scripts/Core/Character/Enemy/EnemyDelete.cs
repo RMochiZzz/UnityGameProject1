@@ -1,4 +1,5 @@
 using Core.Item;
+using SceneManagement;
 using UnityEngine;
 
 namespace Core.Character.Enemy
@@ -57,11 +58,11 @@ namespace Core.Character.Enemy
 
         private void DropItem()
         {
-            dropCoinInstance = FindObjectOfType<DropCoinInstance>();
+            GameObject container = GameObject.Find("Scripts");
+            dropCoinInstance = container.GetComponentInChildren<DropCoinInstance>();
             if (dropCoinInstance == null)
             {
-                GameObject dropCoinInstanceObj = new GameObject("DropCoinInstance");
-                dropCoinInstance = dropCoinInstanceObj.AddComponent<DropCoinInstance>();
+                dropCoinInstance = container.AddComponent<DropCoinInstance>();
             }
 
             dropCoinInstance.Drop(dropPrefab, transform);

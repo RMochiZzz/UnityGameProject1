@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SceneManagement.Result
 {
-    public class ResultData : MonoBehaviour
+    public class ResultAttribute : MonoBehaviour
     {
         private float time;
         private int killCount;

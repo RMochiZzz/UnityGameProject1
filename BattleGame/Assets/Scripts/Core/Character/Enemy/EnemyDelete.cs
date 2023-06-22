@@ -1,5 +1,4 @@
 using Core.Item;
-using SceneManagement.Result;
 using UnityEngine;
 
 namespace Core.Character.Enemy
@@ -13,7 +12,6 @@ namespace Core.Character.Enemy
         private DropCoinInstance dropCoinInstance;
         private EnemyStatus enemyStatus;
         private EnemyInstanceStatus enemyInstance;
-        private ResultData resultData;
         private GameObject container;
 
         private void Start()

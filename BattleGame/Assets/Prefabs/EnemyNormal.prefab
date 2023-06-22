@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 1060483448}
   - component: {fileID: 4658879497451125798}
   - component: {fileID: -8334815634306899107}
+  - component: {fileID: 4615013065238610930}
   m_Layer: 0
   m_Name: EnemyNormal
   m_TagString: Enemy
@@ -292,8 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3330ed60c0593c47b61cd664726a36d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 575722917983610743}
-  dropPrefab: {fileID: 7119473495914958070, guid: 52c03fb17df6d52478a58a80dbfc6144, type: 3}
   ruptureDamegeTime: 1
 --- !u!114 &-8334815634306899107
 MonoBehaviour:
@@ -308,3 +307,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 575722917983610743}
+--- !u!114 &4615013065238610930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403213725694573621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78c99922140aa234da900132c7dc643b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPrefab: {fileID: 7119473495914958070, guid: 52c03fb17df6d52478a58a80dbfc6144, type: 3}

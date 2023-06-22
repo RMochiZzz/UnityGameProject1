@@ -3,22 +3,16 @@ using UnityEngine;
 
 namespace Core.Character.Enemy
 {
-    public class EnemyDelete : MonoBehaviour
+    public class EnemyDestroy : MonoBehaviour
     {
-        [SerializeField] GameObject enemyController;
-        [SerializeField] GameObject dropPrefab;
         [SerializeField] float ruptureDamegeTime ;
         private float incrementTimer;
-        private DropCoinInstance dropCoinInstance;
         private EnemyStatus enemyStatus;
-        private EnemyInstanceStatus enemyInstance;
-        private GameObject container;
 
         private void Start()
         {
             enemyStatus = GetComponent<EnemyStatus>();
-            enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceStatus>();
-            container = GameObject.Find("Scripts");
+
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -52,21 +46,6 @@ namespace Core.Character.Enemy
         private void DestroyEnemy()
         {
             Destroy(gameObject);
-            enemyInstance.InstanceCounter--;
-
-            DropItem();
-        }
-
-        private void DropItem()
-        {
-            
-            dropCoinInstance = container.GetComponentInChildren<DropCoinInstance>();
-            if (dropCoinInstance == null)
-            {
-                dropCoinInstance = container.AddComponent<DropCoinInstance>();
-            }
-
-            dropCoinInstance.Drop(dropPrefab, transform);
         }
     }
 }

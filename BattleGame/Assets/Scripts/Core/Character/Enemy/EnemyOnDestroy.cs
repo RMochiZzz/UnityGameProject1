@@ -8,37 +8,46 @@ namespace Core.Character.Enemy
     public class EnemyOnDestroy : MonoBehaviour
     {
         [SerializeField] private GameObject dropPrefab;
-        [SerializeField] private DropCoinInstance dropCoinInstance;
         private GameObject scriptContainer;
         private EnemyInstanceCounterDecrement enemyCounterDecrement;
         private EnemyInstanceDecrementHandler enemyInstanceDecrementHandler;
+        private DropCoinEventPublisher publisher;
+        private DropCoinInstance subscriber;
 
         private void Start()
         {
+
+            subscriber = FindObjectOfType<DropCoinInstance>();
+            if (subscriber == null)
+            {
+                GameObject subscriberObj = new GameObject("DropCoinInstance");
+                subscriber = subscriberObj.AddComponent<DropCoinInstance>();
+            }
+
             enemyInstanceDecrementHandler = new EnemyInstanceDecrementHandler();
             enemyCounterDecrement = new EnemyInstanceCounterDecrement();
+            publisher = new DropCoinEventPublisher();
 
-            dropCoinInstance = scriptContainer.GetComponentInChildren<DropCoinInstance>();
-            if (dropCoinInstance == null)
-            {
-                dropCoinInstance = scriptContainer.AddComponent<DropCoinInstance>();
-            }
         }
 
         private void OnDestroy()
         {
-            IncrementEnemyCounter();
+            DecrementEnemyCounter();
             CoinDrop();
         }
 
-        private void IncrementEnemyCounter()
+        private void DecrementEnemyCounter()
         {
             enemyInstanceDecrementHandler.PerformDecrement(enemyCounterDecrement);
         }
 
         private void CoinDrop()
         {
-            dropCoinInstance.Drop(dropPrefab, transform);
+            publisher.MyEvent += subscriber.HandleEvent;
+
+            publisher.PublishEvent(dropPrefab, transform.position);
+
+            publisher.MyEvent -= subscriber.HandleEvent;
         }
     }
 }

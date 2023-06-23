@@ -1,9 +1,10 @@
 using Core.Character.Enemy;
+using Interface.Interfaces;
 using UnityEngine;
 
 namespace Interface.Implementations
 {
-    public class EnemyInstanceCounterIncrement : Iincrement
+    public class EnemyInstanceCounterIncrement : IIncrement
     {
 
         private EnemyInstanceStatus enemyInstance;

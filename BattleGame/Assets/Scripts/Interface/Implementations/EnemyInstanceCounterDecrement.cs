@@ -1,5 +1,5 @@
 using Core.Character.Enemy;
-using UnityEngine;
+using Interface.Interfaces;
 
 namespace Interface.Implementations
 {

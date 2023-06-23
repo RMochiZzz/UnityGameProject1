@@ -1,4 +1,7 @@
-public interface Iincrement
+namespace Interface.Interfaces
 {
-    void Increment();
+    public interface IIncrement
+    {
+        void Increment();
+    }
 }

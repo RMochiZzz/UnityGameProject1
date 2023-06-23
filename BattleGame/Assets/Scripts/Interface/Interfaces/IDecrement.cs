@@ -1,4 +1,7 @@
-public interface IDecrement
+namespace Interface.Interfaces
 {
-    void Decrement();
+    public interface IDecrement
+    {
+        void Decrement();
+    }
 }

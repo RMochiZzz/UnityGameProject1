@@ -9,7 +9,7 @@ namespace Core.Item
         public void HandleEvent(GameObject dropPrefab, Vector3 dropPoint)
         {
 
-            Instantiate(dropPrefab, dropPoint, Quaternion.identity);
+            Instantiate(dropPrefab, dropPoint, Quaternion.identity, container.transform);
             
         }
     }

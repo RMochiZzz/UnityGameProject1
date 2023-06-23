@@ -1,51 +1,56 @@
 using Core.Item;
+using Interface.Clients;
+using Interface.Implementations;
 using UnityEngine;
 
 namespace Core.Character.Enemy
 {
     public class EnemyDestroy : MonoBehaviour
     {
-        [SerializeField] float ruptureDamegeTime ;
-        private float incrementTimer;
-        private EnemyStatus enemyStatus;
+        [SerializeField] private GameObject dropPrefab;
+        private GameObject scriptContainer;
+        private EnemyInstanceCounterDecrement enemyCounterDecrement;
+        private EnemyInstanceDecrementHandler enemyInstanceDecrementHandler;
+        private DropCoinEventPublisher publisher;
+        private DropCoinInstance subscriber;
 
-        private void Start()
+        public void Starter()
         {
-            enemyStatus = GetComponent<EnemyStatus>();
 
-        }
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (!collision.gameObject.CompareTag("Bullet")) return;
+            subscriber = FindObjectOfType<DropCoinInstance>();
+            if (subscriber == null)
+            {
+                GameObject subscriberObj = new GameObject("DropCoinInstance");
+                subscriber = subscriberObj.AddComponent<DropCoinInstance>();
+            }
 
-            enemyStatus.HitCounter++;
+            enemyInstanceDecrementHandler = new EnemyInstanceDecrementHandler();
+            enemyCounterDecrement = new EnemyInstanceCounterDecrement();
+            publisher = new DropCoinEventPublisher();
 
-            if (enemyStatus.HitCounter < enemyStatus.EnemyStamina) return;
 
             DestroyEnemy();
+
         }
-
-        private void OnTriggerStay2D(Collider2D collision)
-        {
-            if (!collision.gameObject.CompareTag("Rupture")) return;
-
-            incrementTimer += Time.deltaTime;
-
-            if (incrementTimer >= ruptureDamegeTime)
-            {
-                enemyStatus.HitCounter++;
-                incrementTimer = 0f;
-            }
-
-            if (enemyStatus.HitCounter > enemyStatus.EnemyStamina)
-            {
-                DestroyEnemy();
-            }
-        }
-
         private void DestroyEnemy()
         {
             Destroy(gameObject);
+            DecrementEnemyCounter();
+            CoinDrop();
+        }
+
+        private void DecrementEnemyCounter()
+        {
+            enemyInstanceDecrementHandler.PerformDecrement(enemyCounterDecrement);
+        }
+
+        private void CoinDrop()
+        {
+            publisher.MyEvent += subscriber.HandleEvent;
+
+            publisher.PublishEvent(dropPrefab, transform.position);
+
+            publisher.MyEvent -= subscriber.HandleEvent;
         }
     }
 }

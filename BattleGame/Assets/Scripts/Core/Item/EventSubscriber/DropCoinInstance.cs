@@ -4,8 +4,11 @@ namespace Core.Item.EventSubscriber
 {
     public class DropCoinInstance : MonoBehaviour
     {
-
-        public void HandleEvent(GameObject dropPrefab, Vector3 dropPoint)
+        public void Starter(GameObject dropPrefab, Vector3 dropPoint)
+        {
+            Drop(dropPrefab, dropPoint);
+        }
+        public void Drop(GameObject dropPrefab, Vector3 dropPoint)
         {
 
             Instantiate(dropPrefab, dropPoint, Quaternion.identity);

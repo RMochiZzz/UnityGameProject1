@@ -4,7 +4,7 @@ namespace Interface.Clients
 {
     public class EnemyInstanceIncrementHandler
     {
-        public void PerformIncrement(IIncrement iIncrement)
+        public void InstanceIncrement(IIncrement iIncrement)
         {
             iIncrement.Increment();
         }

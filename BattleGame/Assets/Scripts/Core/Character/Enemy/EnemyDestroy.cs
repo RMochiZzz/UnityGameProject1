@@ -35,13 +35,13 @@ namespace Core.Character.Enemy
         private void DestroyEnemy()
         {
             Destroy(gameObject);
-            DecrementEnemyCounter();
+            IncrementEnemyCounter();
             CoinDrop();
         }
 
-        private void DecrementEnemyCounter()
+        private void IncrementEnemyCounter()
         {
-            enemyDestroyIncrementHandler.PerformDecrement(enemyDestroyCounterIncrement);
+            enemyDestroyIncrementHandler.DestroyIncrement(enemyDestroyCounterIncrement);
         }
 
         private void CoinDrop()

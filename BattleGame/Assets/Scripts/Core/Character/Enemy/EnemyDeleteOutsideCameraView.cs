@@ -1,3 +1,6 @@
+using Interface.Clients;
+using Interface.Implementations;
+using Interface.Interfaces;
 using UnityEngine;
 
 namespace Core.Character.Enemy
@@ -7,9 +10,14 @@ namespace Core.Character.Enemy
         [SerializeField] GameObject enemyController;
         private float checkTimer = 1f;
         private EnemyInstanceStatus enemyInstance;
+        private IIncrement increment;
+        private EnemyDestroyIncrementHandler destroyIncrementHandler;
 
         private void Start()
         {
+            increment = new EnemyInstanceCounterIncrement();
+            destroyIncrementHandler = new EnemyDestroyIncrementHandler();
+
             enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceStatus>();
             InvokeRepeating(nameof(CheckCameraView), checkTimer, checkTimer);
         }
@@ -19,7 +27,7 @@ namespace Core.Character.Enemy
             if (IsInCameraView())
             {
                 Destroy(gameObject);
-                enemyInstance.InstanceCounter--;
+                CounterIncrement();
             }
         }
 
@@ -32,6 +40,11 @@ namespace Core.Character.Enemy
             if (viewPosition.x >= 1f) return true;
             if (viewPosition.x <= -1f) return true;
             return false;
+        }
+
+        private void CounterIncrement()
+        {
+            destroyIncrementHandler.DestroyIncrement(increment);
         }
     }
 }

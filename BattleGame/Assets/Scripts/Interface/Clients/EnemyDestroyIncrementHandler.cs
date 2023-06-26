@@ -4,7 +4,7 @@ namespace Interface.Clients
 {
     public class EnemyDestroyIncrementHandler
     {
-        public void PerformDecrement(IIncrement Iincrement)
+        public void DestroyIncrement(IIncrement Iincrement)
         {
             Iincrement.Increment();
         }

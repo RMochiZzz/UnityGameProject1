@@ -9,7 +9,7 @@ namespace Core.Character.Enemy
     {
         [SerializeField] GameObject enemyController;
         private float checkTimer = 1f;
-        private EnemyInstanceStatus enemyInstance;
+        private EnemyInstanceAttribute enemyInstance;
         private IIncrement increment;
         private EnemyDestroyIncrementHandler destroyIncrementHandler;
 
@@ -18,7 +18,7 @@ namespace Core.Character.Enemy
             increment = new EnemyInstanceCounterIncrement();
             destroyIncrementHandler = new EnemyDestroyIncrementHandler();
 
-            enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceStatus>();
+            enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceAttribute>();
             InvokeRepeating(nameof(CheckCameraView), checkTimer, checkTimer);
         }
 

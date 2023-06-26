@@ -3,16 +3,16 @@ using Interface.Interfaces;
 
 namespace Interface.Implementations
 {
-    public class EnemyInstanceCounterDecrement : IDecrement
+    public class EnemyInstanceCounterDecrement : IIncrement
     {
 
         private EnemyAttribute enemyAttribute;
 
-        public void Decrement()
+        public void Increment()
         {
             enemyAttribute = new EnemyAttribute();
 
-            enemyAttribute.InstanceCounter--;
+            enemyAttribute.DestroyCounter++;
         }
     }
 }

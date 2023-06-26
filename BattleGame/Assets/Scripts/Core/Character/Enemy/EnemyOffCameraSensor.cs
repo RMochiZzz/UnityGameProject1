@@ -1,6 +1,3 @@
-using Interface.Clients;
-using Interface.Implementations;
-using Interface.Interfaces;
 using UnityEngine;
 
 namespace Core.Character.Enemy
@@ -8,17 +5,20 @@ namespace Core.Character.Enemy
     public class EnemyOffCameraSensor : MonoBehaviour
     {
         [SerializeField] GameObject enemyController;
+
         private float checkTimer = 1f;
+
         private EnemyInstanceAttribute enemyInstance;
-        private IIncrement increment;
-        private EnemyDestroyIncrementHandler destroyIncrementHandler;
+        private EnemyDestroy enemyDestroy;
 
         private void Start()
         {
-            increment = new EnemyInstanceCounterIncrement();
-            destroyIncrementHandler = new EnemyDestroyIncrementHandler();
+            Reference();
+            Repeater();
+        }
 
-            enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceAttribute>();
+        private void Repeater()
+        {
             InvokeRepeating(nameof(CheckCameraView), checkTimer, checkTimer);
         }
 
@@ -26,8 +26,7 @@ namespace Core.Character.Enemy
         {
             if (IsInCameraView())
             {
-                Destroy(gameObject);
-                CounterIncrement();
+                enemyDestroy.Starter();
             }
         }
 
@@ -42,9 +41,13 @@ namespace Core.Character.Enemy
             return false;
         }
 
-        private void CounterIncrement()
+        private void Reference()
         {
-            destroyIncrementHandler.DestroyIncrement(increment);
+
+            enemyDestroy = GetComponent<EnemyDestroy>();
+
+            enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceAttribute>();
+
         }
     }
 }

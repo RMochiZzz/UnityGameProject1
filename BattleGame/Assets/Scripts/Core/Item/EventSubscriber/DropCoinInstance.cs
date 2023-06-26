@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Item.EventPublisher
+namespace Core.Item.EventSubscriber
 {
     public class DropCoinInstance : MonoBehaviour
     {

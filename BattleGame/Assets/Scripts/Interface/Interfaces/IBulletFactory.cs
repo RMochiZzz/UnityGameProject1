@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class IBulletFactory : MonoBehaviour
+namespace Interface.Interfaces
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IBulletFactory
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Instantiate();
+        void Reference();
     }
 }

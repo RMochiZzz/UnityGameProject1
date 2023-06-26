@@ -1,5 +1,5 @@
 using Core.Other;
-using Interface.Implementations;
+using Core.Character.Enemy.ValueManipulator;
 using Interface.Interfaces;
 using UnityEngine;
 

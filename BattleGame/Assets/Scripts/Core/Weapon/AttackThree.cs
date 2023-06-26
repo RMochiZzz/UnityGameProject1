@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections;
+using Interface.Interfaces;
 
 namespace Core.Weapon
 {
-    public class AttackThree : MonoBehaviour
+    public class AttackThree : MonoBehaviour, IBulletFactory
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform container;
         [SerializeField] private float fireInterval;
         [SerializeField] private float angleOfRotation;
+
         private Vector3 spawnAngle;
         private Vector3 spawnPointPosition;
         private Quaternion spawnPointRotation;
@@ -43,15 +45,12 @@ namespace Core.Weapon
 
         private void Rotation()
         {
-
-            spawnAngle = spawnPoint.rotation.eulerAngles;
             spawnAngle.z += angleOfRotation;
 
             spawnPoint.rotation = Quaternion.Euler(spawnAngle);
 
             if (spawnAngle.z != 360) return;
             spawnAngle.z = 0;
-
         }
 
         private void Init()

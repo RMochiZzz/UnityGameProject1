@@ -10,16 +10,18 @@ namespace Core.Character.Enemy.Normal
         [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
         private EnemyInstanceStatus enemyInstanceStatus;
+        private EnemyAttribute enemyAttribute;
 
         void Start()
         {
             enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
+            enemyAttribute = new EnemyAttribute();
             lastInstaceTime = Time.time;
         }
 
         void Update()
         {
-            if (enemyInstanceStatus.InstanceCounter >= enemyInstanceStatus.InstanceMax) return;
+            if (enemyAttribute.InstanceCounter >= enemyInstanceStatus.InstanceMax) return;
             if (Time.time - lastInstaceTime <= spawnInterval) return;
             
             Vector3 cameraPosition = Camera.main.transform.position;
@@ -51,7 +53,7 @@ namespace Core.Character.Enemy.Normal
             Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
 
             lastInstaceTime = Time.time;
-            enemyInstanceStatus.InstanceCounter++;
+            enemyAttribute.InstanceCounter++;
             
         }         
     }

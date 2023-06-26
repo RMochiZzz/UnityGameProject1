@@ -1,4 +1,4 @@
-using Core.Item.EventSubscriber;
+using Core.Item;
 using Interface.Clients;
 using Interface.Implementations;
 using UnityEngine;

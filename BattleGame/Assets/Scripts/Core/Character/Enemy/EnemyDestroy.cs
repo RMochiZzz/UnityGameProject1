@@ -11,7 +11,6 @@ namespace Core.Character.Enemy
         private GameObject scriptContainer;
         private EnemyDestroyIncrementHandler enemyDestroyIncrementHandler;
         private EnemyDestroyCounterIncrement enemyDestroyCounterIncrement;
-        private DropCoinEventPublisher publisher;
         private DropCoinInstance subscriber;
 
         public void Starter()
@@ -26,8 +25,6 @@ namespace Core.Character.Enemy
 
             enemyDestroyIncrementHandler = new EnemyDestroyIncrementHandler();
             enemyDestroyCounterIncrement = new EnemyDestroyCounterIncrement();
-            publisher = new DropCoinEventPublisher();
-
 
             DestroyEnemy();
 
@@ -46,11 +43,7 @@ namespace Core.Character.Enemy
 
         private void CoinDrop()
         {
-            publisher.MyEvent += subscriber.HandleEvent;
-
-            publisher.PublishEvent(dropPrefab, transform.position);
-
-            publisher.MyEvent -= subscriber.HandleEvent;
+            subscriber.Starter(dropPrefab, transform.position);
         }
     }
 }

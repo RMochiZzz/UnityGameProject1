@@ -1,4 +1,3 @@
-using Core.Item;
 using UnityEngine;
 
 namespace Core.Character.Enemy
@@ -6,16 +5,16 @@ namespace Core.Character.Enemy
     public class EnemyDamage : MonoBehaviour
     {
         [SerializeField] float ruptureDamegeTime ;
+
         private float incrementTimer;
         private int hitCounter;
+
         private EnemyStatus enemyStatus;
         private EnemyDestroy enemyDestroy;
 
         private void Start()
         {
-            enemyStatus = GetComponent<EnemyStatus>();
-            enemyDestroy = GetComponent<EnemyDestroy>();
-
+            Reference();
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -46,6 +45,10 @@ namespace Core.Character.Enemy
             }
         }
 
-        
+        private void Reference()
+        {
+            enemyStatus = GetComponent<EnemyStatus>();
+            enemyDestroy = GetComponent<EnemyDestroy>();
+        }
     }
 }

@@ -13,8 +13,9 @@ namespace Core.Character.Enemy
         public Transform Container { get => container; set => container = value; }
         public int InstanceMax { get => instanceMax; set => instanceMax = value; }
         public int InstanceCounter { get => instanceCounter; set => instanceCounter = value; }
-        public int DropCoinInstanceCounter { get => dropCoinInstanceCounter; set => dropCoinInstanceCounter = value; }
         public int DestroyCounter { get => destroyCounter; set => destroyCounter = value; }
+        public int DropCoinInstanceCounter { get => dropCoinInstanceCounter; set => dropCoinInstanceCounter = value; }
+
 
     }
 }

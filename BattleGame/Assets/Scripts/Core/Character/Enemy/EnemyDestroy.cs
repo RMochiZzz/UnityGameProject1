@@ -9,8 +9,8 @@ namespace Core.Character.Enemy
     {
         [SerializeField] private GameObject dropPrefab;
         private GameObject scriptContainer;
-        private EnemyInstanceCounterDecrement enemyCounterDecrement;
-        private EnemyInstanceDecrementHandler enemyInstanceDecrementHandler;
+        private EnemyDestroyIncrementHandler enemyDestroyIncrementHandler;
+        private EnemyDestroyCounterIncrement enemyDestroyCounterIncrement;
         private DropCoinEventPublisher publisher;
         private DropCoinInstance subscriber;
 
@@ -24,8 +24,8 @@ namespace Core.Character.Enemy
                 subscriber = subscriberObj.AddComponent<DropCoinInstance>();
             }
 
-            enemyInstanceDecrementHandler = new EnemyInstanceDecrementHandler();
-            enemyCounterDecrement = new EnemyInstanceCounterDecrement();
+            enemyDestroyIncrementHandler = new EnemyDestroyIncrementHandler();
+            enemyDestroyCounterIncrement = new EnemyDestroyCounterIncrement();
             publisher = new DropCoinEventPublisher();
 
 
@@ -41,7 +41,7 @@ namespace Core.Character.Enemy
 
         private void DecrementEnemyCounter()
         {
-            enemyInstanceDecrementHandler.PerformDecrement(enemyCounterDecrement);
+            enemyDestroyIncrementHandler.PerformDecrement(enemyDestroyCounterIncrement);
         }
 
         private void CoinDrop()

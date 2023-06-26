@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraAttribute : MonoBehaviour
+namespace Core.Other 
 {
-    // Start is called before the first frame update
-    void Start()
+    public static class CameraAttribute
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static float cameraHeight = 2f * Camera.main.orthographicSize;
+        public static float cameraWidth = cameraHeight * Camera.main.aspect;
     }
 }

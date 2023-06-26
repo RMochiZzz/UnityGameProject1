@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Character.Enemy
 {
-    public class EnemyInstanceStatus : MonoBehaviour
+    public class EnemyInstanceAttribute : MonoBehaviour
     {
         [SerializeField] private Transform container;
         [SerializeField] private int instanceMax;

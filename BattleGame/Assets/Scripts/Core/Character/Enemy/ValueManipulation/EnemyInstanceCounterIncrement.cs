@@ -1,4 +1,3 @@
-using Core.Character.Enemy;
 using Interface.Interfaces;
 
 namespace Core.Character.Enemy.ValueManipulator

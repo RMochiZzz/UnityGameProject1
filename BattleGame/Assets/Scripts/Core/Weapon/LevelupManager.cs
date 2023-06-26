@@ -47,9 +47,9 @@ namespace Core.Weapon
 
         private void Reference()
         { 
-            attackOne = new AttackOne();
-            attackTwo = new AttackTwo();
-            attackThree = new AttackThree();
+            attackOne = GetComponent<AttackOne>();
+            attackTwo = GetComponent<AttackTwo>();
+            attackThree = GetComponent<AttackThree>();
         }
     }
 }

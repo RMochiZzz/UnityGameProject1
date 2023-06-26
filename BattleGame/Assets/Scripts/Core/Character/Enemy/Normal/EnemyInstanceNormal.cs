@@ -1,3 +1,4 @@
+using Core.Other;
 using Interface.Clients;
 using Interface.Implementations;
 using Interface.Interfaces;
@@ -14,8 +15,6 @@ namespace Core.Character.Enemy.Normal
 
         private float lastInstaceTime;
         private Vector3 cameraPosition;
-        private float cameraHeight;
-        private float cameraWidth;
         private Vector3 spawnPosition;
 
         private EnemyInstanceAttribute enemyInstance;
@@ -40,24 +39,26 @@ namespace Core.Character.Enemy.Normal
 
         private void GetPosition()
         {
+            cameraPosition = Camera.main.transform.position;
+
             float spawnX;
             if (Random.value < 0.5f)
             {
-                spawnX = Random.Range(cameraPosition.x - cameraWidth / 2f - spawnPointOffsetX, cameraPosition.x - cameraWidth / 2f);
+                spawnX = Random.Range(cameraPosition.x - CameraAttribute.cameraWidth / 2f - spawnPointOffsetX, cameraPosition.x - CameraAttribute.cameraWidth / 2f);
             }
             else
             {
-                spawnX = Random.Range(cameraPosition.x + cameraWidth / 2f + spawnPointOffsetX, cameraPosition.x + cameraWidth / 2f);
+                spawnX = Random.Range(cameraPosition.x + CameraAttribute.cameraWidth / 2f + spawnPointOffsetX, cameraPosition.x + CameraAttribute.cameraWidth / 2f);
             }
 
             float spawnY;
             if (Random.value < 0.5f)
             {
-                spawnY = Random.Range(cameraPosition.y - cameraHeight / 2f - spawnPointOffsetY, cameraPosition.y - cameraHeight / 2f);
+                spawnY = Random.Range(cameraPosition.y - CameraAttribute.cameraHeight / 2f - spawnPointOffsetY, cameraPosition.y - CameraAttribute.cameraHeight / 2f);
             }
             else
             {
-                spawnY = Random.Range(cameraPosition.y + cameraHeight / 2f + spawnPointOffsetY, cameraPosition.y + cameraHeight / 2f);
+                spawnY = Random.Range(cameraPosition.y + CameraAttribute.cameraHeight / 2f + spawnPointOffsetY, cameraPosition.y + CameraAttribute.cameraHeight / 2f);
             }
 
             spawnPosition = new Vector3(spawnX, spawnY, 0f);
@@ -76,10 +77,6 @@ namespace Core.Character.Enemy.Normal
         private void Init()
         {
             lastInstaceTime = Time.time;
-
-            cameraPosition = Camera.main.transform.position;
-            cameraHeight = 2f * Camera.main.orthographicSize;
-            cameraWidth = cameraHeight * Camera.main.aspect;
         }
 
         public void Reference()

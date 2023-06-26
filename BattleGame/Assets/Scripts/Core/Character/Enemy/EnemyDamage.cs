@@ -7,6 +7,7 @@ namespace Core.Character.Enemy
     {
         [SerializeField] float ruptureDamegeTime ;
         private float incrementTimer;
+        private int hitCounter;
         private EnemyStatus enemyStatus;
         private EnemyDestroy enemyDestroy;
 
@@ -20,9 +21,9 @@ namespace Core.Character.Enemy
         {
             if (!collision.gameObject.CompareTag("Bullet")) return;
 
-            enemyStatus.HitCounter++;
+            hitCounter++;
 
-            if (enemyStatus.HitCounter < enemyStatus.EnemyStamina) return;
+            if (hitCounter < enemyStatus.EnemyStamina) return;
 
             enemyDestroy.Starter();
         }
@@ -35,11 +36,11 @@ namespace Core.Character.Enemy
 
             if (incrementTimer >= ruptureDamegeTime)
             {
-                enemyStatus.HitCounter++;
+                hitCounter++;
                 incrementTimer = 0f;
             }
 
-            if (enemyStatus.HitCounter > enemyStatus.EnemyStamina)
+            if (hitCounter > enemyStatus.EnemyStamina)
             {
                 enemyDestroy.Starter();
             }

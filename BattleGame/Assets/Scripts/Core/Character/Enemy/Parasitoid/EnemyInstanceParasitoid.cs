@@ -1,4 +1,3 @@
-using Interface.Clients;
 using Interface.Implementations;
 using Interface.Interfaces;
 using UnityEngine;
@@ -19,8 +18,8 @@ namespace Core.Character.Enemy.Parasitoid
 
         private EnemyRupture enemyRupture;
         private EnemyInstanceAttribute enemyInstance;
-        private IIncrement increment;
-        private EnemyInstanceIncrementHandler instanceIncrementHandler;
+        private IIncrement enemyDestroyCounterIncrement;
+
 
         private void Start()
         {
@@ -68,7 +67,7 @@ namespace Core.Character.Enemy.Parasitoid
 
         public void CounterIncrement()
         {
-            instanceIncrementHandler.InstanceIncrement(increment);
+            enemyDestroyCounterIncrement.Increment();
         }
 
         private void Init()
@@ -78,8 +77,8 @@ namespace Core.Character.Enemy.Parasitoid
 
         public void Reference()
         {
-            increment = new EnemyInstanceCounterIncrement();
-            instanceIncrementHandler = new EnemyInstanceIncrementHandler();
+            enemyDestroyCounterIncrement = new EnemyInstanceCounterIncrement();
+            
 
             enemyInstance = GetComponent<EnemyInstanceAttribute>();
 

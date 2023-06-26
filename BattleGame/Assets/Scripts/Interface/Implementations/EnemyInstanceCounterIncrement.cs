@@ -1,19 +1,17 @@
 using Core.Character.Enemy;
 using Interface.Interfaces;
-using UnityEngine;
 
 namespace Interface.Implementations
 {
     public class EnemyInstanceCounterIncrement : IIncrement
     {
 
-        private EnemyInstanceStatus enemyInstance;
+        private EnemyAttribute enemyAttribute;
 
         public void Increment()
         {
-            enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceStatus>();
-
-            enemyInstance.InstanceCounter++;
+            enemyAttribute = new EnemyAttribute();
+            enemyAttribute.InstanceCounter++;
         }
     }
 }

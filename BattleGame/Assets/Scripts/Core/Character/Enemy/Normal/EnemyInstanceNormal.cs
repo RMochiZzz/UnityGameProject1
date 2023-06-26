@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core.Character.Enemy.Normal
 {
-    public class EnemyInstanceNormal : MonoBehaviour, IEnemy
+    public class EnemyInstanceNormal : MonoBehaviour, IEnemyFactory
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private float spawnPointOffsetX;

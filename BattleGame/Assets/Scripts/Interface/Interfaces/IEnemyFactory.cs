@@ -1,6 +1,6 @@
 namespace Interface.Interfaces
 {
-    public interface IEnemy
+    public interface IEnemyFactory
     {
         void Reference();
         void CounterIncrement();

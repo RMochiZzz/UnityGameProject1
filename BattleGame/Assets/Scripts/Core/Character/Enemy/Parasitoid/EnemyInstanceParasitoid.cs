@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core.Character.Enemy.Parasitoid
 {
-    public class EnemyInstanceParasitoid : MonoBehaviour, IEnemy
+    public class EnemyInstanceParasitoid : MonoBehaviour, IEnemyFactory
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private GameObject rupturePrefab;

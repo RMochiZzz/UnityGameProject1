@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core.Character.Enemy.GroupRush
 {
-    public class EnemyInstanceGroupRush : MonoBehaviour
+    public class EnemyInstanceGroupRush : MonoBehaviour, IEnemyFactory
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private float spawnPointOffsetX;

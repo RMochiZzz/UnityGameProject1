@@ -5,35 +5,41 @@ using UnityEngine;
 
 namespace Core.Character.Enemy.Normal
 {
-    public class EnemyInstanceNormal : MonoBehaviour
+    public class EnemyInstanceNormal : MonoBehaviour, IEnemy
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private float spawnPointOffsetX;
         [SerializeField] private float spawnPointOffsetY;
         [SerializeField] private float spawnInterval;
+
         private float lastInstaceTime;
+        private Vector3 cameraPosition;
+        private float cameraHeight;
+        private float cameraWidth;
+        private Vector3 spawnPosition;
+
         private EnemyInstanceAttribute enemyInstance;
         private IIncrement increment;
         private EnemyInstanceIncrementHandler instanceIncrementHandler;
 
+
         void Start()
         {
-            increment = new EnemyInstanceCounterIncrement();
-            instanceIncrementHandler = new EnemyInstanceIncrementHandler();
-
-            enemyInstance = GetComponent<EnemyInstanceAttribute>();
-
-            lastInstaceTime = Time.time;
+            Init();
+            Reference();
         }
 
         void Update()
         {
             if (Time.time - lastInstaceTime <= spawnInterval) return;
-            
-            Vector3 cameraPosition = Camera.main.transform.position;
-            float cameraHeight = 2f * Camera.main.orthographicSize;
-            float cameraWidth = cameraHeight * Camera.main.aspect;
+            GetPosition();
+            Instantiate();
+            CounterIncrement();
+            Init();
+        }
 
+        private void GetPosition()
+        {
             float spawnX;
             if (Random.value < 0.5f)
             {
@@ -54,18 +60,34 @@ namespace Core.Character.Enemy.Normal
                 spawnY = Random.Range(cameraPosition.y + cameraHeight / 2f + spawnPointOffsetY, cameraPosition.y + cameraHeight / 2f);
             }
 
-            Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
-
-            Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
-
-            CounterIncrement();
-
-            lastInstaceTime = Time.time; 
+            spawnPosition = new Vector3(spawnX, spawnY, 0f);
         }
 
-        private void CounterIncrement()
+        private void Instantiate()
+        {
+            Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
+        }
+
+        public void CounterIncrement()
         {
             instanceIncrementHandler.InstanceIncrement(increment);
+        }
+
+        private void Init()
+        {
+            lastInstaceTime = Time.time;
+
+            cameraPosition = Camera.main.transform.position;
+            cameraHeight = 2f * Camera.main.orthographicSize;
+            cameraWidth = cameraHeight * Camera.main.aspect;
+        }
+
+        public void Reference()
+        {
+            increment = new EnemyInstanceCounterIncrement();
+            instanceIncrementHandler = new EnemyInstanceIncrementHandler();
+
+            enemyInstance = GetComponent<EnemyInstanceAttribute>();
         }
     }
 }

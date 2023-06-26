@@ -8,11 +8,11 @@ namespace Core.Weapon
         [SerializeField] private int levelTwoNum;
         [SerializeField] private int levelThreeNum;
 
-        private int coinsNum;
-
         private IBulletFactory attackOne;
         private IBulletFactory attackTwo;
         private IBulletFactory attackThree;
+
+        private int coinsNum;
 
         public int CoinsNum
         {

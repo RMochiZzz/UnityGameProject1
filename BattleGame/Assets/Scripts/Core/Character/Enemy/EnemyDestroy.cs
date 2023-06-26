@@ -1,6 +1,6 @@
 using Core.Item;
-using Interface.Clients;
 using Interface.Implementations;
+using Interface.Interfaces;
 using UnityEngine;
 
 namespace Core.Character.Enemy
@@ -9,8 +9,7 @@ namespace Core.Character.Enemy
     {
         [SerializeField] private GameObject dropPrefab;
         private GameObject scriptContainer;
-        private EnemyDestroyIncrementHandler enemyDestroyIncrementHandler;
-        private EnemyDestroyCounterIncrement enemyDestroyCounterIncrement;
+        private IIncrement enemyDestroyCounterIncrement;
         private DropCoinInstance dropCoinInstance;
 
         public void Starter()
@@ -32,7 +31,7 @@ namespace Core.Character.Enemy
 
         private void IncrementEnemyCounter()
         {
-            enemyDestroyIncrementHandler.DestroyIncrement(enemyDestroyCounterIncrement);
+            enemyDestroyCounterIncrement.Increment();
         }
 
         private void CoinDrop()
@@ -49,7 +48,6 @@ namespace Core.Character.Enemy
                 dropCoinInstance = subscriberObj.AddComponent<DropCoinInstance>();
             }
 
-            enemyDestroyIncrementHandler = new EnemyDestroyIncrementHandler();
             enemyDestroyCounterIncrement = new EnemyDestroyCounterIncrement();
         }
     }

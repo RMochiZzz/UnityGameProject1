@@ -22,13 +22,13 @@ namespace Core.Character.Enemy.Normal
         private EnemyInstanceIncrementHandler instanceIncrementHandler;
 
 
-        void Start()
+        private void Start()
         {
             Init();
             Reference();
         }
 
-        void Update()
+        private void Update()
         {
             if (Time.time - lastInstaceTime <= spawnInterval) return;
             GetPosition();
@@ -64,7 +64,7 @@ namespace Core.Character.Enemy.Normal
             spawnPosition = new Vector3(spawnX, spawnY, 0f);
         }
 
-        private void Instantiate()
+        public void Instantiate()
         {
             Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
         }

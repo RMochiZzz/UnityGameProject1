@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Character.Enemy
+namespace Core.Character.Enemy.Battle
 {
     public class EnemyDamage : MonoBehaviour
     {

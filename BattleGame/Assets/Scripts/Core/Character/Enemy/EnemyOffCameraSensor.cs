@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Core.Character.Enemy
 {
-    public class EnemyDeleteOutsideCameraView : MonoBehaviour
+    public class EnemyOffCameraSensor : MonoBehaviour
     {
         [SerializeField] GameObject enemyController;
         private float checkTimer = 1f;

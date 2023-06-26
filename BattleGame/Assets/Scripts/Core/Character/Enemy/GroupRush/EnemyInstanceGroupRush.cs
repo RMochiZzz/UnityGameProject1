@@ -14,7 +14,7 @@ namespace Core.Character.Enemy.GroupRush
         [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
         private float spawnDistance = 5f;
-        private EnemyInstanceStatus enemyInstanceStatus;
+        private EnemyInstanceAttribute enemyInstance;
         private IIncrement increment;
         private EnemyInstanceIncrementHandler instanceIncrementHandler;
 
@@ -23,7 +23,7 @@ namespace Core.Character.Enemy.GroupRush
             increment = new EnemyInstanceCounterIncrement();
             instanceIncrementHandler = new EnemyInstanceIncrementHandler();
 
-            enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
+            enemyInstance = GetComponent<EnemyInstanceAttribute>();
             lastInstaceTime = Time.time;
         }
 
@@ -58,14 +58,14 @@ namespace Core.Character.Enemy.GroupRush
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
-            GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
+            GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
             CounterIncrement();
 
             for (int i = 0; i <= instanceNum; i++)
             {
                 spawnPosition = obj.transform.position + Random.insideUnitSphere * spawnDistance;
 
-                Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
+                Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
 
                 CounterIncrement();
             }

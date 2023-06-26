@@ -15,10 +15,12 @@ namespace Core.Character.Enemy.Parasitoid
         private GameObject[] existingEnemys;
         private EnemyRupture enemyRupture;
         private EnemyInstanceStatus enemyInstanceStatus;
+        private EnemyAttribute enemyAttribute; 
 
         private void Start()
         {
             enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
+            enemyAttribute = new EnemyAttribute();
 
             lastInstaceTime = Time.time;
 
@@ -46,7 +48,7 @@ namespace Core.Character.Enemy.Parasitoid
 
                 Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
 
-                enemyInstanceStatus.InstanceCounter++;
+                enemyAttribute.InstanceCounter++;
             }
 
             enemyRupture.Rupture(rupturePrefab, randomEnemy, enemyInstanceStatus.Container);

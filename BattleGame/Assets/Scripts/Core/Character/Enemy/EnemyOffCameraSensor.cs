@@ -9,7 +9,7 @@ namespace Core.Character.Enemy
         private float checkTimer = 1f;
 
         private EnemyInstanceAttribute enemyInstance;
-        private EnemyDestroy enemyDestroy;
+        private EnemyDestroyOffCamera enemyDestroyOffCamera;
 
         private void Start()
         {
@@ -26,7 +26,7 @@ namespace Core.Character.Enemy
         {
             if (IsInCameraView())
             {
-                enemyDestroy.Starter();
+                enemyDestroyOffCamera.Starter();
             }
         }
 
@@ -44,7 +44,7 @@ namespace Core.Character.Enemy
         private void Reference()
         {
 
-            enemyDestroy = GetComponent<EnemyDestroy>();
+            enemyDestroyOffCamera = GetComponent<EnemyDestroyOffCamera>();
 
             enemyInstance = GameObject.Find("EnemyManager").GetComponent<EnemyInstanceAttribute>();
 

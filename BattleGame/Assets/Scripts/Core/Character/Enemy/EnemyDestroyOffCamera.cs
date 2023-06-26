@@ -1,3 +1,4 @@
+using Interface.Implementations;
 using Interface.Interfaces;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ namespace Core.Character.Enemy
 
         private void Reference()
         {
-            enemyDestroyCounterIncrement = new EnemyDestroyIncrementHandler();
+            enemyDestroyCounterIncrement = new EnemyDestroyCounterIncrement();
         }
     }
 }

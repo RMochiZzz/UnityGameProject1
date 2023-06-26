@@ -12,10 +12,12 @@ namespace Core.Character.Enemy.GroupRush
         private float lastInstaceTime;
         private float spawnDistance = 5f;
         private EnemyInstanceStatus enemyInstanceStatus;
+        private EnemyAttribute enemyAttribute;
 
         void Start()
         {
             enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
+            enemyAttribute = new EnemyAttribute();
             lastInstaceTime = Time.time;
         }
 
@@ -51,7 +53,7 @@ namespace Core.Character.Enemy.GroupRush
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
             GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
-            enemyInstanceStatus.InstanceCounter++;
+            enemyAttribute.InstanceCounter++;
 
             for (int i = 0; i <= instanceNum; i++)
             {
@@ -59,7 +61,7 @@ namespace Core.Character.Enemy.GroupRush
 
                 Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
 
-                enemyInstanceStatus.InstanceCounter++;
+                enemyAttribute.InstanceCounter++;
             }
 
             lastInstaceTime = Time.time;

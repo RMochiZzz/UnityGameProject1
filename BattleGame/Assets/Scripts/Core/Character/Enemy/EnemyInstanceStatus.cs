@@ -6,7 +6,6 @@ namespace Core.Character.Enemy
     {
         [SerializeField] private Transform container;
         [SerializeField] private int instanceMax;
-        private int instanceCounter;
         private int dropCoinInstanceCounter;
 
         public Transform Container { get => container; set => container = value; }

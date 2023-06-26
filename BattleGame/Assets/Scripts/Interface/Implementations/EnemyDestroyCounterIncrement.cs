@@ -3,7 +3,7 @@ using Interface.Interfaces;
 
 namespace Interface.Implementations
 {
-    public class EnemyInstanceCounterDecrement : IIncrement
+    public class EnemyDestroyCounterIncrement : IIncrement
     {
 
         private EnemyAttribute enemyAttribute;

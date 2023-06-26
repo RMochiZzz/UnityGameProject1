@@ -6,7 +6,7 @@ namespace Interface.Clients
     {
         public void PerformDecrement(IIncrement Iincrement)
         {
-            Iincrement.increment();
+            Iincrement.Increment();
         }
     }
 }

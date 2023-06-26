@@ -48,7 +48,7 @@ namespace Core.Character.Enemy.Parasitoid
             randomEnemy = existingEnemys[Random.Range(0, existingEnemys.Length)];
         }
 
-        private void Instantiate()
+        public void Instantiate()
         {
 
             for (int i = 0; i < instanceNum; i++)

@@ -1,8 +1,10 @@
 namespace Interface.Interfaces
 {
     public interface IBulletFactory
-    {      
-        void starter();
+    {
+
+        bool Execution { get; set; }
+        void Starter();
 
     }
 }

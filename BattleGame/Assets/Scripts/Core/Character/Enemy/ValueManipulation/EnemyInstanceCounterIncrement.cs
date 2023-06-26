@@ -1,7 +1,7 @@
 using Core.Character.Enemy;
 using Interface.Interfaces;
 
-namespace Interface.Implementations
+namespace Core.Character.Enemy.ValueManipulator
 {
     public class EnemyInstanceCounterIncrement : IIncrement
     {

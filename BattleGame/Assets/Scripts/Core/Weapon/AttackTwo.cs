@@ -1,14 +1,16 @@
 using UnityEngine;
 using System.Collections;
+using Interface.Interfaces;
 
 namespace Core.Weapon
 {
-    public class AttackTwo : MonoBehaviour
+    public class AttackTwo : MonoBehaviour, IBulletFactory
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform container;
         [SerializeField] private float fireInterval;
+
         private Vector3 spawnAngle;
         private Vector3 spawnPointPosition;
         private Quaternion spawnPointRotation;

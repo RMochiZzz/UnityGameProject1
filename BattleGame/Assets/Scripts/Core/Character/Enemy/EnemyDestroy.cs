@@ -11,16 +11,16 @@ namespace Core.Character.Enemy
         private GameObject scriptContainer;
         private EnemyDestroyIncrementHandler enemyDestroyIncrementHandler;
         private EnemyDestroyCounterIncrement enemyDestroyCounterIncrement;
-        private DropCoinInstance subscriber;
+        private DropCoinInstance dropCoinInstance;
 
         public void Starter()
         {
 
-            subscriber = FindObjectOfType<DropCoinInstance>();
-            if (subscriber == null)
+            dropCoinInstance = FindObjectOfType<DropCoinInstance>();
+            if (dropCoinInstance == null)
             {
                 GameObject subscriberObj = new GameObject("DropCoinInstance");
-                subscriber = subscriberObj.AddComponent<DropCoinInstance>();
+                dropCoinInstance = subscriberObj.AddComponent<DropCoinInstance>();
             }
 
             enemyDestroyIncrementHandler = new EnemyDestroyIncrementHandler();
@@ -43,7 +43,7 @@ namespace Core.Character.Enemy
 
         private void CoinDrop()
         {
-            subscriber.Starter(dropPrefab, transform.position);
+            dropCoinInstance.Starter(dropPrefab, transform.position);
         }
     }
 }

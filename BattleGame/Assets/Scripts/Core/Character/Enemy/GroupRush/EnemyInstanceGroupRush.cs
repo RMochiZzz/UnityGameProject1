@@ -12,30 +12,36 @@ namespace Core.Character.Enemy.GroupRush
         [SerializeField] private float spawnPointOffsetY;
         [SerializeField] private int instanceNum;
         [SerializeField] private float spawnInterval;
+
         private float lastInstaceTime;
         private float spawnDistance = 5f;
+        private Vector3 cameraPosition;
+        private float cameraHeight;
+        private float cameraWidth;
+        private Vector3 spawnPosition;
+
         private EnemyInstanceAttribute enemyInstance;
         private IIncrement increment;
         private EnemyInstanceIncrementHandler instanceIncrementHandler;
 
+
         void Start()
         {
-            increment = new EnemyInstanceCounterIncrement();
-            instanceIncrementHandler = new EnemyInstanceIncrementHandler();
-
-            enemyInstance = GetComponent<EnemyInstanceAttribute>();
-            lastInstaceTime = Time.time;
+            Init();
+            Reference();
         }
 
         void Update()
         {
             if (Time.time - lastInstaceTime <= spawnInterval) return;
-            
-            Vector3 cameraPosition = Camera.main.transform.position;
-            float cameraHeight = 2f * Camera.main.orthographicSize;
-            float cameraWidth = cameraHeight * Camera.main.aspect;
-            
+            GetPosition();
+            Instantiate();
+            CounterIncrement();
+            Init();
+        }
 
+        private void GetPosition()
+        {
             float spawnX;
             if (Random.value < 0.5f)
             {
@@ -56,8 +62,11 @@ namespace Core.Character.Enemy.GroupRush
                 spawnY = Random.Range(cameraPosition.y + cameraHeight / 2f + spawnPointOffsetX, cameraPosition.y + cameraHeight / 2f);
             }
 
-            Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
+            spawnPosition = new Vector3(spawnX, spawnY, 0f);
+        }
 
+        private void Instantiate()
+        {
             GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
             CounterIncrement();
 
@@ -69,14 +78,28 @@ namespace Core.Character.Enemy.GroupRush
 
                 CounterIncrement();
             }
-
-            lastInstaceTime = Time.time;
- 
         }
 
-        private void CounterIncrement()
+        public void CounterIncrement()
         {
             instanceIncrementHandler.InstanceIncrement(increment);
+        }
+
+        public void Init()
+        {
+            lastInstaceTime = Time.time;
+
+            cameraPosition = Camera.main.transform.position;
+            cameraHeight = 2f * Camera.main.orthographicSize;
+            cameraWidth = cameraHeight * Camera.main.aspect;
+        }
+
+        public void Reference()
+        {
+            increment = new EnemyInstanceCounterIncrement();
+            instanceIncrementHandler = new EnemyInstanceIncrementHandler();
+
+            enemyInstance = GetComponent<EnemyInstanceAttribute>();
         }
     }
 }

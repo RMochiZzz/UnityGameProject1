@@ -8,8 +8,15 @@ namespace Core.Character.Player
 
         void Start () 
         {
-            playerAttribute = GetComponent<PlayerAttribute>();
+            Reference();
         }
+
+        private void Reference()
+        {
+            playerAttribute = GetComponent<PlayerAttribute>();
+
+        }
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (playerAttribute.PlayerStamina == 0 ||

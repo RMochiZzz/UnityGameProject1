@@ -3,7 +3,7 @@ using Interface.Implementations;
 using Interface.Interfaces;
 using UnityEngine;
 
-namespace Core.Character.Enemy
+namespace Core.Character.Enemy.Battle
 {
     public class EnemyDestroy : MonoBehaviour
     {

@@ -12,7 +12,7 @@ namespace Core.Character.Enemy.Normal
         [SerializeField] private float spawnPointOffsetY;
         [SerializeField] private float spawnInterval;
         private float lastInstaceTime;
-        private EnemyInstanceStatus enemyInstanceStatus;
+        private EnemyInstanceAttribute enemyInstance;
         private IIncrement increment;
         private EnemyInstanceIncrementHandler instanceIncrementHandler;
 
@@ -21,7 +21,7 @@ namespace Core.Character.Enemy.Normal
             increment = new EnemyInstanceCounterIncrement();
             instanceIncrementHandler = new EnemyInstanceIncrementHandler();
 
-            enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
+            enemyInstance = GetComponent<EnemyInstanceAttribute>();
 
             lastInstaceTime = Time.time;
         }
@@ -56,7 +56,7 @@ namespace Core.Character.Enemy.Normal
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0f);
 
-            Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
+            Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
 
             CounterIncrement();
 

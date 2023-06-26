@@ -14,8 +14,9 @@ namespace Core.Character.Enemy.Parasitoid
 
         private float lastInstaceTime;
         private float spawnOffset = 5f;
-
+        private GameObject randomEnemy;
         private GameObject[] existingEnemys;
+
         private EnemyRupture enemyRupture;
         private EnemyInstanceAttribute enemyInstance;
         private IIncrement increment;
@@ -31,19 +32,24 @@ namespace Core.Character.Enemy.Parasitoid
 
         private void Update()
         {
+            if (Time.time - lastInstaceTime <= spawnInterval) return;
+            GetPositon();
             Instantiate();
             Init();
         }
 
-        private void Instantiate()
+        private void GetPositon()
         {
-            if (Time.time - lastInstaceTime <= spawnInterval) return;
-
             existingEnemys = GameObject.FindGameObjectsWithTag("Enemy");
 
             if (existingEnemys == null) return;
             if (existingEnemys.Length == 0) return;
-            GameObject randomEnemy = existingEnemys[Random.Range(0, existingEnemys.Length)];
+
+            randomEnemy = existingEnemys[Random.Range(0, existingEnemys.Length)];
+        }
+
+        private void Instantiate()
+        {
 
             for (int i = 0; i < instanceNum; i++)
             {
@@ -67,7 +73,6 @@ namespace Core.Character.Enemy.Parasitoid
 
         private void Init()
         {
-
             lastInstaceTime = Time.time;
         }
 

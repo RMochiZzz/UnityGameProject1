@@ -22,7 +22,7 @@ namespace Core.Weapon
         public bool Execution
         { get { return execution; } set { execution = value; } }
 
-        public void starter()
+        public void Starter()
         {
             RotationInit();
             execution = true;

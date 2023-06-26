@@ -1,3 +1,4 @@
+using Interface.Interfaces;
 using UnityEngine;
 
 namespace Core.Weapon
@@ -6,10 +7,13 @@ namespace Core.Weapon
     {
         [SerializeField] private int levelTwoNum;
         [SerializeField] private int levelThreeNum;
-        private AttackOne attackOne;
-        private AttackTwo attackTwo;
-        private AttackThree attackThree;
+
         private int coinsNum;
+
+        private IBulletFactory attackOne;
+        private IBulletFactory attackTwo;
+        private IBulletFactory attackThree;
+
         public int CoinsNum
         {
             get { return coinsNum; }
@@ -19,45 +23,33 @@ namespace Core.Weapon
 
                 if (coinsNum == 0)
                 {
-                    attackOne.starter();
+                    attackOne.Starter();
                 }
                 
                 if (coinsNum == levelTwoNum)
                 {
                     attackOne.Execution = false;
-                    attackTwo.starter();
+                    attackTwo.Starter();
                 }
                 
                 if (coinsNum == levelThreeNum)
                 {
                     attackTwo.Execution = false;
-                    attackThree.starter();
+                    attackThree.Starter();
                 }
             }
         }
 
         private void Start()
         {
-            attackOne = FindObjectOfType<AttackOne>();
-            if (attackOne == null)
-            {
-                GameObject attackOneObj = new GameObject("AttackOne");
-                attackOne = attackOneObj.AddComponent<AttackOne>();
-            }
+            Reference();
+        }
 
-            attackTwo = FindObjectOfType<AttackTwo>();
-            if (attackTwo == null)
-            {
-                GameObject attackTwoObj = new GameObject("AttackTwo");
-                attackTwo = attackTwoObj.AddComponent<AttackTwo>();
-            }
-
-            attackThree = FindObjectOfType<AttackThree>();
-            if (attackThree == null)
-            {
-                GameObject attackThreeObj = new GameObject("AttackThree");
-                attackThree = attackThreeObj.AddComponent<AttackThree>();
-            }
+        private void Reference()
+        { 
+            attackOne = new AttackOne();
+            attackTwo = new AttackTwo();
+            attackThree = new AttackThree();
         }
     }
 }

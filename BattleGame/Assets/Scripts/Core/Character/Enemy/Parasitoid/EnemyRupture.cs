@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Core.Character.Enemy
+namespace Core.Character.Enemy.Parasitoid
 {
     public class EnemyRupture : MonoBehaviour
     {

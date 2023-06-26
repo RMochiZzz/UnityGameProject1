@@ -1,13 +1,11 @@
-using Interface.Clients;
-using Interface.Implementations;
+using Interface.Interfaces;
 using UnityEngine;
 
 namespace Core.Character.Enemy
 {
     public class EnemyDestroyOffCamera : MonoBehaviour
     {
-        private EnemyDestroyIncrementHandler enemyDestroyIncrementHandler;
-        private EnemyDestroyCounterIncrement enemyDestroyCounterIncrement;
+        private IIncrement enemyDestroyCounterIncrement;
 
         public void Starter()
         {
@@ -27,13 +25,12 @@ namespace Core.Character.Enemy
 
         private void IncrementEnemyCounter()
         {
-            enemyDestroyIncrementHandler.DestroyIncrement(enemyDestroyCounterIncrement);
+            enemyDestroyCounterIncrement.Increment();
         }
 
         private void Reference()
         {
-            enemyDestroyIncrementHandler = new EnemyDestroyIncrementHandler();
-            enemyDestroyCounterIncrement = new EnemyDestroyCounterIncrement();
+            enemyDestroyCounterIncrement = new EnemyDestroyIncrementHandler();
         }
     }
 }

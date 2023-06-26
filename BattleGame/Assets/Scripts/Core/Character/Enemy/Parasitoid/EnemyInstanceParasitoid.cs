@@ -1,5 +1,8 @@
 using Core.Character.Enemy.GroupRush;
 using Core.Item;
+using Interface.Clients;
+using Interface.Implementations;
+using Interface.Interfaces;
 using UnityEngine;
 
 namespace Core.Character.Enemy.Parasitoid
@@ -15,12 +18,15 @@ namespace Core.Character.Enemy.Parasitoid
         private GameObject[] existingEnemys;
         private EnemyRupture enemyRupture;
         private EnemyInstanceStatus enemyInstanceStatus;
-        private EnemyAttribute enemyAttribute; 
+        private IIncrement increment;
+        private EnemyInstanceIncrementHandler instanceIncrementHandler;
 
         private void Start()
         {
+            increment = new EnemyInstanceCounterIncrement();
+            instanceIncrementHandler = new EnemyInstanceIncrementHandler();
+
             enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
-            enemyAttribute = new EnemyAttribute();
 
             lastInstaceTime = Time.time;
 
@@ -48,7 +54,7 @@ namespace Core.Character.Enemy.Parasitoid
 
                 Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
 
-                enemyAttribute.InstanceCounter++;
+                CounterIncrement();
             }
 
             enemyRupture.Rupture(rupturePrefab, randomEnemy, enemyInstanceStatus.Container);
@@ -56,6 +62,11 @@ namespace Core.Character.Enemy.Parasitoid
             Destroy(randomEnemy);
 
             lastInstaceTime = Time.time;
-        }         
+        }
+
+        private void CounterIncrement()
+        {
+            instanceIncrementHandler.InstanceIncrement(increment);
+        }
     }
 }

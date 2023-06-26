@@ -1,5 +1,3 @@
-using Core.Character.Enemy.GroupRush;
-using Core.Item;
 using Interface.Clients;
 using Interface.Implementations;
 using Interface.Interfaces;
@@ -17,7 +15,7 @@ namespace Core.Character.Enemy.Parasitoid
         private float spawnDistance = 5f;
         private GameObject[] existingEnemys;
         private EnemyRupture enemyRupture;
-        private EnemyInstanceStatus enemyInstanceStatus;
+        private EnemyInstanceAttribute enemyInstance;
         private IIncrement increment;
         private EnemyInstanceIncrementHandler instanceIncrementHandler;
 
@@ -26,7 +24,7 @@ namespace Core.Character.Enemy.Parasitoid
             increment = new EnemyInstanceCounterIncrement();
             instanceIncrementHandler = new EnemyInstanceIncrementHandler();
 
-            enemyInstanceStatus = GetComponent<EnemyInstanceStatus>();
+            enemyInstance = GetComponent<EnemyInstanceAttribute>();
 
             lastInstaceTime = Time.time;
 
@@ -52,12 +50,12 @@ namespace Core.Character.Enemy.Parasitoid
             {
                 Vector3 spawnPosition = randomEnemy.transform.position + Random.insideUnitSphere * spawnDistance;
 
-                Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstanceStatus.Container);
+                Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
 
                 CounterIncrement();
             }
 
-            enemyRupture.Rupture(rupturePrefab, randomEnemy, enemyInstanceStatus.Container);
+            enemyRupture.Rupture(rupturePrefab, randomEnemy, enemyInstance.Container);
 
             Destroy(randomEnemy);
 

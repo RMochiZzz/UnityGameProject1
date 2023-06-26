@@ -1,10 +1,10 @@
 using UnityEngine;
 using System.Collections;
-using static UnityEditor.Sprites.Packer;
+using Interface.Interfaces;
 
 namespace Core.Weapon
 {
-    public class AttackOne : MonoBehaviour
+    public class AttackOne : MonoBehaviour, IBulletFactory
     {
         [SerializeField] private GameObject prefab;
         [SerializeField] private Transform spawnPoint;
@@ -12,22 +12,24 @@ namespace Core.Weapon
         [SerializeField] private int rapidFireNum;
         [SerializeField] private float fireInterval;
         [SerializeField] private float fireIntervalLong;
+
         private int fireCount;
         private Vector3 spawnAngle;
         private Vector3 spawnPointPosition;
         private Quaternion spawnPointRotation;
         private bool execution;
+
         public bool Execution
         { get { return execution; } set { execution = value; } }
 
         public void starter()
         {
-            Init();
+            RotationInit();
             execution = true;
             StartCoroutine(BulletInstanceRoutine());
         }
 
-        private IEnumerator BulletInstanceRoutine()
+        public IEnumerator BulletInstanceRoutine()
         {
 
             while (execution)
@@ -36,8 +38,6 @@ namespace Core.Weapon
                 {
                     Rotation();
                 }
-
-                
 
                 for (int i = 0; i < rapidFireNum; i++)
                 {
@@ -58,20 +58,23 @@ namespace Core.Weapon
         private void Rotation()
         {
             
-             spawnAngle = spawnPoint.rotation.eulerAngles;
-             spawnAngle.z = spawnAngle.z == 90f ? -90f : 90f;
+            spawnAngle.z = spawnAngle.z == 90f ? -90f : 90f;
 
-             spawnPoint.rotation = Quaternion.Euler(spawnAngle);
+            spawnPoint.rotation = Quaternion.Euler(spawnAngle);
 
-             fireCount = 0;
+            CounterInit();
         }
 
-        private void Init()
+        private void CounterInit()
+        {
+            fireCount = 0;
+        }
+
+        private void RotationInit()
         {
             spawnAngle = spawnPoint.rotation.eulerAngles;
             spawnAngle.z = 90f;
             spawnPoint.rotation = Quaternion.Euler(spawnAngle);
-
         }
     }
 }

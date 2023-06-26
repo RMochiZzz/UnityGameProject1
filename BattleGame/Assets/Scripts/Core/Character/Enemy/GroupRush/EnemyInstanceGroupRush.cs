@@ -24,13 +24,13 @@ namespace Core.Character.Enemy.GroupRush
         private EnemyInstanceIncrementHandler instanceIncrementHandler;
 
 
-        void Start()
+        private void Start()
         {
             Init();
             Reference();
         }
 
-        void Update()
+        private void Update()
         {
             if (Time.time - lastInstaceTime <= spawnInterval) return;
             GetPosition();
@@ -66,7 +66,7 @@ namespace Core.Character.Enemy.GroupRush
             spawnPosition = new Vector3(spawnX, spawnY, 0f);
         }
 
-        private void Instantiate()
+        public void Instantiate()
         {
             GameObject obj = Instantiate(prefab, spawnPosition, Quaternion.identity, enemyInstance.Container);
             CounterIncrement();

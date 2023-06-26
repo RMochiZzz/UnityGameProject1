@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Core.Character.Enemy
+namespace Core.Character.Enemy.AI
 {
     public class EnemyAINormal : MonoBehaviour
     {

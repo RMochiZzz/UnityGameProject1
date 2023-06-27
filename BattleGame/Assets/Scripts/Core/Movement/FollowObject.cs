@@ -4,7 +4,7 @@ namespace Core.Movement
 {
     public class FollowObject : MonoBehaviour
     {
-        public Transform target;
+        [SerializeField] private Transform target;
         void Update()
         {
             if (target != null)

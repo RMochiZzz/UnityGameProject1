@@ -90,7 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea584cf0f23612438bcc8a9d0a3845a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
 --- !u!114 &2185450897917575249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +133,7 @@ GameObject:
   - component: {fileID: -7139521814245870900}
   - component: {fileID: -6012028037528178295}
   - component: {fileID: -43225653890128577}
+  - component: {fileID: -2868015043700485145}
   m_Layer: 0
   m_Name: EnemyGroupRush
   m_TagString: Enemy
@@ -325,3 +325,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 575722917983610743}
+--- !u!114 &-2868015043700485145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7403213725694573621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e09346659061de4bb6fbb3e5f12a267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

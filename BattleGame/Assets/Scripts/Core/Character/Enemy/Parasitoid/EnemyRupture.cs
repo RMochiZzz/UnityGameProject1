@@ -6,21 +6,29 @@ namespace Core.Character.Enemy.Parasitoid
     public class EnemyRupture : MonoBehaviour
     {
         private float gradationTime = 1;
+        private Vector3 spornPosition;
+        private GameObject obj;
 
         public void Rupture(GameObject ruptureObj, GameObject baseObj, Transform container)
         {
-            Vector3 spornPosition = baseObj.transform.position;
+            GetPosition(baseObj);
 
-            GameObject obj = Instantiate(ruptureObj, spornPosition, Quaternion.identity, container);
-            StartCoroutine(Gradation(obj));
+            Instantiate(ruptureObj, container);
+
+            StartCoroutine(RuptureGradation(obj));
         }
 
-        private void ObjDestroy(GameObject obj)
+        private void GetPosition(GameObject baseObj)
         {
-            Destroy(obj);
+            spornPosition = baseObj.transform.position;
         }
 
-        private IEnumerator Gradation(GameObject obj)
+        private void Instantiate(GameObject ruptureObj, Transform container)
+        {
+            obj = Instantiate(ruptureObj, spornPosition, Quaternion.identity, container);
+        }
+
+        private IEnumerator RuptureGradation(GameObject obj)
         {
             float t = 0f;
             Color startColor = Color.clear;
@@ -35,7 +43,11 @@ namespace Core.Character.Enemy.Parasitoid
                 yield return null;
             }
 
-            ObjDestroy(obj);
+            RuptureObjDestroy(obj);
+        }
+        private void RuptureObjDestroy(GameObject obj)
+        {
+            Destroy(obj);
         }
     }
 }

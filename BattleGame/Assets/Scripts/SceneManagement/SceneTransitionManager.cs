@@ -11,8 +11,8 @@ public class SceneTransitionManager : MonoBehaviour
     [SerializeField] private GameObject[] objectsToDeactivate;
     [SerializeField] private GameObject[] objectsToActivate;
 
-    private ObjectDeactivation objectDeactivation;
-    private ObjectActivation objectActivation;
+    private IActivation<GameObject[]> objectDeactivation;
+    private IActivation<GameObject[]> objectActivation;
     private ISceneFade<Image, float> sceneFadeIn;
     private ISceneFade<Image, float> sceneFadeOut;
 
@@ -26,9 +26,9 @@ public class SceneTransitionManager : MonoBehaviour
     {
         sceneFadeOut.Starter(fadeImage, fadeDuration);
         yield return new WaitForSeconds(fadeDuration);
-        objectDeactivation.Deactivation(objectsToDeactivate);
+        objectDeactivation.Starter(objectsToDeactivate);
         yield return null;
-        objectActivation.Activation(objectsToActivate);
+        objectActivation.Starter(objectsToActivate);
         yield return null;
         sceneFadeIn.Starter(fadeImage, fadeDuration);
     }

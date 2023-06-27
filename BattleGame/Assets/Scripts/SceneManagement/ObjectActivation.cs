@@ -4,8 +4,7 @@ namespace SceneManagement
 {
     public class ObjectActivation : MonoBehaviour
     {
-        [SerializeField] private GameObject[] objectsToActivate;
-        public void Activation()
+        public void Activation(GameObject[] objectsToActivate)
         {
             foreach (GameObject obj in objectsToActivate)
             {

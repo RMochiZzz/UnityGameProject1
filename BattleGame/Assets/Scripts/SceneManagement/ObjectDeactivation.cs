@@ -4,8 +4,7 @@ namespace SceneManagement
 {
     public class ObjectDeactivation : MonoBehaviour
     {
-        [SerializeField] private GameObject[] objectsToDeactivate;
-        public void Deactivation()
+        public void Deactivation(GameObject[] objectsToDeactivate)
         {
             foreach (GameObject obj in objectsToDeactivate)
             {

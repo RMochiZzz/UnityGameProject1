@@ -11,7 +11,7 @@ namespace SceneManagement
 
         public void Starter(Image fadeImage)
         {
-            objectActivation = GetComponent<ObjectActivation>();
+            Reference();
 
             StartCoroutine(TransitionSequence(fadeImage));
         }
@@ -35,6 +35,11 @@ namespace SceneManagement
                 fadeImage.color = Color.Lerp(startColor, endColor, t);
                 yield return null;
             }
+        }
+
+        private void Reference()
+        {
+            objectActivation = GetComponent<ObjectActivation>();
         }
     }
 }

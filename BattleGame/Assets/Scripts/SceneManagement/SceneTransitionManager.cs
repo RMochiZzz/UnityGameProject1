@@ -2,6 +2,7 @@ using SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Interface;
 
 public class SceneTransitionManager : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class SceneTransitionManager : MonoBehaviour
 
     private ObjectDeactivation objectDeactivation;
     private ObjectActivation objectActivation;
-    private SceneFadeIn sceneFadeIn;
-    private SceneFadeOut sceneFadeOut;
+    private ISceneFade<Image, float> sceneFadeIn;
+    private ISceneFade<Image, float> sceneFadeOut;
 
     public void OnButtonClick()
     {

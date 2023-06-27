@@ -4,14 +4,15 @@ namespace Core.Item
 {
     public class DropCoinInstance : MonoBehaviour
     {
-        public void Starter(GameObject dropPrefab, Vector3 dropPoint, GameObject container)
+        [SerializeField] private Transform container;
+        public void Starter(GameObject dropPrefab, Vector3 dropPoint)
         {
-            Drop(dropPrefab, dropPoint, container);
+            Drop(dropPrefab, dropPoint);
         }
-        public void Drop(GameObject dropPrefab, Vector3 dropPoint, GameObject container)
+        public void Drop(GameObject dropPrefab, Vector3 dropPoint)
         {
 
-            Instantiate(dropPrefab, dropPoint, Quaternion.identity, container.transform);
+            Instantiate(dropPrefab, dropPoint, Quaternion.identity, container);
             
         }
     }

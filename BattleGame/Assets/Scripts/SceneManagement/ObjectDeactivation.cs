@@ -4,7 +4,12 @@ namespace SceneManagement
 {
     public class ObjectDeactivation : MonoBehaviour
     {
-        public void Deactivation(GameObject[] objectsToDeactivate)
+        public void Starter(GameObject[] objectsToDeactivate)
+        {
+            Deactivation(objectsToDeactivate);
+        }
+
+        private void Deactivation(GameObject[] objectsToDeactivate)
         {
             foreach (GameObject obj in objectsToDeactivate)
             {

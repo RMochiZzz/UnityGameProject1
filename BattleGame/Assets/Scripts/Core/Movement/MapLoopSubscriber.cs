@@ -2,21 +2,21 @@ using UnityEngine;
 
 namespace Core.Movement
 {
-    public class MapLoopReceptor : MonoBehaviour
+    public class MapLoopSubscriber : MonoBehaviour
     {
         private Vector3 offset;
-        private MapLoopNotifier notifier;
+        private MapLoopPublisher publisher;
 
         private void Start()
         {
-            notifier = FindObjectOfType<MapLoopNotifier>();
-            if (notifier == null)
+            publisher = FindObjectOfType<MapLoopPublisher>();
+            if (publisher == null)
             {
                 GameObject notifierObj = new GameObject("MapLoopNotifier");
-                notifier = notifierObj.AddComponent<MapLoopNotifier>();
+                publisher = notifierObj.AddComponent<MapLoopPublisher>();
             }
 
-            notifier.MyEvent += HandleEvent;
+            publisher.MyEvent += HandleEvent;
         }
 
         private void HandleEvent(Vector3 playerPositionBefore, Vector3 playerPositionAfter)
@@ -28,9 +28,9 @@ namespace Core.Movement
 
         private void OnDestroy()
         {
-            if (notifier != null)
+            if (publisher != null)
             {
-                notifier.MyEvent -= HandleEvent;
+                publisher.MyEvent -= HandleEvent;
             }
         }
     }

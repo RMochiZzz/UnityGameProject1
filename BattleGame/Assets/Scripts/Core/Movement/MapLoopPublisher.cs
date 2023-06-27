@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Movement
 {
-    public class MapLoopNotifier : MonoBehaviour
+    public class MapLoopPublisher : MonoBehaviour
     {
         [SerializeField] private float fieldWidth;
         [SerializeField] private float fieldHeight;

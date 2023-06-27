@@ -6,8 +6,14 @@ namespace Core.Character.Player
     {
         [SerializeField] private float playerSpeed;
         [SerializeField] private int playerStamina;
+        private int playerDamage;
 
-        public float PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
-        public int PlayerStamina { get => playerStamina; set => playerStamina = value; }
+        public float PlayerSpeed { get => playerSpeed;}
+        public int PlayerStamina { get => playerStamina;}
+        public int PlayerDamage { get => playerDamage; set => playerDamage = value; }
+        public int CurrentPlayerStamina
+        { 
+            get => playerStamina - playerDamage;
+        }
     }
 }

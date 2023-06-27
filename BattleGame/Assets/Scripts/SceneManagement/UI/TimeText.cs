@@ -12,14 +12,26 @@ namespace SceneManagement.UI
 
         private void Start()
         {
+            Reference();
+        }
+
+        private void Update()
+        {
+            UpdateBattleTimeUI();
+        }
+
+        private void UpdateBattleTimeUI()
+        {
+            TimeSpan span = new TimeSpan(0, 0, (int)battleSceneStatus.RemainingTime);
+            timerText.text = span.ToString(@"mm\:ss");
+        }
+
+        private void Reference()
+        {
             timerText = GetComponent<TextMeshProUGUI>();
             battleSceneStatus = GameObject.Find("SceneManager").GetComponent<BattleSceneStatus>();
         }
 
-        void Update()
-        {
-            TimeSpan span = new TimeSpan(0, 0, (int)battleSceneStatus.BattleTime);
-            timerText.text = span.ToString(@"mm\:ss");
-        }
+        
     }
 }

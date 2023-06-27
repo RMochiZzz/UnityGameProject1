@@ -18,12 +18,7 @@ namespace Core.Movement
 
         private void Start()
         {
-            leftBorder = transform.position.x - fieldWidth / 2f;
-            rightBorder = transform.position.x + fieldWidth / 2f;
-            upBorder = transform.position.y + fieldHeight / 2f;
-            downBorder = transform.position.y - fieldHeight / 2f;
-
-            isOutOfBounds = false;
+            Init();
         }
 
         private void Update()
@@ -65,6 +60,16 @@ namespace Core.Movement
                 playerPositionAfter.y = upBorder;
                 isOutOfBounds = true;
             }
+        }
+
+        private void Init()
+        {
+            leftBorder = transform.position.x - fieldWidth / 2f;
+            rightBorder = transform.position.x + fieldWidth / 2f;
+            upBorder = transform.position.y + fieldHeight / 2f;
+            downBorder = transform.position.y - fieldHeight / 2f;
+
+            isOutOfBounds = false;
         }
     }
 }

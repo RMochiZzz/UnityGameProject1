@@ -1,3 +1,5 @@
+using Core.Character.Item.ValueManipulator;
+using Interface.Interfaces;
 using UnityEngine;
 
 namespace Core.Character.Player
@@ -5,6 +7,7 @@ namespace Core.Character.Player
     public class PlayerDamage : MonoBehaviour
     {
         private PlayerAttribute playerAttribute;
+        private IIncrement playerDamageCounterIncrement;
 
         void Start () 
         {
@@ -14,19 +17,19 @@ namespace Core.Character.Player
         private void Reference()
         {
             playerAttribute = GetComponent<PlayerAttribute>();
-
+            playerDamageCounterIncrement = new PlayerDamageCounterIncrement();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (playerAttribute.PlayerStamina == 0 ||
+            if (playerAttribute.CurrentPlayerStamina == 0 ||
                 !collision.gameObject.CompareTag("Enemy") &&
                 !collision.gameObject.CompareTag("Rupture"))
             {
                 return;
             }
 
-            playerAttribute.PlayerStamina--;
+            playerDamageCounterIncrement.Increment();
         }
     }
 }

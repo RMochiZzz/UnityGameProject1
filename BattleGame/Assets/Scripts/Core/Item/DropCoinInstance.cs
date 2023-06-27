@@ -4,16 +4,23 @@ namespace Core.Item
 {
     public class DropCoinInstance : MonoBehaviour
     {
-        [SerializeField] private Transform container;
+        private GameObject container;
         public void Starter(GameObject dropPrefab, Vector3 dropPoint)
         {
+            GetReference();
             Drop(dropPrefab, dropPoint);
         }
-        public void Drop(GameObject dropPrefab, Vector3 dropPoint)
+        private void Drop(GameObject dropPrefab, Vector3 dropPoint)
         {
 
-            Instantiate(dropPrefab, dropPoint, Quaternion.identity, container);
+            Instantiate(dropPrefab, dropPoint, Quaternion.identity, container.transform);
             
         }
+
+        private void GetReference() 
+        {
+            container = GameObject.Find("Coins");
+        }
+        
     }
 }

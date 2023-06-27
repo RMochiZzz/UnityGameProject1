@@ -8,7 +8,6 @@ namespace Core.Character.Enemy.Battle
     public class EnemyDestroy : MonoBehaviour
     {
         [SerializeField] private GameObject dropPrefab;
-        private GameObject scriptContainer;
         private IIncrement enemyDestroyCounterIncrement;
         private DropCoinInstance dropCoinInstance;
 
@@ -41,12 +40,7 @@ namespace Core.Character.Enemy.Battle
 
         private void Reference()
         {
-            dropCoinInstance = FindObjectOfType<DropCoinInstance>();
-            if (dropCoinInstance == null)
-            {
-                GameObject subscriberObj = new GameObject("DropCoinInstance");
-                dropCoinInstance = subscriberObj.AddComponent<DropCoinInstance>();
-            }
+            dropCoinInstance = GetComponent<DropCoinInstance>();
 
             enemyDestroyCounterIncrement = new EnemyDestroyCounterIncrement();
         }

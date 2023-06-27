@@ -5,8 +5,7 @@ namespace Core.Character.Enemy.Battle
     public class EnemyOffCameraSensor : MonoBehaviour
     {
         [SerializeField] GameObject enemyController;
-
-        private float checkTimer = 1f;
+        [SerializeField] private float checkTimer;
 
         private EnemyInstanceAttribute enemyInstance;
         private EnemyDestroyNoDrop enemyDestroyNoDrop;

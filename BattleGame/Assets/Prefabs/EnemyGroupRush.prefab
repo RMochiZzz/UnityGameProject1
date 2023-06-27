@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyController: {fileID: 575722917983610743}
+  checkTimer: 1
 --- !u!114 &-43225653890128577
 MonoBehaviour:
   m_ObjectHideFlags: 0

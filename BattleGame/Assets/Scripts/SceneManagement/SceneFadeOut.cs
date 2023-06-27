@@ -10,10 +10,10 @@ namespace SceneManagement
         [SerializeField] private float fadeDuration;
         private ObjectDeactivation objectDeactivation;
         private SceneFadeIn sceneFadeIn;
+
         private void Start()
         {
-            objectDeactivation = GetComponent<ObjectDeactivation>();
-            sceneFadeIn = GetComponent<SceneFadeIn>();
+            Reference();
         }
         public void OnButtonClick()
         {
@@ -42,8 +42,12 @@ namespace SceneManagement
                 fadeImage.color = Color.Lerp(startColor, endColor, t);
                 yield return null;
             }
+        }
 
-            
+        private void Reference()
+        {
+            objectDeactivation = GetComponent<ObjectDeactivation>();
+            sceneFadeIn = GetComponent<SceneFadeIn>();
         }
     }
 }

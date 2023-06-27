@@ -61,8 +61,6 @@ namespace Core.Character.Enemy.Parasitoid
 
             enemyRupture.Rupture(rupturePrefab, randomEnemy, enemyInstance.Container);
 
-            Destroy(randomEnemy);
-
         }
 
         public void CounterIncrement()

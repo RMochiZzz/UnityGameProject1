@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace SceneManagement.Battle
 {
-    public class BattleTimeCountDown : MonoBehaviour
+    public class BattleTimeCount : MonoBehaviour
     {
         private BattleSceneStatus battleSceneStatus;
         private PlayerAttribute playerAttribute;
@@ -14,14 +14,14 @@ namespace SceneManagement.Battle
             battleSceneStatus = GameObject.Find("SceneManager").GetComponent<BattleSceneStatus>();
             playerAttribute = GameObject.Find("Player").GetComponent<PlayerAttribute>();
 
-            StartCoroutine(CountDownRoutine());
+            StartCoroutine(ElapsedTimeRoutine());
         }
 
-        private IEnumerator CountDownRoutine()
+        private IEnumerator ElapsedTimeRoutine()
         {
             while (playerAttribute.PlayerStamina != 0)
             {
-                battleSceneStatus.BattleTime -= Time.deltaTime;
+                battleSceneStatus.ElapsedTime += Time.deltaTime;
                 yield return null;
             }
         }

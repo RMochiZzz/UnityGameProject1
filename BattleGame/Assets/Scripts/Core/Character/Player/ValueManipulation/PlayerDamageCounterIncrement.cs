@@ -1,5 +1,6 @@
 using Core.Character.Player;
 using Interface.Interfaces;
+using UnityEngine;
 
 namespace Core.Character.Item.ValueManipulator
 {
@@ -10,7 +11,7 @@ namespace Core.Character.Item.ValueManipulator
 
         public void Increment()
         {
-            playerAttribute = new PlayerAttribute();
+            playerAttribute = GameObject.Find("Player").GetComponent<PlayerAttribute>();
             playerAttribute.PlayerDamage++;
         }
     }

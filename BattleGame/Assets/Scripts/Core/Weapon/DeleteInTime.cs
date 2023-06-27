@@ -4,7 +4,7 @@ namespace Core.Weapon
 {
     public class DeleteInTime : MonoBehaviour
     {
-        public GameObject Bullet;
+        [SerializeField] private GameObject Bullet;
 
         void Start()
         {

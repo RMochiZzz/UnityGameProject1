@@ -5,7 +5,7 @@ namespace SceneManagement.UI
 {
     public class ExitSelectDialog : MonoBehaviour
     {
-        public GameObject dialog; 
+        [SerializeField] private GameObject dialog; 
 
         public void OnButtonClick()
         {

@@ -5,6 +5,6 @@ namespace SceneManagement.Battle
     public class BattleSceneStatus : MonoBehaviour
     {
         [SerializeField] private float battleTime;
-        public float BattleTime { get => battleTime; set => battleTime = value; }
+        public float BattleTime { get => battleTime; }
     }
 }

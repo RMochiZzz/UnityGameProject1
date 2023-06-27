@@ -5,7 +5,7 @@ namespace Core.Movement
 {
     public class ChildObjectFollow : MonoBehaviour
     {
-        public Transform childPosition;
+        [SerializeField] private Transform childPosition;
 
         private void Update()
         {

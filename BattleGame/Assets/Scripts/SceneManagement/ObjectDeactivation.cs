@@ -1,8 +1,9 @@
+using Interface;
 using UnityEngine;
 
 namespace SceneManagement
 {
-    public class ObjectDeactivation : MonoBehaviour
+    public class ObjectDeactivation : MonoBehaviour, IActivation<GameObject[]>
     {
         public void Starter(GameObject[] objectsToDeactivate)
         {

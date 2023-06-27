@@ -17,9 +17,7 @@ namespace SceneManagement.UI
 
         void Update()
         {
-            staminaText.text = playerAttribute.PlayerStamina.ToString();
+            staminaText.text = playerAttribute.CurrentPlayerStamina.ToString();
         }
-
-
     }
 }

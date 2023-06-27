@@ -21,7 +21,7 @@ namespace SceneManagement.Battle
         {
             while (playerAttribute.PlayerStamina != 0)
             {
-                battleSceneStatus.ElapsedTime += Time.deltaTime;
+                battleSceneStatus.CurrentElapsedTime += Time.deltaTime;
                 yield return null;
             }
         }

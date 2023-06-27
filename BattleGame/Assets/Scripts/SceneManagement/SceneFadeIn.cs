@@ -6,23 +6,13 @@ namespace SceneManagement
 {  
     public class SceneFadeIn : MonoBehaviour
     {
-        [SerializeField] private float fadeDuration;
-        private ObjectActivation objectActivation;
 
-        public void Starter(Image fadeImage)
+        public void Starter(Image fadeImage, float fadeDuration)
         {
-            Reference();
-
-            StartCoroutine(TransitionSequence(fadeImage));
+            StartCoroutine(FadeIn(fadeImage, fadeDuration));
         }
 
-        private IEnumerator TransitionSequence(Image fadeImage)
-        {
-            yield return StartCoroutine(FadeIn(fadeImage));
-            objectActivation.Activation();
-        }
-
-        private IEnumerator FadeIn(Image fadeImage)
+        private IEnumerator FadeIn(Image fadeImage, float fadeDuration)
         {
 
             float t = 0f;
@@ -35,11 +25,6 @@ namespace SceneManagement
                 fadeImage.color = Color.Lerp(startColor, endColor, t);
                 yield return null;
             }
-        }
-
-        private void Reference()
-        {
-            objectActivation = GetComponent<ObjectActivation>();
         }
     }
 }

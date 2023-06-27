@@ -6,29 +6,13 @@ namespace SceneManagement
 {
     public class SceneFadeOut : MonoBehaviour
     {
-        [SerializeField] private Image fadeImage;
-        [SerializeField] private float fadeDuration;
-        private ObjectDeactivation objectDeactivation;
-        private SceneFadeIn sceneFadeIn;
 
-        private void Start()
+        public void Starter(Image fadeImage, float fadeDuration)
         {
-            Reference();
-        }
-        public void OnButtonClick()
-        {
-            StartCoroutine(TransitionSequence());
+            StartCoroutine(FadeOut(fadeImage, fadeDuration));
         }
 
-        private IEnumerator TransitionSequence()
-        {
-
-            yield return StartCoroutine(FadeOut());
-            objectDeactivation.Deactivation();
-            sceneFadeIn.Starter(fadeImage);
-        }
-
-        private IEnumerator FadeOut()
+        private IEnumerator FadeOut(Image fadeImage, float fadeDuration)
         {
             fadeImage.gameObject.SetActive(true);
 
@@ -42,12 +26,6 @@ namespace SceneManagement
                 fadeImage.color = Color.Lerp(startColor, endColor, t);
                 yield return null;
             }
-        }
-
-        private void Reference()
-        {
-            objectDeactivation = GetComponent<ObjectDeactivation>();
-            sceneFadeIn = GetComponent<SceneFadeIn>();
         }
     }
 }

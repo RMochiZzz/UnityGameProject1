@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using Core.Weapon;
 
 namespace Core.Item
@@ -7,29 +6,26 @@ namespace Core.Item
 
     public class CoinCollector : MonoBehaviour
     {
+        [SerializeField] private GameObject WeaponManager;
         private LevelupManager levelupManager;
 
         private void Start () 
         {
-            StartCoroutine(Init());
+            Reference();
+            Init();
         }
 
-        private IEnumerator Init () 
+        private void Reference()
         {
-            levelupManager = FindObjectOfType<LevelupManager>();
-            if (levelupManager == null)
-            {
-                GameObject levelupManagerObj = new GameObject("LevelupManager");
-                levelupManager = levelupManagerObj.AddComponent<LevelupManager>();
-            }
+            levelupManager = WeaponManager.GetComponent<LevelupManager>();
+        }
 
-            yield return null;
-
+        private void Init() 
+        {
             levelupManager.CoinsNum = 0;
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-
             if (collision.gameObject.CompareTag("DropCoin"))
             {
 

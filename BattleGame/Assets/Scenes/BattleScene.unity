@@ -18892,6 +18892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a0b338ccfaa754cb0e8d18ecee3da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponManager: {fileID: 1562063020}
 --- !u!60 &1440062829
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Interface;
 
 namespace SceneManagement
 {  
-    public class SceneFadeIn : MonoBehaviour
+    public class SceneFadeIn : MonoBehaviour, ISceneFade<Image, float>
     {
 
         public void Starter(Image fadeImage, float fadeDuration)

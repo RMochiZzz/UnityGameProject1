@@ -6,21 +6,28 @@ namespace SceneManagement
 {
     public class ExitFadeOut : MonoBehaviour
     {
-        public Image fadeImage;
-        public float timeForDarkening = 1f;
+        [SerializeField] private Image fadeImage;
+        [SerializeField] private float timeForDarkening;
 
         void Start()
         {
-            fadeImage.gameObject.SetActive(false);
+            Init();
         }
 
+        private void Init()
+        {
+            if (!fadeImage.gameObject.activeSelf) return;
+
+            fadeImage.gameObject.SetActive(false);
+
+        }
         public void OnButtonClick()
 
         {
-            StartCoroutine(FadeIn());
+            StartCoroutine(FadeOut());
         }
 
-        private IEnumerator FadeIn()
+        private IEnumerator FadeOut()
         {
             fadeImage.gameObject.SetActive(true);
 

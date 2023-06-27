@@ -8,7 +8,6 @@ namespace Core.Character.Enemy.Battle
     public class EnemyDestroy : MonoBehaviour
     {
         [SerializeField] private GameObject dropPrefab;
-        [SerializeField] private GameObject dropPrefabContainer;
         private IIncrement enemyDestroyCounterIncrement;
         private DropCoinInstance dropCoinInstance;
 
@@ -36,7 +35,7 @@ namespace Core.Character.Enemy.Battle
 
         private void CoinDrop()
         {
-            dropCoinInstance.Starter(dropPrefab, transform.position, dropPrefabContainer);
+            dropCoinInstance.Starter(dropPrefab, transform.position);
         }
 
         private void Reference()

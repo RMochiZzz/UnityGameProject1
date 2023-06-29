@@ -1,8 +1,6 @@
-using UnityEngine;
-
 namespace SceneManagement.Result
 {
-    public class ResultAttribute : MonoBehaviour
+    public class ResultAttribute
     {
         private float time;
         private int killCount;

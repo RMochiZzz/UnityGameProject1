@@ -1,18 +1,35 @@
+using SceneManagement.Result;
+using SceneManagement.UI;
+using System;
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ResultScoreText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private TextMeshProUGUI TextUI;
+    private ResultAttribute resultAttribute;
+
+    private void Start()
     {
-        
+        GetReference();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Text()
     {
-        
+        killScore = resultAttribute.KillCountAtEnd;
+        Time = resultAttribute.RemainingTimeAtEnd;
+        PlayerStamina = resultAttribute.
+    }
+
+    private IEnumerator ViewScores()
+    {
+        TextUI.text = ;
+    }
+
+    private void GetReference()
+    {
+        TextUI = GetComponent<TextMeshProUGUI>();
+        resultAttribute = new ResultAttribute();
     }
 }

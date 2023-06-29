@@ -20,9 +20,9 @@ namespace SceneManagement.Result
 
         private void CopyData()
         {
-            resultAttribute.KillCount = enemyAttribute.DestroyCounter;
-            resultAttribute.PlayerStamina = playerAttribute.PlayerStamina;
-            resultAttribute.Time = battleSceneStatus.RemainingTime;
+            resultAttribute.KillCountAtEnd = enemyAttribute.DestroyCounter;
+            resultAttribute.PlayerStaminaAtEnd = playerAttribute.PlayerStamina;
+            resultAttribute.RemainingTimeAtEnd = battleSceneStatus.RemainingTime;
         }
 
         private void GetReference() 

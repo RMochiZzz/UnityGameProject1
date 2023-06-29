@@ -8,7 +8,6 @@ namespace SceneManagement.Result
     public class ResultDataGatherer : MonoBehaviour
     {
         private ResultAttribute resultAttribute;
-
         private EnemyAttribute enemyAttribute;
         private BattleSceneStatus battleSceneStatus;
         private PlayerAttribute playerAttribute;
@@ -21,7 +20,9 @@ namespace SceneManagement.Result
 
         private void CopyData()
         {
-            
+            resultAttribute.KillCount = enemyAttribute.DestroyCounter;
+            resultAttribute.PlayerStamina = playerAttribute.PlayerStamina;
+            resultAttribute.Time = battleSceneStatus.RemainingTime;
         }
 
         private void GetReference() 

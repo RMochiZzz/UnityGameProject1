@@ -1,14 +1,15 @@
 using SceneManagement.Result;
-using SceneManagement.UI;
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 
 public class ResultScoreText : MonoBehaviour
 {
-    private TextMeshProUGUI TextUI;
+    private TextMeshProUGUI TextComp;
     private ResultAttribute resultAttribute;
+    private int killScore;
+    private float Time;
+    private int PlayerStamina;
 
     private void Start()
     {
@@ -19,12 +20,12 @@ public class ResultScoreText : MonoBehaviour
     {
         killScore = resultAttribute.KillCountAtEnd;
         Time = resultAttribute.RemainingTimeAtEnd;
-        PlayerStamina = resultAttribute.
+        PlayerStamina = resultAttribute.PlayerStaminaAtEnd;
     }
 
     private IEnumerator ViewScores()
     {
-        TextUI.text = ;
+        TextUI.text = killScore;
     }
 
     private void GetReference()

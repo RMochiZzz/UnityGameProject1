@@ -8,7 +8,7 @@ public class ResultScoreText : MonoBehaviour
     private TextMeshProUGUI TextComp;
     private ResultAttribute resultAttribute;
 
-    private void Start()
+    private void Starter()
     {
         GetReference();
 

@@ -12,7 +12,7 @@ namespace SceneManagement.Result
         private BattleSceneStatus battleSceneStatus;
         private PlayerAttribute playerAttribute;
 
-        private void Starter()
+        public void Starter()
         {
             GetReference();
             CopyData();
@@ -21,7 +21,7 @@ namespace SceneManagement.Result
         private void CopyData()
         {
             resultAttribute.KillCountAtEnd = enemyAttribute.DestroyCounter;
-            resultAttribute.PlayerStaminaAtEnd = playerAttribute.PlayerStamina;
+            resultAttribute.PlayerStaminaAtEnd = playerAttribute.CurrentPlayerStamina;
             resultAttribute.RemainingTimeAtEnd = battleSceneStatus.RemainingTime;
         }
 

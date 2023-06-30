@@ -19469,6 +19469,7 @@ GameObject:
   - component: {fileID: 1496687554}
   - component: {fileID: 1496687553}
   - component: {fileID: 1496687552}
+  - component: {fileID: 1496687555}
   m_Layer: 0
   m_Name: BattleSceneManager
   m_TagString: Untagged
@@ -19554,6 +19555,18 @@ MonoBehaviour:
   objectsToActivate3:
   - {fileID: 329486167}
   interval: 1
+--- !u!114 &1496687555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496687549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd18bde67913404182158396894c619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1518071506
 GameObject:
   m_ObjectHideFlags: 0

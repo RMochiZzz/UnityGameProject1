@@ -39,7 +39,7 @@ namespace SceneManagement
 
         private void TransitionStarter()
         {
-            switch (playerAttribute.CurrentPlayerStamina * battleSceneStatus.RemainingTime)
+            switch (playerAttribute.CurrentPlayerStamina * (int)battleSceneStatus.RemainingTime)
             {
                 case 0:
                     StartCoroutine(TransitionSequence());
@@ -50,8 +50,6 @@ namespace SceneManagement
 
         private IEnumerator TransitionSequence()
         {
-            resultDataGatherer.Starter();
-
             objectDeactivation.Starter(objectsToDeactivate);
             yield return new WaitForSeconds(interval);
 
@@ -79,5 +77,4 @@ namespace SceneManagement
             objectActivation = GetComponent<ObjectActivation>();
         }
     }
-
 }

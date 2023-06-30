@@ -1,13 +1,25 @@
+using Core.Character.Enemy;
+using Core.Character.Player;
+using SceneManagement.Battle;
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+
 
 namespace SceneManagement.Result
 {
     public class ResultScoreText : MonoBehaviour
     {
-        private TextMeshProUGUI TextComp;
+        [SerializeField] private GameObject player;
+        [SerializeField] private GameObject sceneManager;
+
+        private TextMeshProUGUI textComp;
         private ResultAttribute resultAttribute;
+
+        private EnemyAttribute enemyAttribute;
+        private BattleSceneStatus battleSceneStatus;
+        private PlayerAttribute playerAttribute;
 
         public void Start()
         {
@@ -18,17 +30,22 @@ namespace SceneManagement.Result
 
         private IEnumerator ViewScores()
         {
-            TextComp.text = "Kill Count: " + resultAttribute.KillCountAtEnd.ToString() + "\n" +
-                    "Remaining Time: " + resultAttribute.RemainingTimeAtEnd.ToString() + "\n" +
-                    "Player Stamina: " + resultAttribute.PlayerStaminaAtEnd.ToString();
-
             yield return null;
+
+            textComp.text = "Kill Count: " + enemyAttribute.DestroyCounter.ToString() + "\n" +
+                    "Remaining Time: " + TimeSpan.FromSeconds((int)battleSceneStatus.RemainingTime).ToString() + "\n" +
+                    "Player Stamina: " + playerAttribute.CurrentPlayerStamina.ToString();
+
         }
 
         private void GetReference()
         {
-            TextComp = GetComponent<TextMeshProUGUI>();
+            textComp = GetComponent<TextMeshProUGUI>();
             resultAttribute = new ResultAttribute();
+
+            enemyAttribute = new EnemyAttribute();
+            battleSceneStatus = sceneManager.GetComponent<BattleSceneStatus>();
+            playerAttribute = player.GetComponent<PlayerAttribute>();
         }
     }
 }

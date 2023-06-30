@@ -11,7 +11,7 @@ namespace SceneManagement.Battle
 
         private void Start()
         {
-            battleSceneStatus = GameObject.Find("SceneManager").GetComponent<BattleSceneStatus>();
+            battleSceneStatus = GameObject.Find("BattleSceneManager").GetComponent<BattleSceneStatus>();
             playerAttribute = GameObject.Find("Player").GetComponent<PlayerAttribute>();
 
             StartCoroutine(ElapsedTimeRoutine());

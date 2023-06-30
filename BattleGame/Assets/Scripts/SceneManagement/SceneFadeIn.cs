@@ -26,6 +26,8 @@ namespace SceneManagement
                 fadeImage.color = Color.Lerp(startColor, endColor, t);
                 yield return null;
             }
+
+            fadeImage.gameObject.SetActive(false);
         }
     }
 }

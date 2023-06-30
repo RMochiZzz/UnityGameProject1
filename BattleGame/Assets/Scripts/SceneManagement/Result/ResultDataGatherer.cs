@@ -7,6 +7,9 @@ namespace SceneManagement.Result
 {
     public class ResultDataGatherer : MonoBehaviour
     {
+        [SerializeField] private GameObject player;
+        [SerializeField] private GameObject sceneManager;
+
         private ResultAttribute resultAttribute;
         private EnemyAttribute enemyAttribute;
         private BattleSceneStatus battleSceneStatus;
@@ -29,8 +32,8 @@ namespace SceneManagement.Result
         {
             resultAttribute = new ResultAttribute();
             enemyAttribute = new EnemyAttribute();
-            battleSceneStatus = FindObjectOfType<BattleSceneStatus>();
-            playerAttribute = FindObjectOfType<PlayerAttribute>();
+            battleSceneStatus = sceneManager.GetComponent<BattleSceneStatus>();
+            playerAttribute = player.GetComponent<PlayerAttribute>();
         }
     }
 }

@@ -29,7 +29,7 @@ namespace SceneManagement.UI
         private void Reference()
         {
             timerText = GetComponent<TextMeshProUGUI>();
-            battleSceneStatus = GameObject.Find("SceneManager").GetComponent<BattleSceneStatus>();
+            battleSceneStatus = GameObject.Find("BattleSceneManager").GetComponent<BattleSceneStatus>();
         }
 
         

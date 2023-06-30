@@ -7,30 +7,26 @@ public class ResultScoreText : MonoBehaviour
 {
     private TextMeshProUGUI TextComp;
     private ResultAttribute resultAttribute;
-    private int killScore;
-    private float Time;
-    private int PlayerStamina;
 
     private void Start()
     {
         GetReference();
-    }
 
-    private void Text()
-    {
-        killScore = resultAttribute.KillCountAtEnd;
-        Time = resultAttribute.RemainingTimeAtEnd;
-        PlayerStamina = resultAttribute.PlayerStaminaAtEnd;
+        StartCoroutine(ViewScores());
     }
 
     private IEnumerator ViewScores()
     {
-        TextUI.text = killScore;
+        TextComp.text = "Kill Count: " + resultAttribute.KillCountAtEnd.ToString() + "\n" +
+                "Remaining Time: " + resultAttribute.RemainingTimeAtEnd.ToString() + "\n" +
+                "Player Stamina: " + resultAttribute.PlayerStaminaAtEnd.ToString();
+
+        yield return null;
     }
 
     private void GetReference()
     {
-        TextUI = GetComponent<TextMeshProUGUI>();
+        TextComp = GetComponent<TextMeshProUGUI>();
         resultAttribute = new ResultAttribute();
     }
 }

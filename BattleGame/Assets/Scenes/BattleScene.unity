@@ -7753,7 +7753,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0.00082657}
+  m_AnchoredPosition: {x: 0, y: 0.00082657}
   m_SizeDelta: {x: 800, y: 449.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &792684243
@@ -18697,6 +18697,7 @@ GameObject:
   - component: {fileID: 1146644407}
   - component: {fileID: 1146644406}
   - component: {fileID: 1146644405}
+  - component: {fileID: 1146644409}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -18782,6 +18783,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 1471496123}
   instanceMax: 50
+--- !u!114 &1146644409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146644403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79d025aebfbc2f440a2df7f373e87caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1185670517
 GameObject:
   m_ObjectHideFlags: 0
@@ -19322,7 +19335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1440062820}
-  sceneManager: {fileID: 1496687549}
+  battlesceneManager: {fileID: 1496687549}
+  enemyManager: {fileID: 1146644403}
 --- !u!1 &1428621582
 GameObject:
   m_ObjectHideFlags: 0
@@ -19938,8 +19952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2ac8501d35e884aa931cb7a95dbb17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTwoNum: 1
-  levelThreeNum: 3
 --- !u!114 &1562063024
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,5 +21,19 @@ namespace SceneManagement.Battle
             get => battleTime - elapsedTime;
         }
 
+        private void Start()
+        {
+            Init();
+        }
+        private void OnEnable()
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            CurrentElapsedTime = 0;
+        }
+
     }
 }

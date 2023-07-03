@@ -43,7 +43,7 @@ namespace SceneManagement.Result
             textComp = GetComponent<TextMeshProUGUI>();
             resultAttribute = new ResultAttribute();
 
-            enemyAttribute = new EnemyAttribute();
+            enemyAttribute = GameObject.Find("EnemyManager").GetComponent<EnemyAttribute>();
             battleSceneStatus = sceneManager.GetComponent<BattleSceneStatus>();
             playerAttribute = player.GetComponent<PlayerAttribute>();
         }

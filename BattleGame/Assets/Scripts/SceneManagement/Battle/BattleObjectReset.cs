@@ -1,5 +1,3 @@
-using Core.Character.Player;
-using SceneManagement.Battle;
 using UnityEngine;
 
 namespace SceneManagement
@@ -11,12 +9,8 @@ namespace SceneManagement
         [SerializeField] private GameObject sceneManager;
         [SerializeField] private GameObject[] containers;
 
-        private PlayerAttribute playerAttribute;
-        private BattleSceneStatus battleSceneStatus;
         public void Starter()
         {
-            GetReference();
-
             DestroyObjects();
         }
 
@@ -29,12 +23,6 @@ namespace SceneManagement
                     Destroy(child.gameObject);
                 }
             }
-        }
-
-        private void GetReference()
-        {
-            playerAttribute = player.GetComponent<PlayerAttribute>();
-            battleSceneStatus = sceneManager.GetComponent<BattleSceneStatus>();
         }
     }
 }

@@ -25,9 +25,9 @@ namespace Core.Weapon
                 switch (coinsNum)
                 {
                     case levelOneNum:
-                        attackOne.Starter();
                         attackTwo.Execution = false;
                         attackThree.Execution = false;
+                        attackOne.Starter();
                         break;
 
                     case levelTwoNum:

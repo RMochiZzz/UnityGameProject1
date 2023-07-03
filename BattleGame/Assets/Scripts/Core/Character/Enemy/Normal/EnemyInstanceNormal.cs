@@ -25,6 +25,11 @@ namespace Core.Character.Enemy.Normal
             Reference();
         }
 
+        private void OnEnable()
+        {
+            Init();
+        }
+
         private void Update()
         {
             if (Time.time - lastInstaceTime <= spawnInterval) return;

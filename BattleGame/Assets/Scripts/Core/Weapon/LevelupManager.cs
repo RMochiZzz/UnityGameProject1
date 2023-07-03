@@ -46,9 +46,15 @@ namespace Core.Weapon
         private void Start()
         {
             Reference();
+            Init();
         }
 
         private void OnEnable()
+        {
+            Init();
+        }
+
+        private void Init()
         {
             CoinsNum = 0;
         }

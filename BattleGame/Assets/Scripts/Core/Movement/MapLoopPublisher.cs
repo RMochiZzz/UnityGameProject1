@@ -30,7 +30,6 @@ namespace Core.Movement
             if (isOutOfBounds)
             {
                 isOutOfBounds = false;
-                transform.position = playerPositionAfter;
                 MyEvent?.Invoke(playerPositionBefore, playerPositionAfter);
             }
         }

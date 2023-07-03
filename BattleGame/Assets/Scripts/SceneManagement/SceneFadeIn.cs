@@ -7,6 +7,7 @@ namespace SceneManagement
 {  
     public class SceneFadeIn : MonoBehaviour, ISceneFade<Image, float>
     {
+        private float elapsedTime;
 
         public void Starter(Image fadeImage, float fadeDuration)
         {
@@ -16,14 +17,15 @@ namespace SceneManagement
         private IEnumerator FadeIn(Image fadeImage, float fadeDuration)
         {
 
-            float t = 0f;
+            float startTime = Time.realtimeSinceStartup;
+            elapsedTime = 0f;
             Color startColor = Color.black;
             Color endColor = Color.clear;
 
-            while (t < 1f)
+            while (elapsedTime < 1f)
             {
-                t += Time.unscaledDeltaTime / fadeDuration;
-                fadeImage.color = Color.Lerp(startColor, endColor, t);
+                elapsedTime = Time.realtimeSinceStartup - startTime;
+                fadeImage.color = Color.Lerp(startColor, endColor, elapsedTime);
                 yield return null;
             }
 

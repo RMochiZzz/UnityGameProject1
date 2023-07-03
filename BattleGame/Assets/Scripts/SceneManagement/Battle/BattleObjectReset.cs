@@ -17,12 +17,7 @@ namespace SceneManagement
         {
             GetReference();
 
-            switch (playerAttribute.CurrentPlayerStamina * (int)battleSceneStatus.RemainingTime)
-            {
-                case 0:
-                    DestroyObjects();
-                    break;
-            }
+            DestroyObjects();
         }
 
         private void DestroyObjects()

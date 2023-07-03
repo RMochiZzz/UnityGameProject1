@@ -1,4 +1,5 @@
 using Interface.Interfaces;
+using UnityEngine;
 
 namespace Core.Character.Enemy.ValueManipulator
 {
@@ -9,7 +10,7 @@ namespace Core.Character.Enemy.ValueManipulator
 
         public void Increment()
         {
-            enemyAttribute = new EnemyAttribute();
+            enemyAttribute = GameObject.Find("EnemyManager").GetComponent<EnemyAttribute>();
             enemyAttribute.InstanceCounter++;
         }
     }

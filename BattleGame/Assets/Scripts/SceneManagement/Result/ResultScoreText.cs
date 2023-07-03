@@ -6,16 +6,15 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-
 namespace SceneManagement.Result
 {
     public class ResultScoreText : MonoBehaviour
     {
         [SerializeField] private GameObject player;
-        [SerializeField] private GameObject sceneManager;
+        [SerializeField] private GameObject battlesceneManager;
+        [SerializeField] private GameObject enemyManager;
 
         private TextMeshProUGUI textComp;
-        private ResultAttribute resultAttribute;
 
         private EnemyAttribute enemyAttribute;
         private BattleSceneStatus battleSceneStatus;
@@ -41,10 +40,9 @@ namespace SceneManagement.Result
         private void GetReference()
         {
             textComp = GetComponent<TextMeshProUGUI>();
-            resultAttribute = new ResultAttribute();
 
-            enemyAttribute = GameObject.Find("EnemyManager").GetComponent<EnemyAttribute>();
-            battleSceneStatus = sceneManager.GetComponent<BattleSceneStatus>();
+            enemyAttribute = enemyManager.GetComponent<EnemyAttribute>();
+            battleSceneStatus = battlesceneManager.GetComponent<BattleSceneStatus>();
             playerAttribute = player.GetComponent<PlayerAttribute>();
         }
     }

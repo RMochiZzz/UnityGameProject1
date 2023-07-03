@@ -30,15 +30,11 @@ namespace SceneManagement
             GetReference();
         }
 
-        private void OnEnable()
-        {
-            Init();
-        }
-
         private void Update()
         {
             if (isTransition) return;
             TransitionStarter();
+            isTransition = false;
         }
 
         private void TransitionStarter()

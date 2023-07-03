@@ -23,12 +23,18 @@ namespace SceneManagement.Battle
 
         private IEnumerator ElapsedTimeRoutine()
         {
+            yield return null;
+            float startTime = Time.realtimeSinceStartup;
+
             while (playerAttribute.PlayerStamina != 0)
             {
-                battleSceneStatus.CurrentElapsedTime += Time.deltaTime;
+                float elapsedTime = Time.realtimeSinceStartup - startTime;
+                battleSceneStatus.CurrentElapsedTime = elapsedTime;
+
                 yield return null;
             }
         }
+
 
         private void GetReference()
         {

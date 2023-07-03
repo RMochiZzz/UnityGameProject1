@@ -29,6 +29,11 @@ namespace Core.Character.Enemy.Parasitoid
 
         }
 
+        private void OnEnable()
+        {
+            Init();
+        }
+
         private void Update()
         {
             if (Time.time - lastInstaceTime <= spawnInterval) return;

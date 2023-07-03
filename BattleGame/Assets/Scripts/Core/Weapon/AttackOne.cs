@@ -28,6 +28,10 @@ namespace Core.Weapon
             execution = true;
             StartCoroutine(BulletInstanceRoutine());
         }
+        private void OnEnable()
+        {
+            CounterInit();
+        }
 
         public IEnumerator BulletInstanceRoutine()
         {

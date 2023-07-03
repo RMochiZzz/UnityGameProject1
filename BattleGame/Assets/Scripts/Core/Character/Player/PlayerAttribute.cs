@@ -15,5 +15,19 @@ namespace Core.Character.Player
         { 
             get => playerStamina - playerDamage;
         }
+
+        private void Start()
+        {
+            Init();
+        }
+        private void OnEnable()
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            PlayerDamage = 0;
+        }
     }
 }

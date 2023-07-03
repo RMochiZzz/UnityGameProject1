@@ -15,6 +15,11 @@ namespace Core.Item
             Init();
         }
 
+        private void OnEnable()
+        {
+            Init();
+        }
+
         private void Reference()
         {
             levelupManager = WeaponManager.GetComponent<LevelupManager>();

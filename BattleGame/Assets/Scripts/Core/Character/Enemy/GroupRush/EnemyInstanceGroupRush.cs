@@ -28,6 +28,11 @@ namespace Core.Character.Enemy.GroupRush
             Reference();
         }
 
+        private void OnEnable()
+        {
+            Init();
+        }
+
         private void Update()
         {
             if (Time.time - lastInstaceTime <= spawnInterval) return;

@@ -6675,6 +6675,7 @@ MonoBehaviour:
   - {fileID: 660536703}
   objectsToActivate:
   - {fileID: 560658529}
+  - {fileID: 577637323}
 --- !u!1 &316153917
 GameObject:
   m_ObjectHideFlags: 0
@@ -19437,6 +19438,7 @@ MonoBehaviour:
   fadeDuration: 1
   objectsToDeactivate:
   - {fileID: 360510093}
+  - {fileID: 577637323}
   objectsToActivate:
   - {fileID: 660536703}
   - {fileID: 1146644403}
@@ -19678,6 +19680,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldWidth: 10
   fieldHeight: 10
+  player: {fileID: 1440062820}
+  enemiesContainer: {fileID: 1471496122}
+  bulletsContainer: {fileID: 811298880}
+  coinsContainer: {fileID: 893596305}
 --- !u!1 &1471496122
 GameObject:
   m_ObjectHideFlags: 0
@@ -20296,6 +20302,7 @@ MonoBehaviour:
   fadeDuration: 1
   objectsToDeactivate:
   - {fileID: 360510093}
+  - {fileID: 577637323}
   objectsToActivate:
   - {fileID: 560658529}
   - {fileID: 1146644403}
@@ -20303,6 +20310,7 @@ MonoBehaviour:
   - {fileID: 1440062820}
   - {fileID: 618827601}
   - {fileID: 792684243}
+  - {fileID: 577637323}
 --- !u!4 &1696277681
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Core.Movement
@@ -7,6 +8,10 @@ namespace Core.Movement
     {
         [SerializeField] private float fieldWidth;
         [SerializeField] private float fieldHeight;
+        [SerializeField] GameObject player;
+        [SerializeField] GameObject enemiesContainer;
+        [SerializeField] GameObject bulletsContainer;
+        [SerializeField] GameObject coinsContainer;
 
         private Vector3 playerPositionBefore;
         private Vector3 playerPositionAfter;
@@ -64,14 +69,26 @@ namespace Core.Movement
         {
             List<GameObject> objectList = new List<GameObject>();
 
-            objectList.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
-            objectList.AddRange(GameObject.FindGameObjectsWithTag("Player"));
-            objectList.AddRange(GameObject.FindGameObjectsWithTag("Bullet"));
-            objectList.AddRange(GameObject.FindGameObjectsWithTag("DropCoin"));
-            objectList.AddRange(GameObject.FindGameObjectsWithTag("Rupture"));
+            objectList.Add(player);
+
+            foreach (Transform child in enemiesContainer.transform)
+            {
+                objectList.Add(child.gameObject);
+            }
+
+            foreach (Transform child in bulletsContainer.transform)
+            {
+                objectList.Add(child.gameObject);
+            }
+
+            foreach (Transform child in coinsContainer.transform)
+            {
+                objectList.Add(child.gameObject);
+            }
 
             return objectList.ToArray();
         }
+
 
         private void CheckBorders()
         {

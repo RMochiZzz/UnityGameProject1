@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6869698134688231480}
   m_Layer: 0
   m_Name: EnemyControllerGroupRush
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575722917983610743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91aa94cd541af3d47ab52ccb5f371307, type: 3}
   m_Name: 
@@ -351,4 +351,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0164b55ebe2004418de9e32c9f6f1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: {fileID: 0}

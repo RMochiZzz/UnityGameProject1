@@ -21,7 +21,7 @@ namespace SceneManagement
 
         private PlayerAttribute playerAttribute;
         private BattleSceneStatus battleSceneStatus;
-        private ResultDataGatherer resultDataGatherer;
+        private BattleObjectReset battleObjectReset;
         private IActivation<GameObject[]> objectDeactivation;
         private IActivation<GameObject[]> objectActivation;
 
@@ -50,6 +50,7 @@ namespace SceneManagement
 
         private IEnumerator TransitionSequence()
         {
+            battleObjectReset.Starter();
             objectDeactivation.Starter(objectsToDeactivate);
             yield return new WaitForSeconds(interval);
 
@@ -70,7 +71,7 @@ namespace SceneManagement
 
         private void GetReference()
         {
-            resultDataGatherer = GetComponent<ResultDataGatherer>();
+            battleObjectReset = GetComponent<BattleObjectReset>();
             playerAttribute = player.GetComponent<PlayerAttribute>();
             battleSceneStatus = sceneManager.GetComponent<BattleSceneStatus>();
             objectDeactivation = GetComponent<ObjectDeactivation>();

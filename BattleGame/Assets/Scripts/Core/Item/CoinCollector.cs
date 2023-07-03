@@ -12,22 +12,11 @@ namespace Core.Item
         private void Start () 
         {
             Reference();
-            Init();
-        }
-
-        private void OnEnable()
-        {
-            Init();
         }
 
         private void Reference()
         {
             levelupManager = WeaponManager.GetComponent<LevelupManager>();
-        }
-
-        private void Init() 
-        {
-            levelupManager.CoinsNum = 0;
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {

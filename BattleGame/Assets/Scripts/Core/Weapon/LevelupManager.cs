@@ -1,4 +1,5 @@
 using Interface.Interfaces;
+using System.Collections;
 using UnityEngine;
 
 namespace Core.Weapon
@@ -18,27 +19,28 @@ namespace Core.Weapon
         public int CoinsNum
         {
             get { return coinsNum; }
-            set 
+            set
             {
                 coinsNum = value;
 
-                switch (coinsNum)
+                if (coinsNum == levelOneNum)
                 {
-                    case levelOneNum:
-                        attackTwo.Execution = false;
-                        attackThree.Execution = false;
-                        attackOne.Starter();
-                        break;
+                    attackTwo.Execution = false;
+                    attackThree.Execution = false;
+                    attackOne.Starter();
+                }
 
-                    case levelTwoNum:
-                        attackOne.Execution = false;
-                        attackTwo.Starter();
-                        break;
+                if (coinsNum == levelTwoNum)
+                {
+                    attackOne.Execution = false;
+                    attackTwo.Starter();
+                }
 
-                    case levelThreeNum:
-                        attackTwo.Execution = false;
-                        attackThree.Starter();
-                        break;
+                if (coinsNum == levelThreeNum)
+                {
+                    attackTwo.Execution = false;
+                    attackThree.Starter();
+
                 }
             }
         }
@@ -51,11 +53,13 @@ namespace Core.Weapon
 
         private void OnEnable()
         {
-            Init();
+            StartCoroutine(Init());
         }
 
-        private void Init()
+        private IEnumerator Init()
         {
+            yield return null;
+
             CoinsNum = 0;
         }
 

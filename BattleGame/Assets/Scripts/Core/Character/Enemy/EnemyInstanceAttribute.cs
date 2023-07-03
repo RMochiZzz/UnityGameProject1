@@ -12,5 +12,18 @@ namespace Core.Character.Enemy
         public int InstanceMax { get => instanceMax; set => instanceMax = value; }
         public int DropCoinInstanceCounter { get => dropCoinInstanceCounter; set => dropCoinInstanceCounter = value; }
 
+        private void Start()
+        {
+            Init();
+        }
+        private void OnEnable()
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            DropCoinInstanceCounter = 0;
+        }
     }
 }

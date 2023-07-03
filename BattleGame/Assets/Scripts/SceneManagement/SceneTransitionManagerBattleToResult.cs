@@ -3,7 +3,6 @@ using SceneManagement.Battle;
 using UnityEngine;
 using System.Collections;
 using Interface;
-using SceneManagement.Result;
 
 namespace SceneManagement
 {

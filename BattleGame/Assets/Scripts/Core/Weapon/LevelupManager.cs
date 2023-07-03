@@ -5,8 +5,9 @@ namespace Core.Weapon
 {
     public class LevelupManager : MonoBehaviour
     {
-        [SerializeField] private int levelTwoNum;
-        [SerializeField] private int levelThreeNum;
+        private const int levelOneNum = 0;
+        private const int levelTwoNum = 10;
+        private const int levelThreeNum = 50;
 
         private IBulletFactory attackOne;
         private IBulletFactory attackTwo;
@@ -21,21 +22,23 @@ namespace Core.Weapon
             {
                 coinsNum = value;
 
-                if (coinsNum == 0)
+                switch (coinsNum)
                 {
-                    attackOne.Starter();
-                }
-                
-                if (coinsNum == levelTwoNum)
-                {
-                    attackOne.Execution = false;
-                    attackTwo.Starter();
-                }
-                
-                if (coinsNum == levelThreeNum)
-                {
-                    attackTwo.Execution = false;
-                    attackThree.Starter();
+                    case levelOneNum:
+                        attackOne.Starter();
+                        attackTwo.Execution = false;
+                        attackThree.Execution = false;
+                        break;
+
+                    case levelTwoNum:
+                        attackOne.Execution = false;
+                        attackTwo.Starter();
+                        break;
+
+                    case levelThreeNum:
+                        attackTwo.Execution = false;
+                        attackThree.Starter();
+                        break;
                 }
             }
         }
@@ -43,6 +46,11 @@ namespace Core.Weapon
         private void Start()
         {
             Reference();
+        }
+
+        private void OnEnable()
+        {
+            CoinsNum = 0;
         }
 
         private void Reference()

@@ -11,9 +11,13 @@ namespace SceneManagement.Battle
 
         private void Start()
         {
-            battleSceneStatus = GameObject.Find("BattleSceneManager").GetComponent<BattleSceneStatus>();
-            playerAttribute = GameObject.Find("Player").GetComponent<PlayerAttribute>();
+            GetReference();
 
+            StartCoroutine(ElapsedTimeRoutine());
+        }
+
+        private void OnEnable()
+        {
             StartCoroutine(ElapsedTimeRoutine());
         }
 
@@ -24,6 +28,12 @@ namespace SceneManagement.Battle
                 battleSceneStatus.CurrentElapsedTime += Time.deltaTime;
                 yield return null;
             }
+        }
+
+        private void GetReference()
+        {
+            battleSceneStatus = GameObject.Find("BattleSceneManager").GetComponent<BattleSceneStatus>();
+            playerAttribute = GameObject.Find("Player").GetComponent<PlayerAttribute>();
         }
     }
 }

@@ -25,6 +25,11 @@ namespace Core.Weapon
             StartCoroutine(BulletInstanceRoutine());
         }
 
+        private void OnEnable()
+        {
+            Init();
+        }
+
         private IEnumerator BulletInstanceRoutine()
         {
             while (execution)

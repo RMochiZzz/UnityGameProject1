@@ -18,6 +18,7 @@ namespace Core.Character.Enemy.GroupRush
         private Vector3 cameraPosition;
         private Vector3 spawnPosition;
 
+        private EnemyAttribute enemyAttribute;
         private EnemyInstanceAttribute enemyInstance;
         private IIncrement enemyDestroyCounterIncrement;
 
@@ -35,6 +36,7 @@ namespace Core.Character.Enemy.GroupRush
 
         private void Update()
         {
+            if (enemyAttribute.CurrentEnemyNum >= enemyInstance.InstanceMax) return;
             if (Time.time - lastInstaceTime <= spawnInterval) return;
             GetPosition();
             Instantiate();
@@ -99,6 +101,8 @@ namespace Core.Character.Enemy.GroupRush
             enemyDestroyCounterIncrement = new EnemyInstanceCounterIncrement();
 
             enemyInstance = GetComponent<EnemyInstanceAttribute>();
+
+            enemyAttribute = GetComponent<EnemyAttribute>();
         }
     }
 }

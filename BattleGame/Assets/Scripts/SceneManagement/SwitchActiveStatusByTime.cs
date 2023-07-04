@@ -14,6 +14,11 @@ namespace SceneManagement
             StartCoroutine(SwitchActive());
         }
 
+        private void OnEnable()
+        {
+            StartCoroutine(SwitchActive());
+        }
+
         private IEnumerator SwitchActive()
         {
             yield return new WaitForSeconds(timeToSwitch);

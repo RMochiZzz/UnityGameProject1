@@ -55,10 +55,11 @@ namespace SceneManagement
         private IEnumerator TransitionSequence()
         {
             battleObjectReset.Starter();
+
             objectDeactivation.Starter(objectsToDeactivate);
-            yield return new WaitForSeconds(interval);
 
             objectActivation.Starter(objectsToActivate1);
+
             objectActivation.Starter(objectsToActivate2);
             yield return new WaitForSeconds(interval);
 

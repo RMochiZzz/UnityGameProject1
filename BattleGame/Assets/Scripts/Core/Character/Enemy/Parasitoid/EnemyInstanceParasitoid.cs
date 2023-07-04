@@ -16,6 +16,7 @@ namespace Core.Character.Enemy.Parasitoid
         private GameObject randomEnemy;
         private GameObject[] existingEnemys;
 
+        private EnemyAttribute enemyAttribute;
         private EnemyRupture enemyRupture;
         private EnemyInstanceAttribute enemyInstance;
         private IIncrement enemyDestroyCounterIncrement;
@@ -36,6 +37,7 @@ namespace Core.Character.Enemy.Parasitoid
 
         private void Update()
         {
+            if (enemyAttribute.CurrentEnemyNum >= enemyInstance.InstanceMax) return;
             if (Time.time - lastInstaceTime <= spawnInterval) return;
             GetPositon();
             Instantiate();
@@ -81,7 +83,7 @@ namespace Core.Character.Enemy.Parasitoid
         public void Reference()
         {
             enemyDestroyCounterIncrement = new EnemyInstanceCounterIncrement();
-            
+            enemyAttribute = GetComponent<EnemyAttribute>();
 
             enemyInstance = GetComponent<EnemyInstanceAttribute>();
 

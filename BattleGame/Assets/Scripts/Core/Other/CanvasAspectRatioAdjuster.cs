@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
+[ExecuteAlways]
 public class CanvasAspectRatioAdjuster : MonoBehaviour
 {
     private float targetAspectRatio = 16f / 9f;

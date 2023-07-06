@@ -3,7 +3,7 @@ using UnityEngine;
 [ExecuteAlways]
 public class AspectRatioController : MonoBehaviour
 {
-    public float targetAspectRatio = 16f / 9f;
+    private float targetAspectRatio = 16f / 9f;
 
     private Camera cam;
 
@@ -15,11 +15,27 @@ public class AspectRatioController : MonoBehaviour
 
     private void Update()
     {
-        UpdateAspectRatio();
+        if (Screen.width != cam.pixelWidth || Screen.height != cam.pixelHeight)
+        {
+            UpdateAspectRatio();
+        }
     }
 
     private void UpdateAspectRatio()
     {
+        float windowWidth = Screen.width;
+        float windowHeight = Screen.height;
+        float windowaspectRatio = windowWidth / windowHeight;
+
+        if (windowaspectRatio > 1f)
+        {
+            cam.orthographicSize = windowWidth / 2f / windowaspectRatio;
+        }
+        else
+        {
+            cam.orthographicSize = windowHeight / 2f;
+        }
+
         float currentAspectRatio = (float)Screen.width / Screen.height;
 
         float scaleHeight = currentAspectRatio / targetAspectRatio;

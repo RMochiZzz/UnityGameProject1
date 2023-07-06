@@ -18,7 +18,7 @@ namespace Core.Character.Enemy.Battle
 
             DestroyEnemy();
 
-            IncrementEnemyCounter();
+            IncrementEnemyDestroyCounter();
             CoinDrop();
 
         }
@@ -28,7 +28,7 @@ namespace Core.Character.Enemy.Battle
             Destroy(gameObject);
         }
 
-        private void IncrementEnemyCounter()
+        private void IncrementEnemyDestroyCounter()
         {
             enemyDestroyCounterIncrement.Increment();
         }

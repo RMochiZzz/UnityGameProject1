@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Camera))]
+[ExecuteAlways]
 public class AspectRatioController : MonoBehaviour
 {
     public float targetAspectRatio = 16f / 9f;

@@ -7,10 +7,13 @@ namespace Core.Character.Enemy
         private int instanceCounter;
         private int dropCoinInstanceCounter;
         private int destroyCounter;
+        private int killCounter;
 
         public int InstanceCounter { get => instanceCounter; set => instanceCounter = value; }
         public int DestroyCounter { get => destroyCounter; set => destroyCounter = value; }
         public int DropCoinInstanceCounter { get => dropCoinInstanceCounter; set => dropCoinInstanceCounter = value; }
+
+        public int KillCounter { get => killCounter; set => killCounter = value; }
 
         public int CurrentEnemyNum
         { 

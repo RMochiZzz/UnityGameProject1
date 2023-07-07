@@ -9,6 +9,7 @@ namespace Core.Character.Enemy.Battle
     {
         [SerializeField] private GameObject dropPrefab;
         private IIncrement enemyDestroyCounterIncrement;
+        private IIncrement enemyKIllCounterIncrement;
         private DropCoinInstance dropCoinInstance;
 
         public void Starter()
@@ -18,7 +19,7 @@ namespace Core.Character.Enemy.Battle
 
             DestroyEnemy();
 
-            IncrementEnemyDestroyCounter();
+            CounterIncrement();
             CoinDrop();
 
         }
@@ -28,9 +29,10 @@ namespace Core.Character.Enemy.Battle
             Destroy(gameObject);
         }
 
-        private void IncrementEnemyDestroyCounter()
+        private void CounterIncrement()
         {
             enemyDestroyCounterIncrement.Increment();
+            enemyKIllCounterIncrement.Increment();
         }
 
         private void CoinDrop()
@@ -43,6 +45,9 @@ namespace Core.Character.Enemy.Battle
             dropCoinInstance = GetComponent<DropCoinInstance>();
 
             enemyDestroyCounterIncrement = new EnemyDestroyCounterIncrement();
+
+            enemyKIllCounterIncrement = new EnemyKIllCounterIncrement();
+
         }
     }
 }
